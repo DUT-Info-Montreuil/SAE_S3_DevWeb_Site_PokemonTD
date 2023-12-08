@@ -2,8 +2,9 @@
 session_start();
 
 //mettre un module par defaut ici
+$module = isset($_GET['module']) ? $_GET['module'] : "defaut";
 
-const BASE_URL = "hello_word";
+const BASE_URL = "securité";
 
 switch($module) {
     case "mod_placeholder":
@@ -12,12 +13,15 @@ switch($module) {
         //inicier une variable de module ici
         break;
     default:
-        die("Module inconnu");
+        ob_start();
+        require_once('front/acceuil.html');
+        $affichageModule = ob_get_clean();
+        break;
 }
 //fin du tampon
 // $affichageModule = $a->afficheModule();
 
-//creation des composants
+// creation des composants
 // include_once 'back/composants/menu/comp_menu.php';
 // $menu = new CompMenu($module);
 

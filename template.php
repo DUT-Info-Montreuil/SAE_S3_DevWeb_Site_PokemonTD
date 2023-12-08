@@ -5,31 +5,48 @@
     <title>PokemonTD</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style/base.css" >
 </head>
 </head>
 
 <body>
 
-    <!-- En-tête -->
-    <div class = "container">
-        <?php
-            echo $menu->afficheMenu();
-        ?>
+    <header>
+
+    <div id="topBar">
+        <h1>
+            POKEMON TD
+        </h1>
+
+        <div id="profile">
+            connexion
+        </div>
     </div>
+
+    <div>
+        <a href="#" class="navbarLink" >Equipe</a>
+        <a href="#" class="navbarLink" >Carte</a>
+        <a href="#" class="navbarLink" >Boutique</a>
+        <a href="#" class="navbarLink" >Trophées</a>
+    </div>
+
+    </header>
+
+    
     
     <main>
+
+        <div>
+            <?php
+                // echo $menu->afficheMenu();
+            ?>
+        </div>
 
         <?php
             echo $affichageModule;
         ?>
 
     </main>
-
-    <!-- Pied de page -->
-    <footer>
-        <p>Coordonnées de contact / Informations légales</p>
-    </footer>
 
     
 </body>
