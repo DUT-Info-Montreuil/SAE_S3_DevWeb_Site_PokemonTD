@@ -14,7 +14,7 @@ switch($module) {
         break;
     case "mod_boutique":
         require_once('./back/modules/mod_boutique/mod_boutique.php');
-        // Connexion::initConnexion();
+        Connexion::initConnexion();
         $a = new ModBoutique();
         $affichageModule = $a->afficheModule();
         break;
