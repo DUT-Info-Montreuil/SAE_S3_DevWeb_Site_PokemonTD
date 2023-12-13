@@ -9,6 +9,9 @@ class Connexion{
 
         try {
             self::$bdd = new PDO($url,$user,$password);
+
+            // Configurer PDO pour générer des exceptions en cas d'erreurs SQL
+            self::$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             die("Erreur de connexion à la base de données : " . $e->getMessage());
         } 

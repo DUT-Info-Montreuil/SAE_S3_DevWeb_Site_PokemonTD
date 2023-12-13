@@ -24,7 +24,8 @@ class ContBoutique {
     }
 
     public function afficheBoutique(){
-        $this->vue->boutique();
+        $tours = $this->modele->recupereTours();
+        $this->vue->boutique($tours);
     }
 
 }
