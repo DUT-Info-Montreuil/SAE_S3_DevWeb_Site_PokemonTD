@@ -11,6 +11,15 @@ class ModeleConnexion extends Connexion {
     public function __construct() {
 
     }
+    public function ajoutUser(){
+      /*  $stmt = Connexion::$bdd->prepare("Select * from Joueur where login ='".$_POST['login']."';");
+        $res=$this->executeQuery($stmt);
+        echo var_dump($res);
+*/
+    }
+
+
+
 
 
     public function genereToken($var){
@@ -21,6 +30,7 @@ class ModeleConnexion extends Connexion {
                 $string .= $chaine[rand()%strlen($chaine)];
             }
             $_SESSION['token'] = $string;
+            $_SESSION['tokenCreation'] = time();
 
             return $string;
     }

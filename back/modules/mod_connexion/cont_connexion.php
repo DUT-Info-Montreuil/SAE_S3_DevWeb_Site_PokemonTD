@@ -18,10 +18,35 @@ class ContConnexion {
     }
 
 
+
     public function lienInscription(){
         $tok= $this->modele->genereToken(20);
         $this->vue->formInscription($tok);
     }
+
+    public function insertionCompte(){
+        
+        if(isset($_POST['token'], $_SESSION['token']) && $_POST['token'] == $_SESSION['token']) {
+            // Le token est valide, traitement du formulaire
+            if(time()-$_SESSION['tokenCreation']<180){
+                if( $_POST['password2']==$_POST['password']&& $_POST['submit']){
+                                $this->modele->ajoutUser();
+
+                }else{
+                    $this->vue->displayError(2); //erreur dans les données du formulaire d'inscription
+                }
+                // Supprimer le token après utilisation pour qu'il ne puisse pas être réutilisé
+                unset($_SESSION['token']);
+            }else
+            $this->vue->displayError(1);     // token expiré
+            
+        } else {
+            $this->vue->displayError(4); // token non correspondant
+        }
+    
+    }
+
+
 
     public function affichage() {
         return $this->vue->getAffichage();

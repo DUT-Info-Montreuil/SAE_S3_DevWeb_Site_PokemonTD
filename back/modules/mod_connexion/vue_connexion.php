@@ -14,24 +14,38 @@ class VueConnexion extends VueGenerique {
 
     public function formInscription($token){
         echo'
-        <form action="index.php?module=mod_connexion&action=insertion" method="post">
+        <form method="post" action="index.php?module=mod_connexion&action=insertion_compte" >
 
         <label for"login">Login :</label>
-        <input type="text" name"login" id="login" required><br><br>
+        <input type="text" name="login" id="login" required><br><br>
 
         <label for"Password">Mot De Passe :</label>
-        <input type="password" name"password" id="password" required></textarea> <br><br>
+        <input type="password" name="password" id="password" required> <br><br>
 
-        <label for"Password">Verifiez Votre Mot De Passe :</label>
-        <input type="password" name"password2" id="password2" required></textarea> <br><br>
+        <label for"Password">Confirmez Votre Mot De Passe :</label>
+        <input type="password" name="password2" id="password2" required> <br><br>
 
         <input type="hidden" name="token" value="'.$token.'">
 
-        <input type="submit" value="S\'inscrire">
+        <input type="submit" name="submit" value="S\'inscrire">
 
         </form>';
     }
 
+
+    public function displayError($error){
+        
+        switch($error){
+            case '1':
+                echo 'Le Formulaire à expiré veuillez recharger la page';
+                break;
+            case '2':
+                echo 'Probleme dans vos données envoyées veuillez réessayer';
+                break;
+            case '3':
+                echo 'Ce login est déjà utilisé, veuillez en choisir un nouveau';
+        }
+    }
 }
 
 
