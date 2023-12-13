@@ -19,6 +19,8 @@ switch($module) {
         $affichageModule = $a->afficheModule();
         break;
     default:
+        require_once('./connexion.php');
+        Connexion::initConnexion();
         ob_start();
         require_once('front/acceuil.html');
         $affichageModule = ob_get_clean();

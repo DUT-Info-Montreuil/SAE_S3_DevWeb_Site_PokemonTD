@@ -6,7 +6,12 @@ class Connexion{
         $url = 'mysql:dbname=dutinfopw201618;host=database-etudiants.iut.univ-paris8.fr';
         $user = 'dutinfopw201618';
         $password = 'hytytesa';
-        self::$bdd = new PDO($url,$user,$password);
+
+        try {
+            self::$bdd = new PDO($url,$user,$password);
+        } catch (PDOException $e) {
+            die("Erreur de connexion à la base de données : " . $e->getMessage());
+        } 
     }
 }
 ?>
