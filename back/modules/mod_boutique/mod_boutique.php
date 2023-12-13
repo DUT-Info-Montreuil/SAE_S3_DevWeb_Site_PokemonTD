@@ -4,17 +4,18 @@ if (!defined("BASE_URL")) {
     die("il faut passer par l'index");
 }
 
-require_once "cont_placehorder.php" ;
+require_once "cont_boutique.php" ;
 
-class ModPlacehorder {
+
+class ModBoutique {
 
     private $action;
     private $controlleur;
 
     public function __construct(){
 
-        $this->controlleur = new ContPlacehorder();
-        $this->action = isset($_GET['action']) ? $_GET['action'] : 'bienvenue';
+        $this->controlleur = new ContBoutique();
+        $this->action = isset($_GET['action']) ? $_GET['action'] : 'afficheBoutique';
 
         $this->start();
 
@@ -24,8 +25,8 @@ class ModPlacehorder {
 
         switch($this->action){
 
-            case 'bienvenue':
-                $this->controlleur->bienvenue();
+            case 'afficheBoutique':
+                $this->controlleur->afficheBoutique();
                 break;
         }
     }

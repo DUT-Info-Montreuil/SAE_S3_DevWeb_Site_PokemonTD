@@ -29,8 +29,23 @@ main{
     transform: translateX(-50%);
 }
 
+#topBar a{
+    display: flex;
+}
+
 #profile{
     position: absolute;
     right: 10%;
     float: right;
+}
+
+/* specifique a la boutique */
+
+#boutique_top{
+    display: flex;
+    width: 95%;
+}
+
+#boutique_top p{
+    margin-left: auto;
 }

@@ -12,14 +12,18 @@ switch($module) {
         Connexion::initConnexion();
         //inicier une variable de module ici
         break;
+    case "mod_boutique":
+        require_once('./back/modules/mod_boutique/mod_boutique.php');
+        // Connexion::initConnexion();
+        $a = new ModBoutique();
+        $affichageModule = $a->afficheModule();
+        break;
     default:
         ob_start();
         require_once('front/acceuil.html');
         $affichageModule = ob_get_clean();
         break;
 }
-//fin du tampon
-// $affichageModule = $a->afficheModule();
 
 // creation des composants
 // include_once 'back/composants/menu/comp_menu.php';

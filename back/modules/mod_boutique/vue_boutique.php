@@ -6,10 +6,14 @@ if (!defined("BASE_URL")) {
 
 require_once './back/vue_generique.php';
 
-class VuePlacehorder extends VueGenerique {
+class VueBoutique extends VueGenerique {
 
     public function __construct() {
         parent::__construct();
+    }
+
+    public function boutique(){
+        require_once('./front/boutique/boutique.php');
     }
 
 }
