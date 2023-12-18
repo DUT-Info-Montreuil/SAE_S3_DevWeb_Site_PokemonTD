@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 
 //mettre un module par defaut ici
@@ -14,7 +17,8 @@ switch($module) {
         break;
     case "mod_boutique":
         require_once('./back/modules/mod_boutique/mod_boutique.php');
-        // Connexion::initConnexion();
+        require_once('./back/modules/Connexion.php');
+        Connexion::initConnexion();
         $a = new ModBoutique();
         $affichageModule = $a->afficheModule();
         break;
