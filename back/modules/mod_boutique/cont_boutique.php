@@ -24,7 +24,14 @@ class ContBoutique {
     }
 
     public function afficheBoutique(){
-        $tours = $this->modele->recupereTours();
+
+        if ($_SESSION['id_joueur']){
+            var_dump($_SESSION['id_joueur']);
+            $tours = $this->modele->recupereToursSelonJoueur($_SESSION['id_joueur']);
+        }else{
+            $tours = $this->modele->recupereTours();  
+        }
+
         $this->vue->boutique($tours);
     }
 

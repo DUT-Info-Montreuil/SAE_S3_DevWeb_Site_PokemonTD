@@ -38,6 +38,26 @@ class ModeleBoutique extends Connexion{
             return $e;
         }
     }
+
+    public function recupereToursSelonJoueur($idJoueur) {
+        try {
+            $query = "
+            SELECT nom,cout,src_image FROM Tour 
+            EXCEPT
+            SELECT nom,cout,src_image FROM Tour
+            NATURAL JOIN TourPossedee
+            WHERE id_joueur =" . $idJoueur . "
+            ";
+            $stmt = Connexion::$bdd->prepare($query);
+            $tours = $this->executeQuery($stmt);
+
+            return $tours;
+
+        } catch (PDOException $e) {
+            echo "<script>console.log('erreur:" . $e ."');</script>";
+            return $e;
+        }
+    }
 }
 
 
