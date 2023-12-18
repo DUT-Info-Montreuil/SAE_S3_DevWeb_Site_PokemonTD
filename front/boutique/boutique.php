@@ -15,7 +15,7 @@
                 <img class="image" src="<? echo $tuple["src_image"]; ?>">
                 
                 <p class="coutBoutique">
-                    <?php echo $tuple["cout"]; ?> 
+                    <?php echo $tuple["cout"]; ?> $
                 </p>
             </div>
 

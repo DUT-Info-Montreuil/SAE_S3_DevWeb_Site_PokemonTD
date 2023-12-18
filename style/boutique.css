@@ -20,7 +20,8 @@
 
 #carte div{
     display: flex;
-    width: 25%;
+    min-width: 25%;
+    max-width: 45%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5px;
@@ -36,8 +37,10 @@
 }
 
 .coutBoutique {
-    min-width: 30px;
-    max-width: 50px;
+    font-size: 13px;
+    padding: 3px;
+    min-width: 25px;
+    max-width: 150px;
     margin-right: 5px;
     text-align: center;
     border: rgb(94, 94, 255) ridge 1px;
