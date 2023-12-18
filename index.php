@@ -22,6 +22,13 @@ switch($module) {
         $a = new ModBoutique();
         $affichageModule = $a->afficheModule();
         break;
+    case "mod_equipe":
+        require_once('./back/modules/mod_equipe/mod_equipe.php');
+        require_once('./back/modules/Connexion.php');
+        Connexion::initConnexion();
+        $a = new ModEquipe();
+        $affichageModule = $a->afficheModule();
+        break;
     default:
         ob_start();
         require_once('front/acceuil.html');
