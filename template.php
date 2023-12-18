@@ -23,10 +23,11 @@
                 POKEMON TD
             </h1>
 
-            <div id="profile">
-                connexion
-            </div>
+        <div id="profile">
+            <a href="index.php?module=mod_connexion&action=lien_connexion" >Connexion</a>
+            <a href="index.php?module=mod_connexion&action=lien_inscription" >Inscription</a>
         </div>
+    </div>
 
         <div id="navbar">
             <a href="#" class="navbarLink" >Equipe</a>

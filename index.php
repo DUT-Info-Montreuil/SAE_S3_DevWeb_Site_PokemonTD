@@ -18,6 +18,12 @@ switch($module) {
         $a = new ModBoutique();
         $affichageModule = $a->afficheModule();
         break;
+    case "mod_connexion":
+        require_once('./back/modules/mod_connexion/mod_connexion.php');
+        Connexion::initConnexion();
+        $a = new ModConnexion();
+        $affichageModule = $a->afficheModule();
+        break;
     default:
         ob_start();
         require_once('front/acceuil.html');
