@@ -20,14 +20,15 @@ class Connexion {
             // Connexion::$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
             self::$bdd = new PDO($url,$user,$password);
-            echo "<p>TABARNAK</p>";
+            /*
+            echo "<p>TABARNAK haha</p>";
 
             $requete_prepare = Connexion::$bdd->prepare("SELECT * FROM Tour");
             //$requete_prepare->bindParam(1, $login);
             $requete_prepare->execute();
             $resultat = $requete_prepare->fetch();
 
-            echo var_dump($resultat);
+            echo var_dump($resultat);*/
             
 
         } catch (PDOException $e) {

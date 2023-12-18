@@ -22,6 +22,17 @@ class ModeleEquipe extends Connexion {
 
         return $resultats;
     }
+
+    public function toursPossedees($idJoueur){
+        $requete_prepare = Connexion::$bdd->prepare("SELECT * FROM TourPossedee WHERE id_joueur=?");
+        $requete_prepare->bindParam(1, $idJoueur);
+        $requete_prepare->execute();
+        $resultat = $requete_prepare->fetchAll();
+
+        return $resultat;
+
+        //echo var_dump($resultat);
+    }
 }
 
 

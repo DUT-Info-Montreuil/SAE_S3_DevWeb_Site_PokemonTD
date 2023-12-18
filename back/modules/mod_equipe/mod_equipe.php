@@ -9,12 +9,12 @@ require_once "cont_equipe.php" ;
 class ModEquipe {
 
     private $action;
-    private $controlleur;
+    private $controleur;
 
     public function __construct(){
 
-        $this->controlleur = new ContEquipe();
-        $this->action = isset($_GET['action']) ? $_GET['action'] : 'bienvenue';
+        $this->controleur = new ContEquipe();
+        $this->action = isset($_GET['action']) ? $_GET['action'] : 'toursPossedees';
 
         $this->start();
 
@@ -27,11 +27,20 @@ class ModEquipe {
             case 'bienvenue':
                 $this->controlleur->bienvenue();
                 break;*/
+                
+            case 'toursPossedees':
+                $this->controleur->toursPossedees(1);
+                break;
+            case 'traitement_tour_equipe':
+                $this->controleur->traitement_ajout_equipe();
+                break;
+                
+            
         }
     }
 
     public function afficheModule(){
-        return $this->controlleur->affichage();
+        return $this->controleur->affichage();
     }
 
 }
