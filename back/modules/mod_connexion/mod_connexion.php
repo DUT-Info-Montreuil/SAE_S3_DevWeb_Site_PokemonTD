@@ -33,6 +33,12 @@ class ModConnexion {
             case 'insertion_compte':
                 $this->controlleur->insertionCompte();
                 break;
+            case 'lien_connexion':
+                $this->controlleur->lienConnexion();
+                break;
+            case 'connexion_compte':
+                $this->controlleur->connexionCompte();
+                break;
         }
     }
 

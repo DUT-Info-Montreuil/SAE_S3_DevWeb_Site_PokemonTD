@@ -12,10 +12,46 @@ class ModeleConnexion extends Connexion {
 
     }
     public function ajoutUser(){
-      /*  $stmt = Connexion::$bdd->prepare("Select * from Joueur where login ='".$_POST['login']."';");
-        $res=$this->executeQuery($stmt);
-        echo var_dump($res);
-*/
+        try {
+            $stmt = Connexion::$bdd->prepare("SELECT * from Joueur where pseudo ='".$_POST['login']."';");
+            $res=$this->executeQuery($stmt);
+        } catch (PDOException $e) {
+            return $e;
+        }
+        $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
+
+        if($stmt->rowCount()==0){
+            try {
+                $stmt = Connexion::$bdd->prepare("INSERT INTO Joueur(pseudo ,mot_de_passe ) VALUES ('".$_POST['login']."','".$password."');");
+                $res=$this->executeQuery($stmt);
+                echo "<meta http-equiv='refresh' content= '2;url=index.php'>";
+
+            } catch (PDOException $e) {
+                return $e;
+            }
+        }else{
+            return -1;            
+        }
+
+    }
+    public function connexionUser(){
+        try {
+            $stmt = Connexion::$bdd->prepare("SELECT * from Joueur where pseudo ='".$_POST['login']."';");
+            $res=$this->executeQuery($stmt);
+        } catch (PDOException $e) {
+            return $e;
+        }
+
+        if($stmt->rowCount()==1){
+            if(password_verify($_POST['password'],$res[0]["mot_de_passe"])){
+           echo $_SESSION['id_joueur']=$res[0]["id_joueur"];
+           echo $_SESSION['pseudo']=$res[0]["pseudo"];
+        }
+        }else{
+            return -1;
+        }
+
+        
     }
 
 

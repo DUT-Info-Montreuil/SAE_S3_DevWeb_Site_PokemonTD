@@ -20,7 +20,7 @@ switch($module) {
         break;
     case "mod_connexion":
         require_once('./back/modules/mod_connexion/mod_connexion.php');
-        // Connexion::initConnexion();
+        Connexion::initConnexion();
         $a = new ModConnexion();
         $affichageModule = $a->afficheModule();
         break;

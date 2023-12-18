@@ -24,7 +24,7 @@
         </h1>
 
         <div id="profile">
-            Connexion
+            <a href="index.php?module=mod_connexion&action=lien_connexion" >Connexion</a>
             <a href="index.php?module=mod_connexion&action=lien_inscription" >Inscription</a>
         </div>
     </div>
