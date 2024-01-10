@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-//mettre un module par defaut ici
+//mettre un module par default ici
 $module = isset($_GET['module']) ? $_GET['module'] : "defaut";
 
-const BASE_URL = "securité";
+const BASE_URL = "security";
 
 switch($module) {
     case "mod_placeholder":
@@ -36,4 +36,3 @@ switch($module) {
 // $menu = new CompMenu($module);
 
 require_once "template.php";
-?>

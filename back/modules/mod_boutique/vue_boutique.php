@@ -17,6 +17,3 @@ class VueBoutique extends VueGenerique {
     }
 
 }
-
-
-?>

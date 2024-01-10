@@ -25,7 +25,7 @@ class ContBoutique {
 
     public function afficheBoutique(){
 
-        if ($_SESSION['id_joueur']){
+        if ( isset($_SESSION['id_joueur']) ){
             var_dump($_SESSION['id_joueur']);
             $tours = $this->modele->recupereToursSelonJoueur($_SESSION['id_joueur']);
         }else{
