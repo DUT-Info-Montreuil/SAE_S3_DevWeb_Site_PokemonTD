@@ -17,7 +17,7 @@ class VueEquipe extends VueGenerique {
             $nom = $array['nom'];
             $id = $array['id'];
             $link = "index.php?action=details&id={$id}&module=mod_equipes";
-            echo "<p><a href=${link}>{$nom}</a></p>";
+            echo "<p><a href={$link}>{$nom}</a></p>";
         }
         echo "<p><a href=index.php?module=mod_equipes>Retour</a></p>";
     }
