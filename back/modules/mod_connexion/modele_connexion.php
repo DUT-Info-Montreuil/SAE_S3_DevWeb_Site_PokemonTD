@@ -44,8 +44,16 @@ class ModeleConnexion extends Connexion {
 
         if($stmt->rowCount()==1){
             if(password_verify($_POST['password'],$res[0]["mot_de_passe"])){
-           echo $_SESSION['id_joueur']=$res[0]["id_joueur"];
-           echo $_SESSION['pseudo']=$res[0]["pseudo"];
+            $_SESSION['id_joueur']=$res[0]["id_joueur"];
+            $_SESSION['pseudo']=$res[0]["pseudo"];
+
+
+            try {
+                $stmt = Connexion::$bdd->prepare("INSERT INTO  TourPossedee (id_joueur,id_tour,date_acquisition) VALUES (".$_SESSION['id_joueur'].",,CURRENT_DATE()) ;");
+                $res=$this->executeQuery($stmt);
+            } catch (PDOException $e) {
+                return $e;
+            }
         }
         }else{
             return -1;
