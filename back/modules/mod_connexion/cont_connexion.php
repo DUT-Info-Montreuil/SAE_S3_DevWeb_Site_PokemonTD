@@ -63,9 +63,9 @@ class ContConnexion {
             // Le token est valide, traitement du formulaire
             if(time()-$_SESSION['tokenCreation']<180){
                 if( isset($_POST['password'], $_POST['submit'])){
-                                if ($this->modele->connexionUser()==-1) {
-                                    $this->vue->displayError(5);  // 
-                                }
+                    if ($this->modele->connexionUser()==-1) {
+                        $this->vue->displayError(5);  //
+                    }
 
                 }else{
                     $this->vue->displayError(2); //erreur dans les données du formulaire d'inscription

@@ -1,6 +1,6 @@
 <div id="boutique_top">
     <h3>La boutique</h3>
-    <p>solde : </p>
+    <p>solde :</p><p id="solde"><?php echo $solde ?></p>
 </div>
 
 <p>Achetez ici vos nouvelles tours et cohéquipiers</p>
@@ -9,10 +9,10 @@
 
 <div id="boutique">
     <?php foreach ($tableau as $tuple) { ?>
-        <div id="carte">
+        <div class="carte">
 
             <div>
-                <img class="image" src="<?php echo $tuple["src_image"]; ?>">
+                <img class="image" src="<?php echo $tuple["src_image"]; ?>" alt="<?php echo $tuple["nom"]; ?>">
                 
                 <p class="coutBoutique">
                     <?php echo $tuple["cout"]; ?> $
@@ -22,6 +22,12 @@
             <h5>
                 <?php echo $tuple["nom"]; ?>
             </h5>
+
+            <div class="div-achat">
+                <a class="btn-achat" href="index.php?module=mod_boutique&action=achat&idTour=<?php echo $tuple["id_tour"]; ?>">
+                    achat rapide
+                </a>
+            </div>
 
         </div>
     <?php } ?>

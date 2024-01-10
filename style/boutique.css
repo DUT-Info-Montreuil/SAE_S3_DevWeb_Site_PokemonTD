@@ -12,13 +12,13 @@
     flex-wrap: wrap;
 }
 
-#carte{
+.carte{
     margin-bottom: 25px;
     width: 30%;
     text-align: center;
 }
 
-#carte div{
+.carte div{
     display: flex;
     min-width: 25%;
     max-width: 45%;
@@ -27,7 +27,28 @@
     margin-top: 5px;
 }
 
-#carte h5{
+.btn-achat{
+    background-color: #84b9ff;
+    padding: 6px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-achat{
+     display: none;
+ }
+
+.carte:hover .btn-achat{
+    display: block;
+}
+
+.btn-achat:hover{
+    background-color: #adff84;
+    cursor: pointer;
+}
+
+.carte h5{
     margin-top: 3px;
 }
 

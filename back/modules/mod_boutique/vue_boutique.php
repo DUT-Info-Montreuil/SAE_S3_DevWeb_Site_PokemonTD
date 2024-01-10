@@ -12,7 +12,7 @@ class VueBoutique extends VueGenerique {
         parent::__construct();
     }
 
-    public function boutique($tableau){
+    public function boutique($tableau,$solde){
         require_once('./front/boutique/boutique.php');
     }
 
