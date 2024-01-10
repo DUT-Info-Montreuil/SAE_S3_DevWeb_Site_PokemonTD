@@ -6,7 +6,14 @@
     README :
 </h2>
 
-<li>
+<li id="test_js">
     <ul> *introduction dans l'univers Pokemon* </ul>
     <ul> *Regles du jeu* </ul>
 </li>
+
+<script>
+    const el = document.querySelector("#test_js");
+    el.addEventListener("click",() =>{
+        console.log("Tu as cliqué")
+    });
+</script>
