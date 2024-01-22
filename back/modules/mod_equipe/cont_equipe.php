@@ -33,17 +33,19 @@ class ContEquipe {
     }
 
     public function traitement_ajout_equipe(){
-        echo var_dump($_POST);
-        echo "<p>Good ! ???</p>";
-        //TODO ici il faut s'assurer qu'il y a pad dinterfernce
-        foreach($_POST as $element){
-            echo "<p>{$element}</p>";
+        $id_joueur = 1;
+        $nbPokemonSelectionne = isset($_POST) ? sizeof($_POST) : 0;
+
+        //echo var_dump($_POST);
+       // echo "<p>{$nbPokemonSelectionne}</p>";
+        
+        if($nbPokemonSelectionne <= 3){
+            $this->modele->supprimeEquipe($id_joueur);
+
+            foreach ($_POST as $key => $id_tour) {
+                $this->modele->inserePokemonEquipe($id_joueur, $id_tour);
+            }
         }
-        //echo
-        /*
-        if (isset($_POST['tour_1'])) { 
-            echo "<p>HAHAHAHAHAHHAHA : {$_POST['tour_1']}</p>";
-        }*/
     }
 
 }

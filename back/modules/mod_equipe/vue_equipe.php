@@ -35,10 +35,12 @@ class VueEquipe extends VueGenerique {
         echo '<form method="post" action="index.php?module=mod_equipe&action=traitement_tour_equipe">';
         foreach($tableau as $array){
             $id = $array['id_tour'];
+            //On enleve temporairement
             $date = $array['date_acquisition'];
             //echo "<p>{$id}, date : {$date}</p>";
             echo "<label for=tour_{$id}>Tour n:{$id}, date : {$date}</label>";
-            echo "<input type='checkbox' id=tour_{$id} name=tour_{$id} class=equipe_checkbox_tour>";
+            echo "<input type='checkbox' name=tour_{$id} value={$id} class=equipe_checkbox_tour>";
+            //echo "<input type='hidden' name='id_tour_{$id}' value='$id'>";
 
         }
         echo '<input type="submit"/>';
