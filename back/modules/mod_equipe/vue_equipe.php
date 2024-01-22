@@ -35,51 +35,20 @@ class VueEquipe extends VueGenerique {
         echo '<form method="post" action="index.php?module=mod_equipe&action=traitement_tour_equipe">';
         foreach($tableau as $array){
             $id = $array['id_tour'];
-            //On enleve temporairement
             $date = $array['date_acquisition'];
-            //echo "<p>{$id}, date : {$date}</p>";
+            $estDansEquipe = $array['estDansEquipe'];
             echo "<label for=tour_{$id}>Tour n:{$id}, date : {$date}</label>";
-            echo "<input type='checkbox' name=tour_{$id} value={$id} class=equipe_checkbox_tour>";
-            //echo "<input type='hidden' name='id_tour_{$id}' value='$id'>";
-
+            if($estDansEquipe){
+                echo "<input type='checkbox' name=tour_{$id} value={$id} class=equipe_checkbox_tour checked>";
+            }else{
+                echo "<input type='checkbox' name=tour_{$id} value={$id} class=equipe_checkbox_tour>";
+            }
+            
         }
         echo '<input type="submit"/>';
         echo '</form>';
-        /*
-        echo "<script>
-        const el = document.querySelector('#tour_1');
-    el.addEventListener('click',() =>{
-        console.log('Tu as cliqué')
-    });
-        </script>";
-        */
         echo "<script src='back/script/tour_possedees.js'></script>";
-
     }
-
-    /*
-    <form action="#" method="post">
-    <label for="element1">Élément 1</label>
-    <input type="checkbox" id="element1" name="element1">
-
-    <br>
-
-    <label for="element2">Élément 2</label>
-    <input type="checkbox" id="element2" name="element2">
-
-    <br>
-
-    <label for="element3">Élément 3</label>
-    <input type="checkbox" id="element3" name="element3">
-
-    <br>
-
-    <!-- Ajoute d'autres éléments de formulaire ici -->
-
-    <br>
-
-    <input type="submit" value="Soumettre">
-</form>     */
 
 }
 

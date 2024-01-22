@@ -13,7 +13,6 @@ class ContEquipe {
     private $modele;
     
     public function __construct(){
-
         $this->vue = new VueEquipe();
         $this->modele = new ModeleEquipe();
 
