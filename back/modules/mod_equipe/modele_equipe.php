@@ -4,7 +4,7 @@ if (!defined("BASE_URL")) {
     die("il faut passer par l'index");
 }
 
-require_once './Connexion.php';
+require_once './connexion.php';
 
 class ModeleEquipe extends Connexion {
 
