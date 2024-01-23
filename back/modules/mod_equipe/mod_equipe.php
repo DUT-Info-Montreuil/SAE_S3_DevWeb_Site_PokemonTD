@@ -39,7 +39,7 @@ class ModEquipe {
                 
             
         }
-    }
+    } 
 
     public function afficheModule(){
         return $this->controleur->affichage();

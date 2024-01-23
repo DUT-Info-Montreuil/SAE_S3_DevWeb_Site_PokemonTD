@@ -1,32 +1,64 @@
-var inputSlotEquipe1 = document.querySelector("#boiteEquipe__form__input_1");
-var boutons = document.querySelectorAll(".boiteTour__pokemon__ajoutBouton");
-//console.log(boutons);
+var boutonsAjout = document.querySelectorAll(".boiteTour__pokemon__ajoutBouton");
+var boutonsSuppresion = document.querySelectorAll(".boiteTour__pokemon__supprimerBouton");
+var boutonsSuppresionEquipe = document.querySelectorAll(".boiteEquipe__form__container__slot__boutonSupprimer");
 
-/*
-var bouton_1 = document.querySelector("#boiteTour__pokemon__ajoutBouton_1");
-console.log(bouton_1);
 
-boutons.forEach(function(bouton) {
-    bouton.addEventListener('click', () => {
-        console.log(bouton.textContent);
-        inputSlotEquipe1.value = bouton.textContent;
-    });
-});
-*/
-
-var div_slot_1 = document.querySelector(".boiteEquipe__form__container__slot--1");
-console.log(div_slot_1);
-
-boutons.forEach(function(bouton) {
+boutonsAjout.forEach(function(bouton) {
     bouton.addEventListener('click', (e) => {
 
         e.preventDefault();
-        //e.prevanat
-        var name = div_slot_1.querySelector("p");
-        console.log(name);
-        name.textContent = "machin";
+        var currentSlot = getAvailableSlot();
 
-        //console.log(bouton.textContent);
-        //inputSlotEquipe1.value = bouton.textContent;
+        var nomSelectionne = bouton.parentNode.querySelector("p").textContent;
+        var imageSelectionne = bouton.parentNode.querySelector("img").getAttribute("src");
+        var idTourSelectionne = bouton.parentNode.querySelector("p").dataset.idTour;
+        currentSlot.querySelector("p").textContent = nomSelectionne;
+        currentSlot.querySelector("img").setAttribute("src", imageSelectionne);
+        currentSlot.querySelector("img").setAttribute("alt", nomSelectionne);
+
+    
+        currentSlot.querySelector("input").value = idTourSelectionne;
+        currentSlot.querySelector("input").checked = true;
     });
 });
+
+
+boutonsSuppresion.forEach(function(bouton) {
+    bouton.addEventListener('click', (e) => {
+
+        e.preventDefault();
+        console.log("Suppression");
+
+        console.log(getAvailableSlot());
+
+        var currentSlot = getAvailableSlot();
+
+        currentSlot.querySelector("p").textContent = "placeholder";
+        currentSlot.querySelector("img").setAttribute("src", "placeholder");
+        currentSlot.querySelector("img").setAttribute("alt", "placeholder");
+        currentSlot.querySelector("input").checked = false;
+    });
+});
+
+boutonsSuppresionEquipe.forEach(function(bouton) {
+    bouton.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        console.log("Suppression Equipe");
+
+        bouton.parentNode.querySelector("p").textContent = "placeholder";
+        bouton.parentNode.querySelector("img").setAttribute("src", "placeholder");
+        bouton.parentNode.querySelector("img").setAttribute("alt", "placeholder");
+        bouton.parentNode.querySelector("input").checked = false;        
+    });
+});
+
+function getAvailableSlot(){
+    var allSlots = document.querySelectorAll(".boiteEquipe__form__container__slot");
+    for (var slot of allSlots) {
+        if(!slot.querySelector("input").checked){
+            return slot;
+        }
+    }
+}
+

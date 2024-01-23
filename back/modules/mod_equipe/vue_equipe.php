@@ -56,7 +56,8 @@ class VueEquipe extends VueGenerique {
     public function equipeActuelle($tableauEquipe){
         echo '<div class="boiteEquipe">';
 
-        echo '<form method="post" action="index.php?module=mod_equipe&action=sauvegarder_equipe" class="boiteEquipe__form">';
+        //Test action avant cetait sauvegarder_equipe
+        echo '<form method="post" action="index.php?module=mod_equipe&action=traitement_tour_equipe" class="boiteEquipe__form">';
         echo '<div class="boiteEquipe__form__container">';
         /*
         echo '<input type="text" id="boiteEquipe__form__input_1" placeholder="slot 1">';
@@ -86,7 +87,7 @@ class VueEquipe extends VueGenerique {
         echo "<img src='{$lienImage}' alt={$lienImage}>";
         echo "<p>{$nom}</p>";
         //Bouton pour supprimer
-        echo "<button class=boiteEquipe__form__container__slot__boutonSupprimer{$idSlot}>Supprimer</button>";
+        echo "<button class='boiteEquipe__form__container__slot__boutonSupprimer boiteEquipe__form__container__slot__boutonSupprimer--{$idSlot}'>Supprimer</button>";
         //Voir si classe au lieu de name
         if($isChecked == true){
             echo "<input type='checkbox' name=boiteEquipe__form__container__slot__input_{$idSlot} value={$idPokemon} checked>";
@@ -101,11 +102,15 @@ class VueEquipe extends VueGenerique {
         echo '<div class="boiteTour"></div>';
         foreach($tableau as $array){
             $id = $array['id_tour'];
-            $date = $array['date_acquisition'];
-            $estDansEquipe = $array['estDansEquipe'];
 
             echo '<div class="boiteTour__pokemon">';
-            echo "<button class='boiteTour__pokemon__ajoutBouton' id='boiteTour__pokemon__ajoutBouton_{$id}'>{$id}</button>";
+            
+            echo "<img src='{$array['src_image']}' alt={$array['nom']}>";
+            echo "<p data-id-tour={$array['id_tour']}>{$array['nom']}</p>";
+            echo "<button class=boiteTour__pokemon__ajoutBouton>Ajout</button>";
+           
+            echo "<button class='boiteTour__pokemon__supprimerBouton'>Supprimer</button>";
+            
             echo '</div>';
         }
         echo '</div>';
