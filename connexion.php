@@ -7,6 +7,8 @@ class Connexion{
         $user = 'dutinfopw201618';
         $password = 'hytytesa';
 
+        // mysql -h database-etudiants.iut.univ-paris8.fr -u dutinfopw201618 -p
+
         try {
             self::$bdd = new PDO($url,$user,$password);
 

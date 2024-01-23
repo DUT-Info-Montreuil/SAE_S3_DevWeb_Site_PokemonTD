@@ -1,10 +1,13 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 
-//mettre un module par defaut ici
+//mettre un module par default ici
 $module = isset($_GET['module']) ? $_GET['module'] : "defaut";
 
-const BASE_URL = "securité";
+const BASE_URL = "security";
 
 switch($module) {
     case "mod_placeholder":
@@ -24,6 +27,12 @@ switch($module) {
         $a = new ModConnexion();
         $affichageModule = $a->afficheModule();
         break;
+    case "mod_equipe":
+        require_once('./back/modules/mod_equipe/mod_equipe.php');
+        Connexion::initConnexion();
+        $a = new ModEquipe();
+        $affichageModule = $a->afficheModule();
+        break;
     default:
         ob_start();
         require_once('front/acceuil.html');
@@ -36,4 +45,3 @@ switch($module) {
 // $menu = new CompMenu($module);
 
 require_once "template.php";
-?>

@@ -1,0 +1,49 @@
+#boutique_top{
+    display: flex;
+    width: 95%;
+}
+
+#boutique_top p{
+    margin-left: auto;
+}
+
+#boutique {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#carte{
+    margin-bottom: 25px;
+    width: 30%;
+    text-align: center;
+}
+
+#carte div{
+    display: flex;
+    min-width: 25%;
+    max-width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+}
+
+#carte h5{
+    margin-top: 3px;
+}
+
+.image{
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.coutBoutique {
+    font-size: 13px;
+    padding: 3px;
+    min-width: 25px;
+    max-width: 150px;
+    margin-right: 5px;
+    text-align: center;
+    border: rgb(94, 94, 255) ridge 1px;
+    border-radius: 10px;
+    box-shadow: 4px 3px 2px rgb(63, 63, 255);
+}
