@@ -53,6 +53,7 @@ class ContEquipe {
         $this->vue->equipeActuelle();
         $this->vue->toursDisponibles($tableau);
         //$this->vue->formulaireTour($tableau);$tableau
+        //echo "<script src='back/script/scriptTest.js'></script>";
     }
 
 }

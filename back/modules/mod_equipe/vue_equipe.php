@@ -57,7 +57,7 @@ class VueEquipe extends VueGenerique {
         echo '<div class="boiteEquipe"></div>';
         echo '<form method="post" action="index.php?module=mod_equipe&action=sauvegarder_equipe" class="boiteEquipe__form">';
         
-        echo '<input type="text" id="boiteEquipe__form__input_1>';
+        echo '<input type="text" id="boiteEquipe__form__input_1" placeholder="Ceci est un placeholder">';
 
         echo '<input type="submit"/>';
         echo '</form>';
@@ -73,10 +73,12 @@ class VueEquipe extends VueGenerique {
             $estDansEquipe = $array['estDansEquipe'];
 
             echo '<div class="boiteTour__pokemon">';
-            echo "<button class='boiteTour__pokemon__ajoutBouton'>{$id}</button>";
+            echo "<button class='boiteTour__pokemon__ajoutBouton' id='boiteTour__pokemon__ajoutBouton_{$id}'>{$id}</button>";
             echo '</div>';
         }
         echo '</div>';
+
+        echo "<script src='back/script/scriptTest.js'></script>";
 
 
         /*
