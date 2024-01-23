@@ -27,7 +27,9 @@ class ModEquipe {
             case 'bienvenue':
                 $this->controlleur->bienvenue();
                 break;*/
-                
+            case 'javacriptTest':
+                $this->controleur->lancement(1);
+                break;
             case 'toursPossedees':
                 $this->controleur->toursPossedees(1);
                 break;
