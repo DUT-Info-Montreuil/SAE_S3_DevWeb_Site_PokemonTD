@@ -1,0 +1,48 @@
+.boiteEquipe {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.boiteTour {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.boiteEquipe__form__container__slot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle box shadow */
+  }
+  
+  .boiteEquipe__form__container__slot img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .boiteEquipe__form__container__slot p {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .boiteEquipe__form__container__slot__boutonSupprimer {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }

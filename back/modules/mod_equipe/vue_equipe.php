@@ -77,7 +77,7 @@ class VueEquipe extends VueGenerique {
             }
         }
         echo '</div>';
-        echo '<input type="submit" class="boiteEquipe__submitButton/>';
+        echo '<input type="submit" class="boiteEquipe__submitButton"/>';
         echo '</form>';
         echo '</div>';
     }
@@ -90,16 +90,16 @@ class VueEquipe extends VueGenerique {
         echo "<button class='boiteEquipe__form__container__slot__boutonSupprimer boiteEquipe__form__container__slot__boutonSupprimer--{$idSlot}'>Supprimer</button>";
         //Voir si classe au lieu de name
         if($isChecked == true){
-            echo "<input type='checkbox' name=boiteEquipe__form__container__slot__input_{$idSlot} value={$idPokemon} checked>";
+            echo "<input type='checkbox' name=boiteEquipe__form__container__slot__input_{$idSlot} value={$idPokemon} checked hidden>";
         }else{
-            echo "<input type='checkbox' name=boiteEquipe__form__container__slot__input_{$idSlot} value={$idPokemon}>";
+            echo "<input type='checkbox' name=boiteEquipe__form__container__slot__input_{$idSlot} value={$idPokemon} hidden>";
         }
         echo '</div>';
     }
 
 
     public function toursDisponibles($tableau){
-        echo '<div class="boiteTour"></div>';
+        echo '<div class="boiteTour">';
         foreach($tableau as $array){
             $id = $array['id_tour'];
 

@@ -51,8 +51,8 @@ class ContEquipe {
         $tableau = $this->modele->toursPossedees($idJoueur);
         $equipeActuelle = $this->modele->equipeActuelle($idJoueur);
         //echo var_dump($tableau);
-        echo var_dump($equipeActuelle);
-        echo var_dump($equipeActuelle[0]['nom']);
+        //echo var_dump($equipeActuelle);
+        //echo var_dump($equipeActuelle[0]['nom']);
 
         //echo $tableau[0];
         $this->vue->equipeActuelle($equipeActuelle);

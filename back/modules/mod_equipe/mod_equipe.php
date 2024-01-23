@@ -21,7 +21,6 @@ class ModEquipe {
     }
 
     private function start(){
-
         switch($this->action){
 /*
             case 'bienvenue':
