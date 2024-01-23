@@ -44,9 +44,9 @@ class ModeleConnexion extends Connexion {
 
         if($stmt->rowCount()==1){
             if(password_verify($_POST['password'],$res[0]["mot_de_passe"])){
-                $_SESSION['id_joueur']=$res[0]["id_joueur"];
-                $_SESSION['pseudo']=$res[0]["pseudo"];
-            }
+           echo $_SESSION['id_joueur']=$res[0]["id_joueur"];
+           echo $_SESSION['pseudo']=$res[0]["pseudo"];
+        }
         }else{
             return -1;
         }
