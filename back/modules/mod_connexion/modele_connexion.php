@@ -4,7 +4,7 @@ if (!defined("BASE_URL")) {
     die("il faut passer par l'index");
 }
 
-require_once './back/modules/Connexion.php';
+require_once './connexion.php';
 
 class ModeleConnexion extends Connexion {
 
@@ -12,10 +12,13 @@ class ModeleConnexion extends Connexion {
 
     }
     public function ajoutUser(){
-      /*  $stmt = Connexion::$bdd->prepare("Select * from Joueur where login ='".$_POST['login']."';");
+        $stmt = Connexion::$bdd->prepare("Select * from Joueur where pseudo ='".$_POST['login']."';");
         $res=$this->executeQuery($stmt);
-        echo var_dump($res);
-*/
+        echo var_dump($res);   
+
+        if ($res-> isEmpty()){
+            
+        }
     }
 
 
