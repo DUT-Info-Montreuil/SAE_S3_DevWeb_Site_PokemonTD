@@ -31,6 +31,9 @@ class ModBoutique {
             case 'achat':
                 $this->controlleur->achatTour();
                 break;
+            case 'detailTour' :
+                $this->controlleur->detailTour();
+                break;
         }
     }
 

@@ -16,4 +16,9 @@ class VueBoutique extends VueGenerique {
         require_once('./front/boutique/boutique.php');
     }
 
+    public function afficheDetailTour($infoTour)
+    {
+        require_once('./front/boutique/infoTour.php');
+    }
+
 }

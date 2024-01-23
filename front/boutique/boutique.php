@@ -25,13 +25,16 @@
                 <?php echo $tuple["nom"]; ?>
             </h5>
 
-            <?php if($_SESSION['id_joueur'] != 1) {?>
             <div class="div-achat">
-                <a class="btn-achat" href="index.php?module=mod_boutique&action=achat&idTour=<?php echo $tuple["id_tour"]; ?>">
-                    achat rapide
+                <a class="btn-detail" href="index.php?module=mod_boutique&action=detailTour&idTour=<?php echo $tuple["id_tour"]; ?>">
+                    Details
                 </a>
+                <?php if($_SESSION['id_joueur'] != 1) {?>
+                    <a class="btn-achat" href="index.php?module=mod_boutique&action=achat&idTour=<?php echo $tuple["id_tour"]; ?>">
+                        Achat rapide
+                    </a>
+                <?php }?>
             </div>
-            <?php }?>
 
         </div>
     <?php } ?>

@@ -22,11 +22,16 @@
             <h1>
                 POKEMON TD
             </h1>
-
-        <div id="profile">
-            <a href="index.php?module=mod_connexion&action=lien_connexion" >Connexion</a>
-            <a href="index.php?module=mod_connexion&action=lien_inscription" >Inscription</a>
-        </div>
+            <?php if($_SESSION['id_joueur'] == 1) {?>
+                <div id="profile">
+                    <a href="index.php?module=mod_connexion&action=lien_connexion" >Connexion</a>
+                    <a href="index.php?module=mod_connexion&action=lien_inscription" >Inscription</a>
+                </div>
+            <?php }else { ?>
+                <div id="profile">
+                    <a href="index.php?module=mod_connexion&action=deconnexion" >Deconexion</a>
+                </div>
+            <?php } ?>
     </div>
 
         <div id="navbar">

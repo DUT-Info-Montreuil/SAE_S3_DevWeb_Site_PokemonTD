@@ -48,4 +48,17 @@ class ContBoutique {
         }
     }
 
+    public function detailTour()
+    {
+        if (isset($_GET['idTour'])){
+            $idTour = $_GET['idTour'];
+            $infoTour = $this->modele->getInfoTour($idTour);
+
+            if ($infoTour != -1)
+                $this->vue->afficheDetailTour($infoTour);
+            else
+                echo "<p>Erreur</p>";
+        }
+    }
+
 }

@@ -97,4 +97,24 @@ class ModeleBoutique extends Connexion{
             return -1;
         }
     }
+
+    public function getInfoTour($idTour)
+    {
+        try {
+            $query = "
+            SELECT T.cout,T.src_image,T.nom,D.description_effet,D.nom_effet,S.*,C.*
+            FROM dutinfopw201618.Tour T
+            INNER JOIN dutinfopw201618.StatTour S ON T.id_tour = S.id_tour
+            LEFT OUTER JOIN dutinfopw201618.Competence C ON S.id_competence = C.id_competence
+            LEFT OUTER JOIN dutinfopw201618.EffetPossede E ON T.id_tour = E.id_tour
+            LEFT OUTER JOIN dutinfopw201618.DetailEffet D ON E.id_effet = D.id_effet
+            WHERE T.id_tour = $idTour
+            ";
+            $stmt = Connexion::$bdd->prepare($query);
+            return $this->executeQuery($stmt)[0];
+        } catch (PDOException $e) {
+            echo $e;
+            return -1;
+        }
+    }
 }

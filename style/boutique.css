@@ -27,24 +27,50 @@
     margin-top: 5px;
 }
 
+.div-achat{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .btn-achat{
+    background-color: #62ff6a;
+    margin-top: 4px;
+}
+
+.btn-detail{
     background-color: #84b9ff;
+}
+
+.btn-achat,.btn-detail{
     padding: 6px;
     border-radius: 10px;
     text-decoration: none;
     color: white;
+    width: 60px;
+    transition: 0.5s;
 }
 
-.btn-achat{
+.btn-achat,.btn-detail{
      display: none;
- }
+}
+
 
 .carte:hover .btn-achat{
     display: block;
 }
 
+.carte:hover .btn-detail{
+    display: block;
+}
+
 .btn-achat:hover{
-    background-color: #adff84;
+    background-color: #84ffde;
+    cursor: pointer;
+}
+
+.btn-detail:hover{
+    background-color: #d2bbff;
     cursor: pointer;
 }
 
