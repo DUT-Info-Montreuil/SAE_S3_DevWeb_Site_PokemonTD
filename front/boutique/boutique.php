@@ -1,6 +1,8 @@
 <div id="boutique_top">
     <h3>La boutique</h3>
-    <p>solde :</p><p id="solde"><?php echo $solde ?></p>
+    <?php if($_SESSION['id_joueur'] != 1) {?>
+        <p>solde :</p><p id="solde"><?php echo $solde ?></p>
+    <?php }?>
 </div>
 
 <p>Achetez ici vos nouvelles tours et cohéquipiers</p>
@@ -23,11 +25,13 @@
                 <?php echo $tuple["nom"]; ?>
             </h5>
 
+            <?php if($_SESSION['id_joueur'] != 1) {?>
             <div class="div-achat">
                 <a class="btn-achat" href="index.php?module=mod_boutique&action=achat&idTour=<?php echo $tuple["id_tour"]; ?>">
                     achat rapide
                 </a>
             </div>
+            <?php }?>
 
         </div>
     <?php } ?>
