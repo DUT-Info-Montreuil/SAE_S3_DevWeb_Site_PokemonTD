@@ -21,16 +21,17 @@ class ModeleEquipe extends Connexion {
     }
 
     public function toursPossedees($idJoueur){
-        $requete_prepare = Connexion::$bdd->prepare("SELECT * FROM TourPossedee WHERE id_joueur=?");
+        $requete_prepare = Connexion::$bdd->prepare("SELECT * FROM TourPossedee INNER JOIN Tour USING(id_tour) WHERE id_joueur=?");
         $requete_prepare->bindParam(1, $idJoueur);
         $requete_prepare->execute();
         $resultat = $requete_prepare->fetchAll();
 
         //Pour checked du formulaire
+        /*
         foreach ($resultat as &$ligne) {
             $id_tour = $ligne['id_tour'];
             $ligne['estDansEquipe'] = $this->estDansEquipe($idJoueur, $id_tour);
-        }
+        }*/
 
         return $resultat;
     }
@@ -65,6 +66,16 @@ class ModeleEquipe extends Connexion {
         }
 
         return false;
+    }
+
+    //Nouveau équipe actuelle
+
+    public function equipeActuelle($idJoueur){
+        $requete_prepare = Connexion::$bdd->prepare("SELECT * FROM Equipe INNER JOIN Tour USING(id_tour) WHERE id_joueur=?");
+        $requete_prepare->bindParam(1, $idJoueur);
+        $requete_prepare->execute();
+        $resultat = $requete_prepare->fetchAll();
+        return $resultat;
     }
 }
 

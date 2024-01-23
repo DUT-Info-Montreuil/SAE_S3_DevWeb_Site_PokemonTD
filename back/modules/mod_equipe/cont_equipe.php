@@ -49,8 +49,13 @@ class ContEquipe {
 
     public function lancement($idJoueur){
         $tableau = $this->modele->toursPossedees($idJoueur);
-        echo var_dump($tableau);
-        $this->vue->equipeActuelle();
+        $equipeActuelle = $this->modele->equipeActuelle($idJoueur);
+        //echo var_dump($tableau);
+        echo var_dump($equipeActuelle);
+        echo var_dump($equipeActuelle[0]['nom']);
+
+        //echo $tableau[0];
+        $this->vue->equipeActuelle($equipeActuelle);
         $this->vue->toursDisponibles($tableau);
         //$this->vue->formulaireTour($tableau);$tableau
         //echo "<script src='back/script/scriptTest.js'></script>";

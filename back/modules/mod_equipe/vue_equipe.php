@@ -53,14 +53,46 @@ class VueEquipe extends VueGenerique {
 
     //THIS IS NEW STUFF DO NOT TOUCH IT HAHAHAHAHAH
 
-    public function equipeActuelle(){
-        echo '<div class="boiteEquipe"></div>';
-        echo '<form method="post" action="index.php?module=mod_equipe&action=sauvegarder_equipe" class="boiteEquipe__form">';
-        
-        echo '<input type="text" id="boiteEquipe__form__input_1" placeholder="Ceci est un placeholder">';
+    public function equipeActuelle($tableauEquipe){
+        echo '<div class="boiteEquipe">';
 
-        echo '<input type="submit"/>';
+        echo '<form method="post" action="index.php?module=mod_equipe&action=sauvegarder_equipe" class="boiteEquipe__form">';
+        echo '<div class="boiteEquipe__form__container">';
+        /*
+        echo '<input type="text" id="boiteEquipe__form__input_1" placeholder="slot 1">';
+        echo '<input type="text" id="boiteEquipe__form__input_2" placeholder="slot 2">';
+        echo '<input type="text" id="boiteEquipe__form__input_3" placeholder="slot 3" hidden>';
+        */
+        /*
+        echo "<input type='checkbox' name=boiteEquipe__form__input_1 value='0' checked>";
+        echo "<input type='checkbox' name=boiteEquipe__form__input_2 value='0' checked>";
+        echo "<input type='checkbox' name=boiteEquipe__form__input_3 value='0' checked>";
+        */
+        for ($i = 0; $i < 3; $i++) {
+            if(isset($tableauEquipe[$i])){
+                $this->boitePokemonEquipe($tableauEquipe[$i]['nom'], $tableauEquipe[$i]['src_image'], $i, true, $tableauEquipe[$i]['id_tour']);
+            }else{
+                $this->boitePokemonEquipe("placeholder", "placeholder", $i, false, "noPokemon");
+            }
+        }
+        echo '</div>';
+        echo '<input type="submit" class="boiteEquipe__submitButton/>';
         echo '</form>';
+        echo '</div>';
+    }
+
+    public function boitePokemonEquipe($nom, $lienImage, $idSlot, $isChecked, $idPokemon){
+        echo "<div class='boiteEquipe__form__container__slot boiteEquipe__form__container__slot--{$idSlot}'>";
+        echo "<img src='{$lienImage}' alt={$lienImage}>";
+        echo "<p>{$nom}</p>";
+        //Bouton pour supprimer
+        echo "<button class=boiteEquipe__form__container__slot__boutonSupprimer{$idSlot}>Supprimer</button>";
+        //Voir si classe au lieu de name
+        if($isChecked == true){
+            echo "<input type='checkbox' name=boiteEquipe__form__container__slot__input_{$idSlot} value={$idPokemon} checked>";
+        }else{
+            echo "<input type='checkbox' name=boiteEquipe__form__container__slot__input_{$idSlot} value={$idPokemon}>";
+        }
         echo '</div>';
     }
 
