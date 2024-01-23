@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./style/base.css">
     <link rel="stylesheet" href="./style/boutique.css">
 </head>
-</head>
 
 <body>
 
@@ -22,7 +21,7 @@
             <h1>
                 POKEMON TD
             </h1>
-            <?php if($_SESSION['id_joueur'] == 1) {?>
+            <?php if(!$_SESSION['estConnecter']) {?>
                 <div id="profile">
                     <a href="index.php?module=mod_connexion&action=lien_connexion" >Connexion</a>
                     <a href="index.php?module=mod_connexion&action=lien_inscription" >Inscription</a>

@@ -6,7 +6,7 @@ session_start();
 
 //mettre un module par default ici
 $module = isset($_GET['module']) ? $_GET['module'] : "defaut";
-$_SESSION['id_joueur'] = isset($_SESSION['id_joueur']) ? $_SESSION['id_joueur'] : "1";
+$_SESSION['estConnecter'] = isset($_SESSION['id_joueur']);
 
 const BASE_URL = "security";
 

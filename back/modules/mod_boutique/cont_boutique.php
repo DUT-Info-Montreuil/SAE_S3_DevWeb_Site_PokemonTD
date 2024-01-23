@@ -25,13 +25,13 @@ class ContBoutique {
 
     public function afficheBoutique(){
 
-        if ( isset($_SESSION['id_joueur']) ){
+        if (isset($_SESSION['id_joueur']) ){
             $tours = $this->modele->recupereToursSelonJoueur($_SESSION['id_joueur']);
+            $solde = $this->modele->getSolde($_SESSION['id_joueur']);
         }else{
-            $tours = $this->modele->recupereTours();  
+            $tours = $this->modele->recupereTours();
+            $solde = 0;
         }
-
-        $solde = $this->modele->getSolde($_SESSION['id_joueur']);
 
         $this->vue->boutique($tours,$solde);
     }

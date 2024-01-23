@@ -1,6 +1,6 @@
 <div id="boutique_top">
     <h3>La boutique</h3>
-    <?php if($_SESSION['id_joueur'] != 1) {?>
+    <?php if($_SESSION['estConnecter']) {?>
         <p>solde :</p><p id="solde"><?php echo $solde ?></p>
     <?php }?>
 </div>
@@ -29,7 +29,7 @@
                 <a class="btn-detail" href="index.php?module=mod_boutique&action=detailTour&idTour=<?php echo $tuple["id_tour"]; ?>">
                     Details
                 </a>
-                <?php if($_SESSION['id_joueur'] != 1) {?>
+                <?php if($_SESSION['estConnecter']) {?>
                     <a class="btn-achat" href="index.php?module=mod_boutique&action=achat&idTour=<?php echo $tuple["id_tour"]; ?>">
                         Achat rapide
                     </a>
