@@ -46,6 +46,10 @@
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
+.boiteTour__tri_bouton--selected{
+  background-color: green;
+}
+
 .boiteTour__tri_bouton:hover {
   /*temp*/
   background-color: #3498db;

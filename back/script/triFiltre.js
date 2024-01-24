@@ -4,6 +4,10 @@ $(document).ready(function () {
     $(".boiteTour__tri_bouton").click(function (event) {
         var typeDeTri = event.currentTarget.dataset.triType;
 
+        //boiteTour__tri_bouton boiteTour__tri_bouton--alphabetiqueAsc
+        resetTriCss();
+        event.currentTarget.classList.add("boiteTour__tri_bouton--selected");
+        
         $.ajax({
             url: 'back/ajax/getTourDisponible.php',
             type: 'GET',
@@ -104,4 +108,11 @@ function triDateDesc(donnees) {
         return dateB - dateA;
     });
     return donnees;
+}
+
+function resetTriCss() {
+    var allButtons = document.querySelectorAll(".boiteTour__tri_bouton");
+    for (var button of allButtons) {
+        button.classList.remove("boiteTour__tri_bouton--selected");
+    }
 }

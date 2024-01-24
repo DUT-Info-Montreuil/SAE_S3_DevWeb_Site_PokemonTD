@@ -21,7 +21,7 @@ class ModeleEquipe extends Connexion {
     }
 
     public function toursPossedees($idJoueur){
-        $requete_prepare = Connexion::$bdd->prepare("SELECT * FROM TourPossedee INNER JOIN Tour USING(id_tour) WHERE id_joueur=?");
+        $requete_prepare = Connexion::$bdd->prepare("SELECT * FROM TourPossedee INNER JOIN Tour USING(id_tour) WHERE id_joueur=? ORDER BY nom");
         $requete_prepare->bindParam(1, $idJoueur);
         $requete_prepare->execute();
         $resultat = $requete_prepare->fetchAll();
