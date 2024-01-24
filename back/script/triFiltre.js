@@ -1,45 +1,58 @@
+var boutonsTri = document.querySelectorAll(".boiteTour__triButton");
+
 $(document).ready(function () {
-    $(".boiteTour__triButton").click(function (event) {
-        //console.log(event);
-        console.log(event.currentTarget.dataset.triType);
-        //console.log("CA MARCHE");
+    $(".boiteTour__tri_bouton").click(function (event) {
         var typeDeTri = event.currentTarget.dataset.triType;
 
         $.ajax({
             url: 'back/ajax/getTourDisponible.php',
             type: 'GET',
             dataType: 'json',
-            success: function (response) {
-
-                /*
-                var response = response.sort(function (a, b) {
-                    var nameA = a.nom.toUpperCase();
-                    var nameB = b.nom.toUpperCase();
-                    return (nameA < nameB) ? - 1 : (nameA > nameB) ? 1 : 0;
-                });
-                */
-                switch(typeDeTri){
+            success: function (reponse) {
+                switch (typeDeTri) {
                     case "alphabetiqueAsc":
-                        response = triAlphabetiqueAsc(response);
+                        reponse = triAlphabetiqueAsc(reponse);
                         break;
                     case "alphabetiqueDesc":
-                        response = triAlphabetiqueDesc(response);
+                        reponse = triAlphabetiqueDesc(reponse);
+                        break;
+                    case "dateAsc":
+                        reponse = triDateAsc(reponse);
+                        break;
+                    case "dateDesc":
+                        reponse = triDateDesc(reponse);
                         break;
                     default:
-                        response = triAlphabetiqueDesc(response);
+                        reponse = triAlphabetiqueDesc(reponse);
                         break;
                 }
-                //console.log(response);
                 var boiteTourPokemon = document.querySelectorAll(".boiteTour__pokemon");
-                //console.log(boiteTourPokemon);
-                for (var i = 0; i < response.length; i++) {
-                    var json = response[i];
+
+                for (var i = 0; i < reponse.length; i++) {
+                    var json = reponse[i];
                     var div = boiteTourPokemon[i];
 
-                    div.querySelector("p").dataset.idTour = json.id_tour;
-                    div.querySelector("p").textContent = json.nom;
+                    div.querySelector(".boiteTour__pokemon__nom").dataset.idTour = json.id_tour;
+                    div.querySelector(".boiteTour__pokemon__nom").textContent = json.nom;
+                    div.querySelector(".boiteTour__pokemon__date").textContent = json.date_acquisition;
                     div.querySelector("img").setAttribute("src", json.src_image);
                     div.querySelector("img").setAttribute("alt", json.nom);
+
+                    var btnSupprimer = div.querySelector(".boiteTour__pokemon__supprimerBouton");
+                    var btnAjout = div.querySelector(".boiteTour__pokemon__ajoutBouton");
+
+                    if (estDansSlot(json.id_tour)) {
+                        btnAjout.classList.add("equipe_bouton_cache");
+                        btnAjout.classList.remove("equipe_bouton_visible");
+                        btnSupprimer.classList.remove("equipe_bouton_cache");
+                        btnSupprimer.classList.add("equipe_bouton_visible");
+                    } else {
+                        btnSupprimer.classList.add("equipe_bouton_cache");
+                        btnSupprimer.classList.remove("equipe_bouton_visible");
+                        btnAjout.classList.remove("equipe_bouton_cache");
+                        btnAjout.classList.add("equipe_bouton_visible");
+                    }
+
                 };
             },
             error: function (error) {
@@ -50,31 +63,45 @@ $(document).ready(function () {
     });
 });
 
-/*
-boiteTour__tri_bouton--alphabetiqueAsc"><i class="fa-solid fa-arrow-up-z-a"></i></div>';
-        echo '<div class="boiteTour__tri_bouton boiteTour__tri_bouton--alphabetiqueDesc"><i class="fa-solid fa-arrow-down-z-a"></i></div>';
-        echo '<div class="boiteTour__tri_bouton boiteTour__tri_bouton--dateAsc"><i class="fa-solid fa-arrow-up-9-1"></i></div>';
-        echo '<div class="boiteTour__tri_bouton boiteTour__tri_bouton--dateDesc"
- */
+function estDansSlot($id) {
+    var allSlots = document.querySelectorAll(".boiteEquipe__form__container__slot");
+    for (var slot of allSlots) {
+        if (slot.querySelector("input").value == $id) {
+            return true;
+        }
+    }
+    return false;
+}
+
 function triAlphabetiqueAsc(donnees) {
     donnees = donnees.sort(function (a, b) {
-        var nameA = a.nom.toUpperCase();
-        var nameB = b.nom.toUpperCase();
-        return (nameA < nameB) ? - 1 : (nameA > nameB) ? 1 : 0;
+        var nomA = a.nom.toUpperCase();
+        var nomB = b.nom.toUpperCase();
+        return (nomA < nomB) ? - 1 : (nomA > nomB) ? 1 : 0;
     });
     return donnees;
 }
 function triAlphabetiqueDesc(donnees) {
     donnees = donnees.sort(function (a, b) {
-        var nameA = a.nom.toUpperCase();
-        var nameB = b.nom.toUpperCase();
-        return (nameA > nameB) ? -1 : (nameA < nameB) ? 1 : 0;
+        var nomA = a.nom.toUpperCase();
+        var nomB = b.nom.toUpperCase();
+        return (nomA > nomB) ? -1 : (nomA < nomB) ? 1 : 0;
     });
     return donnees;
 }
-function triDateAsc($donnees) {
-    return $donnees;
+function triDateAsc(donnees) {
+    donnees = donnees.sort(function (a, b) {
+        var dateA = new Date(a.date_acquisition);
+        var dateB = new Date(b.date_acquisition);
+        return dateA - dateB;
+    });
+    return donnees;
 }
-function triDateDesc($donnees) {
-    return $donnees;
+function triDateDesc(donnees) {
+    donnees = donnees.sort(function (a, b) {
+        var dateA = new Date(a.date_acquisition);
+        var dateB = new Date(b.date_acquisition);
+        return dateB - dateA;
+    });
+    return donnees;
 }

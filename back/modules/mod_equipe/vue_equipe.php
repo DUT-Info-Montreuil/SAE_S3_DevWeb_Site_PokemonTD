@@ -73,7 +73,7 @@ class VueEquipe extends VueGenerique {
             if(isset($tableauEquipe[$i])){
                 $this->boitePokemonEquipe($tableauEquipe[$i]['nom'], $tableauEquipe[$i]['src_image'], $i, true, $tableauEquipe[$i]['id_tour']);
             }else{
-                $this->boitePokemonEquipe("placeholder", "placeholder", $i, false, "noPokemon");
+                $this->boitePokemonEquipe("placeholder", "ressources/pokemon/placeholder.png", $i, false, "noPokemon");
             }
         }
         echo '</div>';
@@ -102,23 +102,29 @@ class VueEquipe extends VueGenerique {
         echo '<div class="boiteTour">';
         echo '<div class="boiteTour__tri">';
         
-        echo '<div data-tri-Type="alphabetiqueAsc" class="boiteTour__triButton boiteTour__tri_bouton boiteTour__tri_bouton--alphabetiqueAsc"><i class="fa-solid fa-arrow-up-z-a"></i></div>';
+        echo '<div data-tri-Type="alphabetiqueAsc" class="boiteTour__tri_bouton boiteTour__tri_bouton--alphabetiqueAsc"><i class="fa-solid fa-arrow-up-z-a"></i></div>';
         echo '<div data-tri-Type="alphabetiqueDesc" class="boiteTour__tri_bouton boiteTour__tri_bouton--alphabetiqueDesc"><i class="fa-solid fa-arrow-down-z-a"></i></div>';
-        echo '<div data-tri-Type="dateAsc"class="boiteTour__tri_bouton boiteTour__tri_bouton--dateAsc"><i class="fa-solid fa-arrow-up-9-1"></i></div>';
-        echo '<div data-tri-Type="dateAsc" class="boiteTour__tri_bouton boiteTour__tri_bouton--dateDesc"><i class="fa-solid fa-arrow-down-9-1"></i></div>';
+        echo '<div data-tri-Type="dateAsc" class="boiteTour__tri_bouton boiteTour__tri_bouton--dateAsc"><i class="fa-solid fa-arrow-up-9-1"></i></div>';
+        echo '<div data-tri-Type="dateDesc" class="boiteTour__tri_bouton boiteTour__tri_bouton--dateDesc"><i class="fa-solid fa-arrow-down-9-1"></i></div>';
         //echo "<button class='boiteTour__triButton'>TEST AJAX</button>";
         echo '</div>';
         echo '<div class="boiteTour__contenu">';
         foreach($tableau as $array){
-            $id = $array['id_tour'];
+            $date_acquisition = new DateTime($array['date_acquisition']);
+            $date = $date_acquisition->format('d/m/Y');
 
             echo '<div class="boiteTour__pokemon">';
             
             echo "<img src='{$array['src_image']}' alt={$array['nom']}>";
-            echo "<p data-id-tour={$array['id_tour']}>{$array['nom']}</p>";
-            echo "<button class=boiteTour__pokemon__ajoutBouton>Ajout</button>";
-           
-            echo "<button class='boiteTour__pokemon__supprimerBouton'>Supprimer</button>";
+            echo "<p class='boiteTour__pokemon__nom' data-id-tour={$array['id_tour']}>{$array['nom']}</p>";
+            echo "<p class='boiteTour__pokemon__date'>Obtention : {$date}</p>";
+            if($array['estDansEquipe'] == true){
+                echo "<button class='boiteTour__pokemon__ajoutBouton equipe_bouton_cache'>Ajout</button>";
+                echo "<button class='boiteTour__pokemon__supprimerBouton'>Supprimer</button>";
+            }else{
+                echo "<button class='boiteTour__pokemon__ajoutBouton'>Ajout</button>";
+                echo "<button class='boiteTour__pokemon__supprimerBouton equipe_bouton_cache'>Supprimer</button>";
+            }
             
             echo '</div>';
         }

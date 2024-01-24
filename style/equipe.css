@@ -66,37 +66,90 @@
 }
 
 
+.equipe_bouton_cache{
+  display: none !important;
+}
 
-/*
+.equipe_bouton_visible{
+  display: inline-block !important;
+}
+
 .boiteEquipe__form__container__slot {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
-    text-align: center;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  }
-  
-  .boiteEquipe__form__container__slot img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-  }
-  
-  .boiteEquipe__form__container__slot p {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .boiteEquipe__form__container__slot__boutonSupprimer {
-    background-color: #dc3545;
-    color: #fff;
-    padding: 8px 12px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  */
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.boiteEquipe__form__container__slot img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.boiteEquipe__form__container__slot p {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.boiteEquipe__form__container__slot__boutonSupprimer {
+  background-color: #ff5c5c;
+  border-radius: 10px;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.boiteEquipe__form__container__slot__boutonSupprimer:hover {
+  background-color: #e04141;
+}
+
+.boiteTour__pokemon {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.boiteTour__pokemon img {
+  width: 100px; /* Set a fixed width for the image */
+  height: 100px; /* Set a fixed height for the image */
+  border-radius: 50%;
+}
+
+.boiteTour__pokemon__nom {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.boiteTour__pokemon__date {
+  margin-bottom: 10px;
+}
+
+.boiteTour__pokemon__ajoutBouton,
+.boiteTour__pokemon__supprimerBouton {
+  border-radius: 10px;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.boiteTour__pokemon__ajoutBouton
+{
+  background-color: #4CAF50;
+}
+
+.boiteTour__pokemon__supprimerBouton
+{
+  background-color: #ff5c5c;
+}
+
+.boiteTour__pokemon__ajoutBouton:hover {
+  background-color: #45a049;
+}
+
+.boiteTour__pokemon__supprimerBouton:hover {
+  background-color: #e04141;
+}

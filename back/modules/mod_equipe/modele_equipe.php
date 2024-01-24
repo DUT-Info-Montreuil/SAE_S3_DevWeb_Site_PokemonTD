@@ -26,12 +26,11 @@ class ModeleEquipe extends Connexion {
         $requete_prepare->execute();
         $resultat = $requete_prepare->fetchAll();
 
-        //Pour checked du formulaire
-        /*
+        //Pour verifier si dans equipe
         foreach ($resultat as &$ligne) {
             $id_tour = $ligne['id_tour'];
             $ligne['estDansEquipe'] = $this->estDansEquipe($idJoueur, $id_tour);
-        }*/
+        }
 
         return $resultat;
     }
