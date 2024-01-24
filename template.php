@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="./style/base.css">
     <link rel="stylesheet" href="./style/boutique.css">
     <link rel="stylesheet" href="./style/equipe.css">
+
+    <script src="./back/script/jquery-3.7.1.min.js"></script>
 </head>
 </head>
 

@@ -113,9 +113,12 @@ class VueEquipe extends VueGenerique {
             
             echo '</div>';
         }
+        echo "<button class='boiteTour__triButton'>TEST AJAX</button>";
         echo '</div>';
 
         echo "<script src='back/script/scriptTest.js'></script>";
+
+        
 
 
         /*
@@ -136,6 +139,10 @@ class VueEquipe extends VueGenerique {
         echo '</form>';
         echo "<script src='back/script/tour_possedees.js'></script>";
         */
+    }
+
+    public function includeScriptJS($chemin){
+        echo "<script src='{$chemin}'></script>";
     }
 
 

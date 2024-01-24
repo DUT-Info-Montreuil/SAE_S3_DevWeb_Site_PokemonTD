@@ -61,5 +61,10 @@ class ContEquipe {
         //echo "<script src='back/script/scriptTest.js'></script>";
     }
 
+    public function includeScriptJS($chemin){
+        $this->vue->includeScriptJS($chemin);
+    }
+
+
 }
 ?>

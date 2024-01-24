@@ -21,6 +21,7 @@ class ModEquipe {
     }
 
     private function start(){
+        $this->controleur->includeScriptJS("back/script/triFiltre.js");
         switch($this->action){
 /*
             case 'bienvenue':

@@ -77,6 +77,13 @@ class ModeleEquipe extends Connexion {
         $resultat = $requete_prepare->fetchAll();
         return $resultat;
     }
+
+    public function testGetData(){
+        return array(
+            'nom' => 'Zen',
+            'age' => 25
+        );
+    }
 }
 
 
