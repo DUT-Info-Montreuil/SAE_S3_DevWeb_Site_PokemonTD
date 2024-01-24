@@ -24,8 +24,11 @@ class ModCarte {
 
         switch($this->action){
 
-            default:
+            case'historique':
+                $this->controlleur->afficheHistorique();
+                break;
             case 'carte':
+            default:
                 $this->controlleur->carte();
                 break;
         }

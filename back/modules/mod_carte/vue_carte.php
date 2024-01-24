@@ -12,9 +12,14 @@ class VueCarte extends VueGenerique {
         parent::__construct();
     }
 
-    public function afficheCarte()
+    public function afficheCarte($niveauDejaJoue)
     {
         require_once ('./front/carte/carte.php');
+    }
+
+    public function afficheHistorique($info,$historique)
+    {
+        require_once ('./front/carte/historique.php');
     }
 
 

@@ -13,10 +13,8 @@ class ContCarte {
     private $modele;
     
     public function __construct(){
-
         $this->vue = new VueCarte();
         $this->modele = new ModeleCarte();
-
     }
 
     public function affichage() {
@@ -25,8 +23,24 @@ class ContCarte {
 
     public function carte()
     {
-        $this->vue->afficheCarte();
 
+        if($_SESSION['estConnecter'])
+            $niveauDejaJoue = $this->modele->recupNiveauJoue($_SESSION['id_joueur']);
+        else
+            $niveauDejaJoue = NULL;
+
+        $this->vue->afficheCarte($niveauDejaJoue);
+
+    }
+
+    public function afficheHistorique()
+    {
+        if (isset($_GET['idCarte']) && $_SESSION['estConnecter']){
+            $idCarte = $_GET['idCarte'];
+            $info = $this->modele->recupInfoCarte($idCarte);
+            $historique = $this->modele->recupHistorique($idCarte,$_SESSION['id_joueur']);
+            $this->vue->afficheHistorique($info,$historique);
+        }
     }
 
 }

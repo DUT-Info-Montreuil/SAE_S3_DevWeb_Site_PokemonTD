@@ -75,25 +75,26 @@ main{
 }
 
 #item1{
-    position: relative;
+    position: absolute;
     top: 37%;
     left: 20%;
 }
 
 #item2{
-    position: relative;
-    top: 3%;
+    position: absolute;
+    top: 9%;
     left: 55%;
 }
 
 #item3{
-    position: relative;
-    top: 35%;
+    position: absolute;
+    top: 50%;
     left: 73%;
 }
 
 .imageCarte{
     display: flex;
+    flex-direction: column;
     border: solid black 3px;
     position: absolute;
     border-radius: 10px;
@@ -140,4 +141,26 @@ main{
 
 #carteNiveau1 h2{
     font-size: 29px;
+}
+
+.Historique-btn{
+    color: #62ff6a;
+    text-decoration: none;
+    background-color: #851cf6;
+    padding: 5px;
+    width: 90px;
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    border-radius: 10px;
+    transition: 0.4s;
+}
+
+.Historique-btn:hover{
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: blue;
+    cursor: pointer;
 }
