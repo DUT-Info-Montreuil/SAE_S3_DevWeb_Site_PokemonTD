@@ -78,6 +78,10 @@
   display: inline-block !important;
 }
 
+.equipe_bouton_hidden{
+  display: hidden !important;
+}
+
 .boiteEquipe__form__container__slot {
   border: 1px solid #ccc;
   padding: 10px;

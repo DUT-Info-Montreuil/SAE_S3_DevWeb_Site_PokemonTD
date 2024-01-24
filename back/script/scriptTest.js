@@ -19,8 +19,8 @@ boutonsAjout.forEach(function (bouton) {
             currentSlot.querySelector("input").value = idTourSelectionne;
             currentSlot.querySelector("input").checked = true;
 
-            //currentSlot.querySelector("button").classList.remove("equipe_bouton_cache");
-            //currentSlot.querySelector("button").classList.add("equipe_bouton_visible");
+            currentSlot.querySelector("button").classList.remove("equipe_bouton_cache");
+            currentSlot.querySelector("button").classList.add("equipe_bouton_visible");
 
             // currentSlot.querySelector("p").classList.remove("equipe_bouton_cache");
             // currentSlot.querySelector("p").classList.add("equipe_bouton_visible");
@@ -40,7 +40,7 @@ boutonsSuppresion.forEach(function (bouton) {
 
         var currentSlot = getCorrespondingSlot(idTour);
 
-        currentSlot.querySelector("p").textContent = "placeholder";
+        currentSlot.querySelector("p").textContent = "";
         currentSlot.querySelector("img").setAttribute("src", "ressources/pokemon/placeholder.png");
         currentSlot.querySelector("img").setAttribute("alt", "placeholder");
         currentSlot.querySelector("input").checked = false;
@@ -63,7 +63,7 @@ boutonsSuppresionEquipe.forEach(function (bouton) {
 
         var tour = getCorrespondingTour(bouton.parentNode.querySelector("input").value);
 
-        bouton.parentNode.querySelector("p").textContent = "placeholder";
+        bouton.parentNode.querySelector("p").textContent = "";
         bouton.parentNode.querySelector("img").setAttribute("src", "ressources/pokemon/placeholder.png");
         bouton.parentNode.querySelector("img").setAttribute("alt", "placeholder");
         bouton.parentNode.querySelector("input").checked = false;
