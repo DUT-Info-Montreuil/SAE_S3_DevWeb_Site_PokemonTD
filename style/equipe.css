@@ -10,7 +10,7 @@
   border: 1px dashed blue;
 }
 
-.boiteEquipe__form__container__slot{
+.boiteEquipe__form__container__slot {
   border: 1px dashed blue;
 }
 
@@ -21,8 +21,39 @@
 }
 
 .boiteTour__tri {
+  width: 50%;
   border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
+
+.boiteTour__tri_bouton {
+  font-size: 25px;
+
+  /*temp*/
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid #3498db;
+  color: #3498db;
+  background-color: #ffffff;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.boiteTour__tri_bouton:hover {
+  /*temp*/
+  background-color: #3498db;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/*boiteTour__tri_bouton--alphabetiqueAsc*/
 
 .boiteTour__contenu {
   border: 1px solid red;

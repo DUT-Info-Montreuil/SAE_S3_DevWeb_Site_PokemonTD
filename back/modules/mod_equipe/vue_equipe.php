@@ -102,10 +102,11 @@ class VueEquipe extends VueGenerique {
         echo '<div class="boiteTour">';
         echo '<div class="boiteTour__tri">';
         
-        echo '<div class="boiteTour__tri_bouton"><i class="fa-solid fa-arrow-up-z-a"></i></div>';
-        echo '<div class="boiteTour__tri_bouton"><i class="fa-solid fa-arrow-up-z-a"></i></div>';
-        echo '<div class="boiteTour__tri_bouton"><i class="fa-solid fa-arrow-up-1-9"></i></div>';
-        echo "<button class='boiteTour__triButton'>TEST AJAX</button>";
+        echo '<div data-tri-Type="alphabetiqueAsc" class="boiteTour__triButton boiteTour__tri_bouton boiteTour__tri_bouton--alphabetiqueAsc"><i class="fa-solid fa-arrow-up-z-a"></i></div>';
+        echo '<div data-tri-Type="alphabetiqueDesc" class="boiteTour__tri_bouton boiteTour__tri_bouton--alphabetiqueDesc"><i class="fa-solid fa-arrow-down-z-a"></i></div>';
+        echo '<div data-tri-Type="dateAsc"class="boiteTour__tri_bouton boiteTour__tri_bouton--dateAsc"><i class="fa-solid fa-arrow-up-9-1"></i></div>';
+        echo '<div data-tri-Type="dateAsc" class="boiteTour__tri_bouton boiteTour__tri_bouton--dateDesc"><i class="fa-solid fa-arrow-down-9-1"></i></div>';
+        //echo "<button class='boiteTour__triButton'>TEST AJAX</button>";
         echo '</div>';
         echo '<div class="boiteTour__contenu">';
         foreach($tableau as $array){
