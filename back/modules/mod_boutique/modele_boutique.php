@@ -102,7 +102,8 @@ class ModeleBoutique extends Connexion{
     {
         try {
             $query = "
-            SELECT T.cout,T.src_image,T.nom,D.description_effet,D.nom_effet,S.*,C.*
+            SELECT T.cout,T.src_image,T.nom,D.description_effet,D.nom_effet,
+                   S.*,C.*,D.*
             FROM dutinfopw201618.Tour T
             INNER JOIN dutinfopw201618.StatTour S ON T.id_tour = S.id_tour
             LEFT OUTER JOIN dutinfopw201618.Competence C ON S.id_competence = C.id_competence
