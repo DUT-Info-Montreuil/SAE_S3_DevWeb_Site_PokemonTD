@@ -102,10 +102,42 @@ main{
     animation: apparition 2s ease forwards;
 }
 
+.imageCarte h2{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2px;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+
+    color: #131313;
+    background: rgba(209, 213, 71, 0.72);
+    padding: 0 2px 7px;
+    height: 29px;
+}
+
 #carteNiveau3{
     top: 27%;
     left: 10%;
     width: 193px;
     height: 145px;
     background-image: url("../../ressources/carte/carmin_sur_mer.png");
+}
+
+#carteNiveau2{
+    top: 0;
+    left: 47%;
+    width: 193px;
+    height: 145px;
+    background-image: url("../../ressources/carte/frimapic.png");
+}
+
+#carteNiveau1{
+    top: 40%;
+    left: 63%;
+    width: 193px;
+    height: 145px;
+    background-image: url("../../ressources/carte/safrania.png");
+}
+
+#carteNiveau1 h2{
+    font-size: 29px;
 }
