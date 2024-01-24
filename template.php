@@ -35,7 +35,7 @@
 
         <div id="navbar">
             <a href="index.php?module=mod_equipe" class="navbarLink" >Equipe</a>
-            <a href="#" class="navbarLink" >Carte</a>
+            <a href="index.php?module=mod_carte#carte" class="navbarLink" >Carte</a>
             <a href="index.php?module=mod_boutique" class="navbarLink" >
                 Boutique
             </a>
