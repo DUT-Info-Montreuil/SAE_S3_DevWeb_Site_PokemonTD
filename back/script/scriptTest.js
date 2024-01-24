@@ -6,6 +6,7 @@ var boutonsSuppresionEquipe = document.querySelectorAll(".boiteEquipe__form__con
 boutonsAjout.forEach(function (bouton) {
     bouton.addEventListener('click', (e) => {
         e.preventDefault();
+        console.log("Il ya un clic");
         var currentSlot = getAvailableSlot();
         if (canBeAdded(bouton.parentNode.querySelector("p").dataset.idTour)) {
 

@@ -100,6 +100,14 @@ class VueEquipe extends VueGenerique {
 
     public function toursDisponibles($tableau){
         echo '<div class="boiteTour">';
+        echo '<div class="boiteTour__tri">';
+        
+        echo '<div class="boiteTour__tri_bouton"><i class="fa-solid fa-arrow-up-z-a"></i></div>';
+        echo '<div class="boiteTour__tri_bouton"><i class="fa-solid fa-arrow-up-z-a"></i></div>';
+        echo '<div class="boiteTour__tri_bouton"><i class="fa-solid fa-arrow-up-1-9"></i></div>';
+        echo "<button class='boiteTour__triButton'>TEST AJAX</button>";
+        echo '</div>';
+        echo '<div class="boiteTour__contenu">';
         foreach($tableau as $array){
             $id = $array['id_tour'];
 
@@ -113,8 +121,8 @@ class VueEquipe extends VueGenerique {
             
             echo '</div>';
         }
-        echo "<button class='boiteTour__triButton'>TEST AJAX</button>";
         echo '</div>';
+        echo  '</div>';
 
         echo "<script src='back/script/scriptTest.js'></script>";
 

@@ -1,20 +1,42 @@
 .boiteEquipe {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    border: 1px solid black;
-    padding: 10px;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+}
+
+.boiteEquipe__form__container {
+  display: flex;
+  flex-direction: row;
+  border: 1px dashed blue;
+}
+
+.boiteEquipe__form__container__slot{
+  border: 1px dashed blue;
 }
 
 .boiteTour {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    border: 1px solid black;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
 }
 
+.boiteTour__tri {
+  border: 1px solid black;
+}
+
+.boiteTour__contenu {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+}
+
+.boiteTour__pokemon {
+  border: 1px dashed green;
+}
+
+
+
+/*
 .boiteEquipe__form__container__slot {
     display: flex;
     flex-direction: column;
@@ -23,7 +45,7 @@
     padding: 10px;
     margin: 10px;
     text-align: center;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle box shadow */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
   
   .boiteEquipe__form__container__slot img {
@@ -46,3 +68,4 @@
     cursor: pointer;
     transition: background-color 0.3s;
   }
+  */

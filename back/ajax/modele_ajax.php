@@ -17,7 +17,7 @@ class Modele extends Connexion {
 
     public function testGetData(){
         return array(
-            'nom' => 'Zen JEANA MICJELE',
+            'nom' => 'Zen AJAX',
             'age' => 25
         );
     }
