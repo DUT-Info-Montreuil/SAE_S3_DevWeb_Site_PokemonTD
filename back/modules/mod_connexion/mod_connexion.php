@@ -39,6 +39,9 @@ class ModConnexion {
             case 'connexion_compte':
                 $this->controlleur->connexionCompte();
                 break;
+            case 'deconnexion' :
+                $this->controlleur->deconnexion();
+                break;
         }
     }
 

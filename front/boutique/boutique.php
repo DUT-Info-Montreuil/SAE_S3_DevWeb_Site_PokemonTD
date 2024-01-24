@@ -3,7 +3,7 @@
     <p>solde : </p>
 </div>
 
-<p>Achetez ici vos nouvelles tours et cohéquipiers</p>
+<p>Achetez ici vos nouvelles tours</p>
 
 <h3>Tours :</h3>
 

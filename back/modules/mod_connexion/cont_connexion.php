@@ -79,10 +79,13 @@ class ContConnexion {
             $this->vue->displayError(4); // token non correspondant
         }
 
-//        echo "<meta http-equiv='refresh' content= '2;url=index.php'> <p>Vous allez être redirigé</p>";
-
-    
     }
+
+    public function deconnexion(){
+        $this->modele->deconnexion();
+    }
+
+
     public function affichage() {
         return $this->vue->getAffichage();
     }

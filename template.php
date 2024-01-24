@@ -22,11 +22,18 @@
             <h1>
                 POKEMON TD
             </h1>
-
+        <?php if ((!isset($_SESSION['pseudo']))) { ?>
         <div id="profile">
             <a href="index.php?module=mod_connexion&action=lien_connexion" >Connexion</a>
             <a href="index.php?module=mod_connexion&action=lien_inscription" >Inscription</a>
-        </div>
+        </div><?php }else { ?>
+
+            <div id="profile">
+            <h4> <?php echo $_SESSION['pseudo'];?> </h4>
+            <a href="index.php?module=mod_connexion&action=deconnexion" class="navbarLink" >
+                Deconnexion
+            </a>
+            </div> <?php }?>
     </div>
 
         <div id="navbar">
@@ -35,7 +42,7 @@
             <a href="index.php?module=mod_boutique" class="navbarLink" >
                 Boutique
             </a>
-            <a href="#" class="navbarLink" >Trophées</a>
+            <a href="index.php?module=mod_trophees&action=afficheTrophees" class="navbarLink" >Trophées</a>
         </div>
 
     </header>

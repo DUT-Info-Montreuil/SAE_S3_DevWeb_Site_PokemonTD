@@ -4,6 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 session_start();
 
+
 //mettre un module par default ici
 $module = isset($_GET['module']) ? $_GET['module'] : "defaut";
 
@@ -31,6 +32,12 @@ switch($module) {
         require_once('./back/modules/mod_equipe/mod_equipe.php');
         Connexion::initConnexion();
         $a = new ModEquipe();
+        $affichageModule = $a->afficheModule();
+        break;
+    case "mod_trophees":
+        require_once('./back/modules/mod_trophees/mod_trophees.php');
+        Connexion::initConnexion();
+        $a = new ModTrophees();
         $affichageModule = $a->afficheModule();
         break;
     default:
