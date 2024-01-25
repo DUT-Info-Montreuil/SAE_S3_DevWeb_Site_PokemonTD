@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="./style/boutique/detail/detailTour.css">
 <div class="top">
     <img class="img-detail-tour" src="<?php echo $infoTour['src_image']; ?>" alt="image de <?php echo $infoTour['nom']; ?>">
-    <h2>
+    <h2 class="nomPokemon">
         <?php echo $infoTour['nom']; ?>
     </h2>
 </div>

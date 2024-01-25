@@ -1,11 +1,18 @@
 .img-detail-tour {
     width: 150px;
     height: auto;
+    filter: drop-shadow(5px 7px 5px green);
 }
 
 .top{
     display: flex;
     align-items: center;
+}
+
+.nomPokemon{
+    font-size: 35px;
+    font-family: 'Montserrat', sans-serif;
+
 }
 
 .top img{

@@ -6,21 +6,32 @@ body{
 }
 
 main{
-    background-color: beige;
+    /*background-color: beige;*/
+    background-color: #ffebc0;
     width: 70%;
     padding: 10px 10px 110px 50px;
     border-radius: 10px;
-    margin-top: 75px;
+    margin-top: 45px;
     margin-left: auto;
     margin-right: auto;
+}
+
+h1{
+    font-family: 'Pacifico', cursive;
+
 }
 
 .topBar{
     display: flex;
     height: 100px;
     padding: 15px;
-    background-color: rgb(22, 127, 255);
+    /*background-color: rgb(22, 127, 255);*/
     border-radius: 20px 20px 0 0;
+    background-color: #D46F4D;
+}
+
+.pikachuLogo{
+    filter: drop-shadow(4px 7px 4px green);
 }
 
 .topBar h1{
@@ -39,8 +50,18 @@ main{
     float: right;
 }
 
+.profile a{
+    padding: 5px !important;
+    background-color:#226D68;
+    border-radius: 15px;
+    margin: 2px;
+    text-decoration: none;
+    color: white !important;
+}
+
 .navbar {
-    background-color: rgb(115, 176, 251);
+    /*background-color: rgb(115, 176, 251);*/
+    background-color:#08C5D1;
     width: 100%;
     height: 50px;
     display: flex;
@@ -108,17 +129,20 @@ a:visited{
 }
 
 footer{
-    margin-top: 50px;
+    margin-top: 80px;
     text-align: center;
     height: 75px;
-    padding: 0px;
-    background-color: rgb(22, 127, 255);
+    padding: 0;
+    /*background-color: rgb(22, 127, 255);*/
+    background-color: #D46F4D;
     border-radius: 20px 20px 0 0;
 }
 .barreBleuCiel{
     height: 25px;
-    background-color: rgb(115, 176, 251);
+    /*background-color: rgb(115, 176, 251);*/
+    background-color:#08C5D1;
     border-radius: 20px 20px 0 0;
+
 }
 
 footer .nom{
@@ -130,12 +154,7 @@ footer .nom{
     text-align: center;
     border-radius: 5px;
     font-weight: bold;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin: 0;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 2px 5px;
+    margin: 0 auto;
     width: fit-content;
 }

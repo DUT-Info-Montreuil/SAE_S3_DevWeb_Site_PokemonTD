@@ -14,7 +14,7 @@ class VueEquipe extends VueGenerique
         parent::__construct();
     }
 
-    public function afficheListe($tableauArray)
+    public function afficheListe($tableauArray): void
     {
         foreach ($tableauArray as $array) {
             $nom = $array['nom'];
@@ -25,7 +25,7 @@ class VueEquipe extends VueGenerique
         echo "<p><a href=index.php?module=mod_equipes>Retour</a></p>";
     }
 
-    public function afficheTours($tableau)
+    public function afficheTours($tableau): void
     {
         foreach ($tableau as $array) {
             $id = $array['id_tour'];
@@ -35,7 +35,7 @@ class VueEquipe extends VueGenerique
     }
 
 
-    public function equipeActuelle($tableauEquipe)
+    public function equipeActuelle($tableauEquipe): void
     {
         echo '<div class="boiteEquipe">';
         echo '<p class="boiteEquipe__titre">Équipe actuelle</p>';
@@ -54,7 +54,7 @@ class VueEquipe extends VueGenerique
         echo '</div>';
     }
 
-    public function boitePokemonEquipe($nom, $lienImage, $idSlot, $isChecked, $idPokemon)
+    public function boitePokemonEquipe($nom, $lienImage, $idSlot, $isChecked, $idPokemon): void
     {
         echo "<div class='boiteEquipe__form__container__slot boiteEquipe__form__container__slot--{$idSlot}'>";
         echo "<img src='{$lienImage}' alt={$nom}>";
