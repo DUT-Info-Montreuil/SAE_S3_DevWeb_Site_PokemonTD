@@ -55,6 +55,7 @@ class VueEquipe extends VueGenerique {
 
     public function equipeActuelle($tableauEquipe){
         echo '<div class="boiteEquipe">';
+        echo '<p class="boiteEquipe__titre">Équipe actuelle</p>';
 
         //Test action avant cetait sauvegarder_equipe
         echo '<form method="post" action="index.php?module=mod_equipe&action=traitement_tour_equipe" class="boiteEquipe__form">';
@@ -77,7 +78,7 @@ class VueEquipe extends VueGenerique {
             }
         }
         echo '</div>';
-        echo '<input type="submit" class="boiteEquipe__submitButton"/>';
+        echo '<input type="submit" value="Sauvegarder" class="boiteEquipe__submitButton"/>';
         echo '</form>';
         echo '</div>';
     }
