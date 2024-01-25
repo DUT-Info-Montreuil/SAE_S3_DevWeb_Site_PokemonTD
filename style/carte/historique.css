@@ -112,3 +112,7 @@ th {
     transform: translate(0,0);
     animation: click 1s ease-in infinite;
 }
+
+.bot:hover a{
+    background-color: #7ab6ff;
+}
