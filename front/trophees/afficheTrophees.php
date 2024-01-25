@@ -49,7 +49,7 @@
       <?php  }
     }else{
         ?>
-        <p>Connectez vous pour voir vos Trophées !</p>
+        <p><a href="index.php?module=mod_connexion&action=lien_connexion">Connectez vous</a> pour voir vos Trophées !</p>
      
    <?php }
 

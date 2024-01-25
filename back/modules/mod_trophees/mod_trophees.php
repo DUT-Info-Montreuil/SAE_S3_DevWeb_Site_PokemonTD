@@ -4,14 +4,16 @@ if (!defined("BASE_URL")) {
     die("il faut passer par l'index");
 }
 
-require_once "cont_trophees.php" ;
+require_once "cont_trophees.php";
 
-class ModTrophees {
+class ModTrophees
+{
 
     private $action;
     private $controlleur;
 
-    public function __construct(){
+    public function __construct()
+    {
 
         $this->controlleur = new ContTrophees();
         $this->action = isset($_GET['action']) ? $_GET['action'] : 'bienvenue';
@@ -20,28 +22,30 @@ class ModTrophees {
 
     }
 
-    private function start(){
+    private function start()
+    {
 
-        switch($this->action){
+        switch ($this->action) {
 
-            case 'afficheTrophees' :
+            case 'afficheTrophees':
                 $this->controlleur->afficheTrophees(0);
                 break;
-            case 'afficheTropheesObtenus' :
+            case 'afficheTropheesObtenus':
                 $this->controlleur->afficheTrophees(1);
                 break;
-            case 'formAjoutTrophee' :
+            case 'formAjoutTrophee':
                 $this->controlleur->formAjoutTrophee();
                 break;
-            case 'ajouterTrophee' :
+            case 'ajouterTrophee':
                 $this->controlleur->ajouterTrophee();
                 break;
-            default :
-             $this->controlleur->erreur404();
+            default:
+                $this->controlleur->erreur404();
         }
     }
 
-    public function afficheModule(){
+    public function afficheModule()
+    {
         return $this->controlleur->affichage();
     }
 

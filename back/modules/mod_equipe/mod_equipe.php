@@ -4,14 +4,16 @@ if (!defined("BASE_URL")) {
     die("il faut passer par l'index");
 }
 
-require_once "cont_equipe.php" ;
+require_once "cont_equipe.php";
 
-class ModEquipe {
+class ModEquipe
+{
 
     private $action;
     private $controleur;
 
-    public function __construct(){
+    public function __construct()
+    {
 
         $this->controleur = new ContEquipe();
         $this->action = isset($_GET['action']) ? $_GET['action'] : 'lancement';
@@ -20,9 +22,9 @@ class ModEquipe {
 
     }
 
-    private function start(){
-        //$this->controleur->includeScriptJS("back/script/triFiltre.js");
-        switch($this->action){
+    private function start()
+    {
+        switch ($this->action) {
             case 'lancement':
                 $this->controleur->verifConnexion();
                 break;
@@ -31,9 +33,10 @@ class ModEquipe {
                 $this->controleur->issuAjoutEquipe($codeRetour);
                 break;
         }
-    } 
+    }
 
-    public function afficheModule(){
+    public function afficheModule()
+    {
         return $this->controleur->affichage();
     }
 

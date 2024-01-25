@@ -219,3 +219,7 @@
 .boiteEquipe__submitButton:hover {
   background-color: #45a049; 
 }
+
+.message__equipe{
+  text-align: center;
+}

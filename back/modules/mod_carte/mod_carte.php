@@ -4,14 +4,16 @@ if (!defined("BASE_URL")) {
     die("il faut passer par l'index");
 }
 
-require_once "cont_carte.php" ;
+require_once "cont_carte.php";
 
-class ModCarte {
+class ModCarte
+{
 
     private $action;
     private $controlleur;
 
-    public function __construct(){
+    public function __construct()
+    {
 
         $this->controlleur = new ContCarte();
         $this->action = isset($_GET['action']) ? $_GET['action'] : 'bienvenue';
@@ -20,11 +22,12 @@ class ModCarte {
 
     }
 
-    private function start(){
+    private function start()
+    {
 
-        switch($this->action){
+        switch ($this->action) {
 
-            case'historique':
+            case 'historique':
                 $this->controlleur->afficheHistorique();
                 break;
             case 'carte':
@@ -34,7 +37,8 @@ class ModCarte {
         }
     }
 
-    public function afficheModule(){
+    public function afficheModule()
+    {
         return $this->controlleur->affichage();
     }
 

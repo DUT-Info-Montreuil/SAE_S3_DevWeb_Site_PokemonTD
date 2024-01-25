@@ -37,7 +37,7 @@
             <?php }else { ?>
                 <div id="profile">
                     <h4> <?php echo $_SESSION['pseudo'];?></h4>
-                    <a href="index.php?module=mod_connexion&action=deconnexion" >Deconexion</a>
+                    <a href="index.php?module=mod_connexion&action=deconnexion" >Déconnexion</a>
                 </div>
             <?php } ?>
     </div>
