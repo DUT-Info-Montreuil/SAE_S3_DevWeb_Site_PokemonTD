@@ -20,21 +20,12 @@ boutonsAjout.forEach(function (bouton) {
             currentSlot.querySelector("input").checked = true;
 
             //WIP 2/3 Ca a l'air de marcher
-            //console.log(currentSlot.querySelector("button"));
             currentSlot.querySelector("button").classList.remove("equipe_bouton_cache");
             currentSlot.querySelector("button").classList.add("equipe_bouton_visible");
 
-            // currentSlot.querySelector("p").classList.remove("equipe_bouton_cache");
-            // currentSlot.querySelector("p").classList.add("equipe_bouton_visible");
-
-
             cacherBoutonAjout(bouton.parentNode);
-            //miseAJourPlace();
-            //nombreDePlaceDisponible();
 
-            //A remettre
             if(nombreDePlaceDisponible() == 0){
-                console.log("YA PAS DE PLACEEEEEEEEEEEEEEEUH");
                 cacherTousBoutonsAjouts();
             }
         }
@@ -59,21 +50,9 @@ boutonsSuppresion.forEach(function (bouton) {
         //WIP 1/3 Ca a l'air de marcher
         currentSlot.querySelector("button").classList.add("equipe_bouton_cache");
         currentSlot.querySelector("button").classList.remove("equipe_bouton_visible");
-        //console.log(currentSlot.querySelector("button"));
-
-
-
-        //currentSlot.querySelector("button").classList.add("equipe_bouton_cache");
-        //currentSlot.querySelector("button").classList.remove("equipe_bouton_visible");
-
-        // currentSlot.querySelector("p").classList.add("equipe_bouton_cache");
-        // currentSlot.querySelector("p").classList.remove("equipe_bouton_visible");
-
 
         cacherBoutonSupprimer(bouton.parentNode);
-        //miseAJourPlace();
         if(nombreDePlaceDisponible() == 1){
-            console.log("On doit reafficher");
             afficheBoutonsAjoutsEligible();
         }
     });
@@ -92,18 +71,14 @@ boutonsSuppresionEquipe.forEach(function (bouton) {
         bouton.parentNode.querySelector("input").checked = false;
         bouton.parentNode.querySelector("input").value = "noPokemon";
 
-        //bouton.parentNode.querySelector("button").classList.remove("equipe_bouton_cache");
-        //bouton.parentNode.querySelector("button").classList.add("equipe_bouton_visible");
-
-        //console.log(bouton);
         bouton.classList.add("equipe_bouton_cache");
         bouton.classList.remove("equipe_bouton_visible");
 
-        //console.log(bouton);
-        //console.log(bouton.parentNode);
-
         cacherBoutonSupprimer(tour);
-        //miseAJourPlace();
+        
+        if(nombreDePlaceDisponible() == 1){
+            afficheBoutonsAjoutsEligible();
+        }
     });
 });
 
@@ -146,25 +121,20 @@ function canBeAdded($id) {
 
 function nombreDePlaceDisponible() {
     var allSlots = document.querySelectorAll(".boiteEquipe__form__container__slot");
-    //console.log(allSlots);
     nb = 0;
     for (var slot of allSlots) {
         
         if (slot.querySelector("input").value == "noPokemon") {
-            //console.log(slot.querySelector("input"));
             nb = nb + 1;
         }
     }
-    //console.log(nb);
     return nb;
 }
 
 function cacherTousBoutonsAjouts(){
     var allButtons = document.querySelectorAll(".boiteTour__pokemon__ajoutBouton");
     for (var button of allButtons) {
-        //console.log(button);
         if (!button.classList.contains("equipe_bouton_cache")) {
-            console.log(button);
             button.classList.remove("equipe_bouton_visible");
             button.classList.add("equipe_bouton_cache");
         }
@@ -174,42 +144,12 @@ function cacherTousBoutonsAjouts(){
 function afficheBoutonsAjoutsEligible(){
     var allButtons = document.querySelectorAll(".boiteTour__pokemon__ajoutBouton");
     for (var button of allButtons) {
-        //console.log(button.parentNode);
-        //console.log(button.parentNode.querySelector(".boiteTour__pokemon__nom").dataset.idTour)
         idTour = button.parentNode.querySelector(".boiteTour__pokemon__nom").dataset.idTour;
         if(canBeAdded(idTour)){
-            //console.log(button);
             button.classList.add("equipe_bouton_visible");
             button.classList.remove("equipe_bouton_cache");
         }
-        //console.log(idTour);
-        
-        //if()
-        /*
-        if (!button.classList.contains("equipe_bouton_cache")) {
-            console.log(button);
-            button.classList.remove("equipe_bouton_visible");
-            button.classList.add("equipe_bouton_cache");
-        }*/
     }
-}
-
-function miseAJourPlace(){
-    if(nombreDePlaceDisponible() == 0){
-        console.log("hello?");
-        var div = document.querySelectorAll(".boiteTour__pokemon");
-        for(d in div){
-            cacherBoutonAjout(d);
-        }
-    }/*else if(nombreDePlaceDisponible() == 2){
-        var div = document.querySelectorAll(".boiteTour__pokemon");
-        for(d in div){
-            if(canBeAdded(d.querySelector("p").dataset.idTour)){
-                //cacherBoutonSupprimer(d);
-            }
-            //cacherBoutonAjout(d);
-        }
-    }*/
 }
 
 function cacherBoutonSupprimer(div) {

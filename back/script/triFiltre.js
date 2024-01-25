@@ -46,15 +46,29 @@ $(document).ready(function () {
                     var btnAjout = div.querySelector(".boiteTour__pokemon__ajoutBouton");
 
                     if (estDansSlot(json.id_tour)) {
-                        btnAjout.classList.add("equipe_bouton_cache");
-                        btnAjout.classList.remove("equipe_bouton_visible");
+                        //On affiche le bouton supprimer
                         btnSupprimer.classList.remove("equipe_bouton_cache");
                         btnSupprimer.classList.add("equipe_bouton_visible");
+
+                        //On cache les boutons ajout
+                        //if(nombreDePlaceDisponible() > 0)
+                        btnAjout.classList.add("equipe_bouton_cache");
+                        btnAjout.classList.remove("equipe_bouton_visible");
                     } else {
+                        //Sinon pas dans slot 2 possibilites pas ou pas place
+
+                        //On cache supprimer dans tous les cas
                         btnSupprimer.classList.add("equipe_bouton_cache");
                         btnSupprimer.classList.remove("equipe_bouton_visible");
-                        btnAjout.classList.remove("equipe_bouton_cache");
-                        btnAjout.classList.add("equipe_bouton_visible");
+
+                        if(nombreDePlaceDisponible() > 0){
+                            btnAjout.classList.remove("equipe_bouton_cache");
+                            btnAjout.classList.add("equipe_bouton_visible");
+                        }else if(nombreDePlaceDisponible() == 0){
+                            btnAjout.classList.add("equipe_bouton_cache");
+                            btnAjout.classList.remove("equipe_bouton_visible");
+                        }
+                        
                     }
 
                 };
@@ -66,6 +80,18 @@ $(document).ready(function () {
 
     });
 });
+
+function nombreDePlaceDisponible() {
+    var allSlots = document.querySelectorAll(".boiteEquipe__form__container__slot");
+    nb = 0;
+    for (var slot of allSlots) {
+        
+        if (slot.querySelector("input").value == "noPokemon") {
+            nb = nb + 1;
+        }
+    }
+    return nb;
+}
 
 function estDansSlot($id) {
     var allSlots = document.querySelectorAll(".boiteEquipe__form__container__slot");

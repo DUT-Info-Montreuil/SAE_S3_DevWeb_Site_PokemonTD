@@ -56,7 +56,7 @@ class ContEquipe {
 
         //echo $tableau[0];
         $this->vue->equipeActuelle($equipeActuelle);
-        $this->vue->toursDisponibles($tableau);
+        $this->vue->toursDisponibles($tableau, count($equipeActuelle));
         //$this->vue->formulaireTour($tableau);$tableau
         //echo "<script src='back/script/scriptTest.js'></script>";
     }

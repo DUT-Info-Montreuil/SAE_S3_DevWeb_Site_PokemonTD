@@ -84,10 +84,18 @@ class VueEquipe extends VueGenerique {
 
     public function boitePokemonEquipe($nom, $lienImage, $idSlot, $isChecked, $idPokemon){
         echo "<div class='boiteEquipe__form__container__slot boiteEquipe__form__container__slot--{$idSlot}'>";
-        echo "<img src='{$lienImage}' alt={$lienImage}>";
-        echo "<p>{$nom}</p>";
+        echo "<img src='{$lienImage}' alt={$nom}>";
+
+        //echo "<p>{$nom}</p>";
         //Bouton pour supprimer
-        echo "<button class='boiteEquipe__form__container__slot__boutonSupprimer boiteEquipe__form__container__slot__boutonSupprimer--{$idSlot}'>Supprimer</button>";
+        if($idPokemon == 'noPokemon'){
+            echo "<p></p>";
+            echo "<button class='boiteEquipe__form__container__slot__boutonSupprimer boiteEquipe__form__container__slot__boutonSupprimer--{$idSlot} equipe_bouton_cache'>Supprimer</button>";
+        }else{
+            echo "<p>{$nom}</p>";
+            echo "<button class='boiteEquipe__form__container__slot__boutonSupprimer boiteEquipe__form__container__slot__boutonSupprimer--{$idSlot}'>Supprimer</button>";
+        }
+        //echo "<button class='boiteEquipe__form__container__slot__boutonSupprimer boiteEquipe__form__container__slot__boutonSupprimer--{$idSlot}'>Supprimer</button>";
         //Voir si classe au lieu de name
         if($isChecked == true){
             echo "<input type='checkbox' name=boiteEquipe__form__container__slot__input_{$idSlot} value={$idPokemon} checked hidden>";
@@ -98,8 +106,8 @@ class VueEquipe extends VueGenerique {
     }
 
 
-    public function toursDisponibles($tableau){
-        echo '<div class="boiteTour">';
+    public function toursDisponibles($tableau, $tailleEquipe){
+        echo "<div class='boiteTour'>";
         echo '<div class="boiteTour__tri">';
         
         echo '<div data-tri-Type="alphabetiqueAsc" class="boiteTour__tri_bouton boiteTour__tri_bouton--selected boiteTour__tri_bouton--alphabetiqueAsc"><i class="fa-solid fa-arrow-up-z-a"></i></div>';
@@ -122,8 +130,15 @@ class VueEquipe extends VueGenerique {
                 echo "<button class='boiteTour__pokemon__ajoutBouton equipe_bouton_cache'>Ajout</button>";
                 echo "<button class='boiteTour__pokemon__supprimerBouton'>Supprimer</button>";
             }else{
-                echo "<button class='boiteTour__pokemon__ajoutBouton'>Ajout</button>";
-                echo "<button class='boiteTour__pokemon__supprimerBouton equipe_bouton_cache'>Supprimer</button>";
+                if($tailleEquipe == 3){
+                    echo "<button class='boiteTour__pokemon__ajoutBouton equipe_bouton_cache'>Ajout</button>";
+                    echo "<button class='boiteTour__pokemon__supprimerBouton equipe_bouton_cache'>Supprimer</button>";
+                }else{
+                    echo "<button class='boiteTour__pokemon__ajoutBouton'>Ajout</button>";
+                    echo "<button class='boiteTour__pokemon__supprimerBouton equipe_bouton_cache'>Supprimer</button>";
+                }
+                // echo "<button class='boiteTour__pokemon__ajoutBouton'>Ajout</button>";
+                // echo "<button class='boiteTour__pokemon__supprimerBouton equipe_bouton_cache'>Supprimer</button>";
             }
             
             echo '</div>';
