@@ -40,9 +40,9 @@ class ContTrophees {
 
     public function ajouterTrophee(){
         if ($_SESSION['estConnecter'] && $_SESSION['moderateur']==1){
-            if (isset($_POST['name']) && isset($_POST['conditionObt'])&& isset($_FILES['logo']['tmp_name']) && isset($_POST['token']) && $_POST['token']==$_SESSION['token'] && $_POST['name'] != "" && $_POST['conditionObt'] != ""){
+            if (isset($_POST['name']) && isset($_POST['conditionObt'])&& isset($_FILES['logo']['tmp_name'])  && $_POST['name'] != "" && $_POST['conditionObt'] != ""){
 
-                if (time()- $_SESSION['tokenCreation']  <= 180) {
+                if ($this->modele->verifieToken()) {
                     $result = $this->modele->ajoutTrophee($_POST['name'],$_POST['conditionObt']);
                 
                     if ($result)                    

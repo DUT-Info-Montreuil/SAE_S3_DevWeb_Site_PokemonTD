@@ -32,4 +32,7 @@ class Connexion{
 
         return $string;
     }
+
+    protected function verifieToken(){return (time()- $_SESSION['tokenCreation']  <= 180 && isset($_POST['token']) && $_POST['token']==$_SESSION['token'] ); }
+
 }
