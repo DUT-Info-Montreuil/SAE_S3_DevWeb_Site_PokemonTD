@@ -1,0 +1,23 @@
+.img-detail-tour {
+    width: 150px;
+    height: auto;
+}
+
+.top{
+    display: flex;
+    align-items: center;
+}
+
+.top img{
+    margin-right: 10px;
+}
+
+.bot{
+    margin-top: 80px;
+    display: flex;
+}
+
+.bot a{
+    text-decoration: none;
+    padding: 20px;
+}

@@ -12,8 +12,18 @@ class VueBoutique extends VueGenerique {
         parent::__construct();
     }
 
-    public function boutique($tableau){
+    public function boutique($tableau,$solde,$token){
         require_once('./front/boutique/boutique.php');
+    }
+
+    public function afficheDetailTour($infoTour)
+    {
+        require_once('./front/boutique/infoTour.php');
+    }
+
+    public function afficheErreur($detail)
+    {
+        echo "<p class='messageErreur'>Erreur $detail</p>";
     }
 
 }

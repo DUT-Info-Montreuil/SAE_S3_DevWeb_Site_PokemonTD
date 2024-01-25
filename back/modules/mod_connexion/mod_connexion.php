@@ -24,9 +24,7 @@ class ModConnexion {
 
         switch($this->action){
 
-            case 'bienvenue':
-                echo"bienvenue";
-                break;
+            
             case 'lien_inscription':
                 $this->controlleur->lienInscription();
                 break;
@@ -38,6 +36,9 @@ class ModConnexion {
                 break;
             case 'connexion_compte':
                 $this->controlleur->connexionCompte();
+                break;
+            case 'deconnexion' :
+                $this->controlleur->deconnexion();
                 break;
         }
     }

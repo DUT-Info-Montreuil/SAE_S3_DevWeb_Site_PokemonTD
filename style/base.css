@@ -1,4 +1,6 @@
-
+*{
+    transition: 1s;
+}
 body{
     background-color: rgb(211, 233, 252);
 }
@@ -6,9 +8,7 @@ body{
 main{
     background-color: beige;
     width: 70%;
-    padding: 10px;
-    padding-left: 50px;
-    padding-bottom: 110px;
+    padding: 10px 10px 110px 50px;
     border-radius: 10px;
     margin-top: 75px;
     margin-left: auto;
@@ -54,4 +54,9 @@ main{
     text-decoration: none;
     font-size: 25px;
     width: auto;
+}
+
+.messageErreur{
+    color: red;
+    font-weight: bold;
 }

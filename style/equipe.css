@@ -1,0 +1,221 @@
+.boiteEquipe {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 3px dashed black;
+  border-radius: 20px;
+  padding: 5px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.boiteEquipe__titre{
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+
+.boiteEquipe__form{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.boiteEquipe__form__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+/*
+.boiteEquipe__form__container__slot {
+  border: 1px dashed blue;
+}*/
+
+.boiteTour {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid black;
+  border-radius: 25px;
+  margin-top: 10px;
+  padding: 13px;
+}
+
+.boiteTour__tri {
+  width: 300px;
+  /*border: 1px solid black;*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 3px solid #3498db;
+  padding: 4px;
+  margin-bottom: 5px;
+}
+
+.boiteTour__tri_bouton {
+  font-size: 25px;
+  /*
+  width: 50px;
+  height: 50px;
+  */
+
+  /*temp*/
+  
+  display: inline-block;
+  padding: 4px;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid #3498db;
+  color: #3498db;
+  background-color: #ffffff;
+  border-radius: 25px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.boiteTour__tri_bouton--selected{
+  color: #ffffff;
+  background-color:#3498db;
+}
+
+.boiteTour__tri_bouton:hover {
+  /*temp*/
+  background-color: #3498db;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/*boiteTour__tri_bouton--alphabetiqueAsc*/
+
+.boiteTour__contenu {
+  /*
+  border: 1px solid red;*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+/*
+.boiteTour__pokemon {
+  border: 1px dashed green;
+}*/
+
+
+.equipe_bouton_cache{
+  display: none !important;
+}
+
+.equipe_bouton_visible{
+  display: inline-block !important;
+}
+
+.equipe_bouton_hidden{
+  display: hidden !important;
+}
+
+.boiteEquipe__form__container__slot {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.boiteEquipe__form__container__slot img {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  background-color: #fff;
+  object-fit : scale-down;
+}
+
+.boiteEquipe__form__container__slot p {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.boiteEquipe__form__container__slot__boutonSupprimer {
+  background-color: #ff5c5c;
+  border-radius: 10px;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.boiteEquipe__form__container__slot__boutonSupprimer:hover {
+  background-color: #e04141;
+}
+
+.boiteTour__pokemon {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.boiteTour__pokemon img {
+  width: 100px; 
+  height: 100px; 
+  border-radius: 20px;
+  background-color: #fff;
+  object-fit : scale-down;
+}
+
+.boiteTour__pokemon__nom {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.boiteTour__pokemon__date {
+  margin-bottom: 10px;
+}
+
+.boiteTour__pokemon__ajoutBouton,
+.boiteTour__pokemon__supprimerBouton {
+  border-radius: 10px;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.boiteTour__pokemon__ajoutBouton
+{
+  background-color: #4CAF50;
+}
+
+.boiteTour__pokemon__supprimerBouton
+{
+  background-color: #ff5c5c;
+}
+
+.boiteTour__pokemon__ajoutBouton:hover {
+  background-color: #45a049;
+}
+
+.boiteTour__pokemon__supprimerBouton:hover {
+  background-color: #e04141;
+}
+
+.boiteEquipe__submitButton {
+  width: 130px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+}
+
+.boiteEquipe__submitButton:hover {
+  background-color: #45a049; 
+}

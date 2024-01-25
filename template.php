@@ -4,9 +4,16 @@
     <title>PokemonTD</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!--
+    <link rel="stylesheet" href="./style/all.min.css">
+-->
+
     <link rel="stylesheet" href="./style/base.css">
     <link rel="stylesheet" href="./style/boutique.css">
-</head>
+    <link rel="stylesheet" href="./style/equipe.css">
+
+    <script src="./back/script/jquery-3.7.1.min.js"></script>
 </head>
 
 <body>
@@ -22,25 +29,27 @@
             <h1>
                 POKEMON TD
             </h1>
-
-        <div id="profile">
-            <a href="index.php?module=mod_connexion&action=lien_connexion" >Connexion</a>
-            <a href="index.php?module=mod_connexion&action=lien_inscription" >Inscription</a>
-        </div>
+            <?php if(!$_SESSION['estConnecter']) {?>
+                <div id="profile">
+                    <a href="index.php?module=mod_connexion&action=lien_connexion" >Connexion</a>
+                    <a href="index.php?module=mod_connexion&action=lien_inscription" >Inscription</a>
+                </div>
+            <?php }else { ?>
+                <div id="profile">
+                    <h4> <?php echo $_SESSION['pseudo'];?></h4>
+                    <a href="index.php?module=mod_connexion&action=deconnexion" >Deconexion</a>
+                </div>
+            <?php } ?>
     </div>
 
         <div id="navbar">
             <a href="index.php?module=mod_equipe" class="navbarLink" >Equipe</a>
-            <a href="#" class="navbarLink" >Carte</a>
-            <a href="index.php?module=mod_boutique" class="navbarLink" >
-                Boutique
-            </a>
-            <a href="#" class="navbarLink" >Trophées</a>
+            <a href="index.php?module=mod_carte#carte" class="navbarLink" >Carte</a>
+            <a href="index.php?module=mod_boutique" class="navbarLink" > Boutique </a>
+            <a href="index.php?module=mod_trophees&action=afficheTrophees" class="navbarLink" >Trophées</a>
         </div>
 
     </header>
-
-    
     
     <main>
 

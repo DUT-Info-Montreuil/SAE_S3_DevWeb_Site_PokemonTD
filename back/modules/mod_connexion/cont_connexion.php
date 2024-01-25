@@ -1,5 +1,7 @@
 <?php
 
+use Random\RandomException;
+
 if (!defined("BASE_URL")) {
     die("il faut passer par l'index");
 }
@@ -18,9 +20,11 @@ class ContConnexion {
     }
 
 
-
+    /**
+     * @throws RandomException
+     */
     public function lienInscription(){
-        $tok= $this->modele->genereToken(20);
+        $tok= $this->modele->genereToken();
         $this->vue->formInscription($tok);
     }
 
@@ -52,8 +56,11 @@ class ContConnexion {
     }
 
 
+    /**
+     * @throws RandomException
+     */
     public function lienConnexion(){
-        $tok= $this->modele->genereToken(20);
+        $tok= $this->modele->genereToken();
         $this->vue->formConnexion($tok);
     }
 
@@ -63,9 +70,9 @@ class ContConnexion {
             // Le token est valide, traitement du formulaire
             if(time()-$_SESSION['tokenCreation']<180){
                 if( isset($_POST['password'], $_POST['submit'])){
-                                if ($this->modele->connexionUser()==-1) {
-                                    $this->vue->displayError(5);  // 
-                                }
+                    if ($this->modele->connexionUser()==-1) {
+                        $this->vue->displayError(5);  //
+                    }
 
                 }else{
                     $this->vue->displayError(2); //erreur dans les données du formulaire d'inscription
@@ -78,14 +85,13 @@ class ContConnexion {
         } else {
             $this->vue->displayError(4); // token non correspondant
         }
-
-//        echo "<meta http-equiv='refresh' content= '2;url=index.php'> <p>Vous allez être redirigé</p>";
-
-    
     }
+
+    public function deconnexion(){
+        $this->modele->deconnexion();
+    }
+
     public function affichage() {
         return $this->vue->getAffichage();
     }
-
 }
-?>
