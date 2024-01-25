@@ -14,30 +14,22 @@ class ModEquipe {
     public function __construct(){
 
         $this->controleur = new ContEquipe();
-        $this->action = isset($_GET['action']) ? $_GET['action'] : 'toursPossedees';
+        $this->action = isset($_GET['action']) ? $_GET['action'] : 'lancement';
 
         $this->start();
 
     }
 
     private function start(){
-        $this->controleur->includeScriptJS("back/script/triFiltre.js");
+        //$this->controleur->includeScriptJS("back/script/triFiltre.js");
         switch($this->action){
-/*
-            case 'bienvenue':
-                $this->controlleur->bienvenue();
-                break;*/
-            case 'javacriptTest':
-                $this->controleur->lancement(1);
-                break;
-            case 'toursPossedees':
-                $this->controleur->toursPossedees(1);
+            case 'lancement':
+                $this->controleur->verifConnexion();
                 break;
             case 'traitement_tour_equipe':
-                $this->controleur->traitement_ajout_equipe();
+                $codeRetour = $this->controleur->traitement_ajout_equipe();
+                $this->controleur->issuAjoutEquipe($codeRetour);
                 break;
-                
-            
         }
     } 
 

@@ -20,6 +20,7 @@ class ModeleEquipe extends Connexion {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+
     public function toursPossedees($idJoueur){
         $requete_prepare = Connexion::$bdd->prepare("SELECT * FROM TourPossedee INNER JOIN Tour USING(id_tour) WHERE id_joueur=? ORDER BY nom");
         $requete_prepare->bindParam(1, $idJoueur);
@@ -77,11 +78,16 @@ class ModeleEquipe extends Connexion {
         return $resultat;
     }
 
-    public function testGetData(){
-        return array(
-            'nom' => 'Zen',
-            'age' => 25
-        );
+    public function possedeTour($idJoueur, $idTour){
+        $requete_prepare = Connexion::$bdd->prepare("SELECT * FROM TourPossedee WHERE id_joueur=? AND id_tour=?");
+        $requete_prepare->bindParam(1, $idJoueur);
+        $requete_prepare->bindParam(2, $idTour);
+        $requete_prepare->execute();
+        $nbResultats = $requete_prepare->rowCount();
+        if($nbResultats > 0){
+            return true;
+        }
+        return false;
     }
 }
 

@@ -55,3 +55,8 @@ main{
     font-size: 25px;
     width: auto;
 }
+
+.messageErreur{
+    color: red;
+    font-weight: bold;
+}
