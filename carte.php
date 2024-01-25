@@ -4,8 +4,10 @@
     <title>PokemonTD</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/239660ff21.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style/base.css">
     <link rel="stylesheet" href="./style/carte/carte.css">
+
 </head>
 
 <body>
