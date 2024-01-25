@@ -6,14 +6,17 @@ if (!defined("BASE_URL")) {
 
 require_once './back/vue_generique.php';
 
-class VueEquipe extends VueGenerique {
+class VueEquipe extends VueGenerique
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
     }
 
-    public function afficheListe($tableauArray){
-        foreach($tableauArray as $array){
+    public function afficheListe($tableauArray)
+    {
+        foreach ($tableauArray as $array) {
             $nom = $array['nom'];
             $id = $array['id'];
             $link = "index.php?action=details&id={$id}&module=mod_equipes";
@@ -22,63 +25,150 @@ class VueEquipe extends VueGenerique {
         echo "<p><a href=index.php?module=mod_equipes>Retour</a></p>";
     }
 
-    public function afficheTours($tableau){
-        foreach($tableau as $array){
+    public function afficheTours($tableau)
+    {
+        foreach ($tableau as $array) {
             $id = $array['id_tour'];
             $date = $array['date_acquisition'];
             echo "<p>{$id}, date : {$date}</p>";
         }
-        //echo "<p><a href=index.php?module=mod_equipes>Retour</a></p>";
     }
 
-    public function formulaireTour($tableau){
+    /*
+    public function formulaireTour($tableau)
+    {
         echo '<form method="post" action="index.php?module=mod_equipe&action=traitement_tour_equipe">';
-        foreach($tableau as $array){
+        foreach ($tableau as $array) {
             $id = $array['id_tour'];
             $date = $array['date_acquisition'];
-            //echo "<p>{$id}, date : {$date}</p>";
+            $estDansEquipe = $array['estDansEquipe'];
             echo "<label for=tour_{$id}>Tour n:{$id}, date : {$date}</label>";
-            echo "<input type='checkbox' id=tour_{$id} name=tour_{$id} class=equipe_checkbox_tour>";
+            if ($estDansEquipe) {
+                echo "<input type='checkbox' name=tour_{$id} value={$id} class=equipe_checkbox_tour checked>";
+            } else {
+                echo "<input type='checkbox' name=tour_{$id} value={$id} class=equipe_checkbox_tour>";
+            }
 
         }
         echo '<input type="submit"/>';
         echo '</form>';
-        /*
-        echo "<script>
-        const el = document.querySelector('#tour_1');
-    el.addEventListener('click',() =>{
-        console.log('Tu as cliqué')
-    });
-        </script>";
-        */
         echo "<script src='back/script/tour_possedees.js'></script>";
+    }*/
 
+
+
+    public function equipeActuelle($tableauEquipe)
+    {
+        echo '<div class="boiteEquipe">';
+        //echo var_dump($_SESSION);
+        echo '<p class="boiteEquipe__titre">Équipe actuelle</p>';
+        echo '<form method="post" action="index.php?module=mod_equipe&action=traitement_tour_equipe" class="boiteEquipe__form">';
+        echo '<div class="boiteEquipe__form__container">';
+        for ($i = 0; $i < 3; $i++) {
+            if (isset($tableauEquipe[$i])) {
+                $this->boitePokemonEquipe($tableauEquipe[$i]['nom'], $tableauEquipe[$i]['src_image'], $i, true, $tableauEquipe[$i]['id_tour']);
+            } else {
+                $this->boitePokemonEquipe("placeholder", "ressources/pokemon/placeholder.png", $i, false, "noPokemon");
+            }
+        }
+        echo '</div>';
+        echo '<input type="submit" value="Sauvegarder" class="boiteEquipe__submitButton"/>';
+        echo '</form>';
+        echo '</div>';
     }
 
-    /*
-    <form action="#" method="post">
-    <label for="element1">Élément 1</label>
-    <input type="checkbox" id="element1" name="element1">
+    public function boitePokemonEquipe($nom, $lienImage, $idSlot, $isChecked, $idPokemon)
+    {
+        echo "<div class='boiteEquipe__form__container__slot boiteEquipe__form__container__slot--{$idSlot}'>";
+        echo "<img src='{$lienImage}' alt={$nom}>";
+        if ($idPokemon == 'noPokemon') {
+            echo "<p></p>";
+            echo "<button class='boiteEquipe__form__container__slot__boutonSupprimer boiteEquipe__form__container__slot__boutonSupprimer--{$idSlot} equipe_bouton_cache'>Supprimer</button>";
+        } else {
+            echo "<p>{$nom}</p>";
+            echo "<button class='boiteEquipe__form__container__slot__boutonSupprimer boiteEquipe__form__container__slot__boutonSupprimer--{$idSlot}'>Supprimer</button>";
+        }
+        if ($isChecked == true) {
+            echo "<input type='checkbox' name=boiteEquipe__form__container__slot__input_{$idSlot} value={$idPokemon} checked hidden>";
+        } else {
+            echo "<input type='checkbox' name=boiteEquipe__form__container__slot__input_{$idSlot} value={$idPokemon} hidden>";
+        }
+        echo '</div>';
+    }
 
-    <br>
 
-    <label for="element2">Élément 2</label>
-    <input type="checkbox" id="element2" name="element2">
+    public function toursDisponibles($tableau, $tailleEquipe)
+    {
+        echo "<div class='boiteTour'>";
+        echo '<div class="boiteTour__tri">';
 
-    <br>
+        echo '<div data-tri-Type="alphabetiqueAsc" class="boiteTour__tri_bouton boiteTour__tri_bouton--selected boiteTour__tri_bouton--alphabetiqueAsc"><i class="fa-solid fa-arrow-up-z-a"></i></div>';
+        echo '<div data-tri-Type="alphabetiqueDesc" class="boiteTour__tri_bouton boiteTour__tri_bouton--alphabetiqueDesc"><i class="fa-solid fa-arrow-down-z-a"></i></div>';
+        echo '<div data-tri-Type="dateAsc" class="boiteTour__tri_bouton boiteTour__tri_bouton--dateAsc"><i class="fa-solid fa-arrow-up-9-1"></i></div>';
+        echo '<div data-tri-Type="dateDesc" class="boiteTour__tri_bouton boiteTour__tri_bouton--dateDesc"><i class="fa-solid fa-arrow-down-9-1"></i></div>';
+        echo '</div>';
+        echo '<div class="boiteTour__contenu">';
+        foreach ($tableau as $array) {
+            $date_acquisition = new DateTime($array['date_acquisition']);
+            $date = $date_acquisition->format('d/m/Y');
 
-    <label for="element3">Élément 3</label>
-    <input type="checkbox" id="element3" name="element3">
+            echo '<div class="boiteTour__pokemon">';
 
-    <br>
+            echo "<img src='{$array['src_image']}' alt={$array['nom']}>";
+            echo "<p class='boiteTour__pokemon__nom' data-id-tour={$array['id_tour']}>{$array['nom']}</p>";
+            echo "<p class='boiteTour__pokemon__date'>Obtention : {$date}</p>";
+            if ($array['estDansEquipe'] == true) {
+                echo "<button class='boiteTour__pokemon__ajoutBouton equipe_bouton_cache'>Ajout</button>";
+                echo "<button class='boiteTour__pokemon__supprimerBouton'>Supprimer</button>";
+            } else {
+                if ($tailleEquipe == 3) {
+                    echo "<button class='boiteTour__pokemon__ajoutBouton equipe_bouton_cache'>Ajout</button>";
+                    echo "<button class='boiteTour__pokemon__supprimerBouton equipe_bouton_cache'>Supprimer</button>";
+                } else {
+                    echo "<button class='boiteTour__pokemon__ajoutBouton'>Ajout</button>";
+                    echo "<button class='boiteTour__pokemon__supprimerBouton equipe_bouton_cache'>Supprimer</button>";
+                }
+            }
 
-    <!-- Ajoute d'autres éléments de formulaire ici -->
+            echo '</div>';
+        }
+        echo '</div>';
+        echo '</div>';
 
-    <br>
+        echo "<script src='back/script/selectionEquipe.js'></script>";
+        echo "<script src='back/script/triEquipe.js'></script>";
+    }
 
-    <input type="submit" value="Soumettre">
-</form>     */
+    public function acceuilNonConnecte()
+    {
+        echo "<p>Vous devez être connecté</p>";
+    }
 
+    public function ajoutEquipeSucces($tab)
+    {
+        echo "<p>L'équipe a été ajouté avec succès!</p>";
+        //TODO Mettre l'équipe
+        $this->equipeActuelleConfirmation($tab);
+    }
+
+    private function equipeActuelleConfirmation($tableauEquipe)
+    {
+        echo '<div class="boiteEquipe">';
+        echo '<p class="boiteEquipe__titre">Équipe actuelle</p>';
+        echo '<div class="boiteEquipe__form">';
+        echo '<div class="boiteEquipe__form__container">';
+        for ($i = 0; $i < 3; $i++) {
+            if (isset($tableauEquipe[$i])) {
+                echo "<div class='boiteEquipe__form__container__slot'>";
+                echo "<img src='{$tableauEquipe[$i]['src_image']}' alt={$tableauEquipe[$i]['nom']}>";
+                echo "<p>{$tableauEquipe[$i]['nom']}</p>";
+                echo '</div>';
+            }
+        }
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+    }
 }
 
 
