@@ -44,7 +44,7 @@ class VueConnexion extends VueGenerique {
 
         <input type="hidden" name="token" value="'.$token.'">
 
-        <input type="submit" name="submit" value="S\'inscrire">
+        <input type="submit" name="submit" value="Connexion">
 
         </form>';
     }

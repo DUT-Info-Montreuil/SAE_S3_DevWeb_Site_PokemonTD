@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./style/base.css">
     <link rel="stylesheet" href="./style/boutique.css">
 </head>
-</head>
 
 <body>
 
@@ -22,23 +21,21 @@
             <h1>
                 POKEMON TD
             </h1>
-        <?php if ((!isset($_SESSION['pseudo']))) { ?>
-        <div id="profile">
-            <a href="index.php?module=mod_connexion&action=lien_connexion" >Connexion</a>
-            <a href="index.php?module=mod_connexion&action=lien_inscription" >Inscription</a>
-        </div><?php }else { ?>
-
-            <div id="profile">
-            <h4> <?php echo $_SESSION['pseudo'];?> </h4>
-            <a href="index.php?module=mod_connexion&action=deconnexion" class="navbarLink" >
-                Deconnexion
-            </a>
-            </div> <?php }?>
+            <?php if(!$_SESSION['estConnecter']) {?>
+                <div id="profile">
+                    <a href="index.php?module=mod_connexion&action=lien_connexion" >Connexion</a>
+                    <a href="index.php?module=mod_connexion&action=lien_inscription" >Inscription</a>
+                </div>
+            <?php }else { ?>
+                <div id="profile">
+                    <a href="index.php?module=mod_connexion&action=deconnexion" >Deconexion</a>
+                </div>
+            <?php } ?>
     </div>
 
         <div id="navbar">
             <a href="index.php?module=mod_equipe" class="navbarLink" >Equipe</a>
-            <a href="#" class="navbarLink" >Carte</a>
+            <a href="index.php?module=mod_carte#carte" class="navbarLink" >Carte</a>
             <a href="index.php?module=mod_boutique" class="navbarLink" >
                 Boutique
             </a>

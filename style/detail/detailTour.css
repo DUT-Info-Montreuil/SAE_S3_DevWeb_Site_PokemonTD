@@ -1,0 +1,13 @@
+.img-detail-tour {
+    width: 150px;
+    height: auto;
+}
+
+.top{
+    display: flex;
+    align-items: center;
+}
+
+.top img{
+    margin-right: 10px;
+}

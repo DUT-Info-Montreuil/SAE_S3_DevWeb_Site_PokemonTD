@@ -28,6 +28,12 @@ class ModBoutique {
             case 'afficheBoutique':
                 $this->controlleur->afficheBoutique();
                 break;
+            case 'achat':
+                $this->controlleur->achatTour();
+                break;
+            case 'detailTour' :
+                $this->controlleur->detailTour();
+                break;
         }
     }
 
