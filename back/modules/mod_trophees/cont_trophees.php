@@ -18,7 +18,7 @@ class ContTrophees {
     }
 
     public function erreur404(){
-        $this->vue->afficheErreur(404);
+        $this->vue->messageErreur(404);
     }
 
     public function afficheTrophees($poss){
@@ -28,7 +28,7 @@ class ContTrophees {
         if($troph !=-1){    
             $this->vue->afficheTrophees($troph,$poss);
         }else {
-            $this->vue->afficheErreur(1);
+            $this->vue->messageErreur(1);
         }
     }
 
@@ -45,22 +45,16 @@ class ContTrophees {
                 if (time()- $_SESSION['tokenCreation']  <= 180) {
                     $result = $this->modele->ajoutTrophee($_POST['name'],$_POST['conditionObt']);
                 
-                    if ($result){
-                        echo 'la competition ' . $_POST['name'] . ' a bien été ajouté !<br>';
-                        echo "allez dans l'onglet 'gerer comp' pour ajouter des nouveau matchs";
-                        echo '<meta http-equiv="refresh" content="2;url=admin.php"/>';
-                    }else{
-                        $this->vue->afficheErreur(3); // erreur de bd, contacter l'admin
+                    if ($result)                    
+                        $this->vue->messageErreur(3); // erreur de bd, contacter l'admin
                     }
                 }else{
-                    $this->vue->afficheErreur(5); // pb de token
+                    $this->vue->messageErreur(5); // pb de token
                 }
             }else{
-                $this->vue->afficheErreur(2); // remplir les champs
+                $this->vue->messageErreur(2); // remplir les champs
             }
         }
-    }
-
 
     public function affichage() {
         return $this->vue->getAffichage();
