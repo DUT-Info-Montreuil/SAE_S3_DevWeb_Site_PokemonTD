@@ -20,30 +20,32 @@
 
     <header>
 
-        <div id="topBar">
+        <div class="topBar">
 
             <a href="index.php">
                 <img src="./ressources/pikachu.webp" alt="acceuil">
             </a>
 
             <h1>
-                POKEMON TD
+                POKÉMON TD
             </h1>
             <?php if(!$_SESSION['estConnecter']) {?>
-                <div id="profile">
+                <div class="profile">
                     <a href="index.php?module=mod_connexion&action=lien_connexion" >Connexion</a>
                     <a href="index.php?module=mod_connexion&action=lien_inscription" >Inscription</a>
+                    <a href="index.php" >Accueil</a>
                 </div>
             <?php }else { ?>
-                <div id="profile">
-                    <h4> <?php echo $_SESSION['pseudo'];?></h4>
+                <div class="profile">
+                    <p class="profile__pseudo"> <?php echo $_SESSION['pseudo'];?></p>
                     <a href="index.php?module=mod_connexion&action=deconnexion" >Déconnexion</a>
+                    <a href="index.php" >Accueil</a>
                 </div>
             <?php } ?>
     </div>
 
-        <div id="navbar">
-            <a href="index.php?module=mod_equipe" class="navbarLink" >Equipe</a>
+        <div class="navbar">
+            <a href="index.php?module=mod_equipe" class="navbarLink" >Équipe</a>
             <a href="index.php?module=mod_carte#carte" class="navbarLink" >Carte</a>
             <a href="index.php?module=mod_boutique" class="navbarLink" > Boutique </a>
             <a href="index.php?module=mod_trophees&action=afficheTrophees" class="navbarLink" >Trophées</a>
@@ -67,9 +69,9 @@
 
     <footer>
         <div class="barreBleuCiel">
-            
+
         </div>
-        <div>Arsene, Benjamin, Zen</div>
+        <div class="nom">Arsene, Benjamin, Zen</div>
     </footer>
 </body>
 </html>
