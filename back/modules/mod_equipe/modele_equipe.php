@@ -14,15 +14,6 @@ class ModeleEquipe extends Connexion
 
     }
 
-    /*
-    private function executeQuery($stmt)
-    {
-
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }*/
-
-
     public function toursPossedees($idJoueur)
     {
         $requete_prepare = Connexion::$bdd->prepare("SELECT * FROM TourPossedee INNER JOIN Tour USING(id_tour) WHERE id_joueur=? ORDER BY nom");

@@ -60,3 +60,39 @@ main{
     color: red;
     font-weight: bold;
 }
+
+.containerAcceuil p{
+    text-align: justify;
+}
+
+.containerAcceuil__images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerAcceuil__images__block {
+    margin: 10px;
+}
+
+.containerAcceuil__images__block img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+}
+
+footer{
+    margin-top: 50px;
+    text-align: center;
+    height: 75px;
+    padding: 0px;
+    background-color: rgb(22, 127, 255);
+    border-radius: 20px 20px 0 0;
+}
+.barreBleuCiel{
+    height: 25px;
+    background-color: rgb(115, 176, 251);
+    border-radius: 20px 20px 0 0;
+}

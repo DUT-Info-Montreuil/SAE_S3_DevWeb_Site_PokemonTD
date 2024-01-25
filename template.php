@@ -65,7 +65,12 @@
 
     </main>
 
-    
+    <footer>
+        <div class="barreBleuCiel">
+            
+        </div>
+        <div>Arsene, Benjamin, Zen</div>
+    </footer>
 </body>
 </html>
 
