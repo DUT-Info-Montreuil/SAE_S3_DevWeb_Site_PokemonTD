@@ -46,11 +46,9 @@ class ModeleTrophees extends Connexion {
     }
 
     public function ajoutTrophee($nom,$cond){
-        echo $nom . " / " . $cond;
 
         $chemin= $this->gererLogo();
         if ($chemin == null){
-            echo "erreur";
             return 7; // probleme image
         }
 // ok jusque ici
@@ -96,7 +94,6 @@ class ModeleTrophees extends Connexion {
 
         // Déplacer le fichier téléchargé vers un répertoire sur le serveur
         if (!move_uploaded_file($temp_name, $destination)){
-            echo "Une erreur s'est produite lors du téléchargement de l'image.<br>";
             return null;
         }else
             return $destination;

@@ -27,7 +27,7 @@ class VueTrophees extends VueGenerique {
 public function afficheErreur($code){
         switch ($code) {
             case '1' :
-                echo 'Pas de Trophées existants';
+                echo '<p class=""></p>Pas de Trophées existants';
                 break;
             case '2' :
                 echo ' Remplissez tout les champs !';
