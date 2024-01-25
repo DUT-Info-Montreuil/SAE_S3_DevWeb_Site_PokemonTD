@@ -1,4 +1,7 @@
 <?php
+
+use Random\RandomException;
+
 class Connexion{
     protected static $bdd;
 
@@ -19,20 +22,23 @@ class Connexion{
         } 
     }
 
-    protected function genereToken($var)
+    /**
+     * @throws RandomException
+     */
+    public function genereToken(): string
     {
-        $string = "";
-        $chaine = "a0b1c2d3e4f5g6h7i8j9klmnpqrstuvwxy123456789";
-        srand((double)microtime()*1000000);
-        for($i=0; $i<$var; $i++){
-            $string .= $chaine[rand()%strlen($chaine)];
-        }
+        $string = bin2hex(random_bytes(32));
         $_SESSION['token'] = $string;
         $_SESSION['tokenCreation'] = time();
-
         return $string;
     }
 
-    protected function verifieToken(){return (time()- $_SESSION['tokenCreation']  <= 180 && isset($_POST['token']) && $_POST['token']==$_SESSION['token'] ); }
+    public function verifieToken($tokenAverifier): bool
+    {
+        $result = time() - $_SESSION['tokenCreation'] <= 180 && isset($tokenAverifier) && $tokenAverifier == $_SESSION['token'];
+        unset($_SESSION['token']);
+        unset($_SESSION['tokenCreation']);
+        return $result;
+    }
 
 }

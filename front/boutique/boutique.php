@@ -30,7 +30,7 @@
                     Details
                 </a>
                 <?php if($_SESSION['estConnecter']) {?>
-                    <a class="btn-achat" href="index.php?module=mod_boutique&action=achat&idTour=<?php echo $tuple["id_tour"]; ?>">
+                    <a class="btn-achat" href="index.php?module=mod_boutique&action=achat&idTour=<?php echo $tuple["id_tour"]; ?>&token=<?php echo $token; ?>">
                         Achat rapide
                     </a>
                 <?php }?>

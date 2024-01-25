@@ -1,5 +1,7 @@
 <?php
 
+use Random\RandomException;
+
 if (!defined("BASE_URL")) {
     die("il faut passer par l'index");
 }
@@ -33,8 +35,11 @@ class ContTrophees {
     }
 
 
+    /**
+     * @throws RandomException
+     */
     public function formAjoutTrophee(){
-        $tok= $this->modele->genereToken(20);
+        $tok= $this->modele->genereToken();
         $this->vue->formAjoutTrophee($tok);
     }
 
@@ -42,7 +47,7 @@ class ContTrophees {
         if ($_SESSION['estConnecter'] && $_SESSION['moderateur']==1){
             if (isset($_POST['name']) && isset($_POST['conditionObt'])&& isset($_FILES['logo']['tmp_name'])  && $_POST['name'] != "" && $_POST['conditionObt'] != ""){
 
-                if ($this->modele->verifieToken()) {
+                if ($this->modele->verifieToken($_POST['token'])) {
                     $result = $this->modele->ajoutTrophee($_POST['name'],$_POST['conditionObt']);
                 
                     if ($result)                    
