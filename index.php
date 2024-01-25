@@ -50,6 +50,7 @@ switch($module) {
         break;
     default:
         ob_start();
+        
         require_once('front/acceuil.html');
         $affichageModule = ob_get_clean();
         break;

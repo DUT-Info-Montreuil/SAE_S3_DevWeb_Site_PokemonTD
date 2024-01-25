@@ -78,22 +78,13 @@ class ContConnexion {
         } else {
             $this->vue->displayError(4); // token non correspondant
         }
-
     }
 
     public function deconnexion(){
         $this->modele->deconnexion();
     }
 
-
     public function affichage() {
         return $this->vue->getAffichage();
     }
-
-    public function deconnexion()
-    {
-        session_destroy();
-        header('Location: index.php?');
-    }
-
 }

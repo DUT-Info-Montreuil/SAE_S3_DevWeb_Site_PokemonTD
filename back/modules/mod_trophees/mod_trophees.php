@@ -30,8 +30,11 @@ class ModTrophees {
             case 'afficheTropheesObtenus' :
                 $this->controlleur->afficheTrophees(1);
                 break;
-            case 'ajoutTrophee' :
-                $this->controlleur->ajoutTrophee();
+            case 'formAjoutTrophee' :
+                $this->controlleur->formAjoutTrophee();
+                break;
+            case 'ajouterTrophee' :
+                $this->controlleur->ajouterTrophee();
                 break;
             default :
              $this->controlleur->erreur404();

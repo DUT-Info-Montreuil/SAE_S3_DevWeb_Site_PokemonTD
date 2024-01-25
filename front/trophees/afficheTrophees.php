@@ -3,13 +3,13 @@
 </div>
 
 <?php
-    if (!empty($_SESSION['moderateur']) && $poss ==0) { ?>
+    if ($_SESSION['estConnecter'] && $poss ==0) { ?>
         <a href="index.php?module=mod_trophees&action=afficheTropheesObtenus" class="bouton_lien" >Vos Trophées</a>
         <p>Visionnez ici tous les trophées existants</p>
-   <?php }elseif($poss == 1){ ?>  
-        <a href="index.php?module=mod_trophees&action=afficheTrophees" class="bouton_lien" >Tous les Trophées</a>
-        <p> Vos Trophées obtenus :</p>
-   <?php } 
+    <?php }elseif($poss == 1){ ?>  
+            <a href="index.php?module=mod_trophees&action=afficheTrophees" class="bouton_lien" >Tous les Trophées</a>
+            <p> Vos Trophées obtenus :</p>
+    <?php } 
 
     if( $trophees == -2){?>
 
@@ -37,12 +37,13 @@
                     </div>
                 <?php } ?>
             </div>
-
    <?php }
-    if (!empty($_SESSION['moderateur'])) {
-        if($_SESSION['moderateur']==1){?>
 
-            <a href="index.php?module=mod_trophees&action=ajoutTrophee" class="bouton_lien" >Ajouter des Trophées</a>
+
+    if ($_SESSION['estConnecter']) {
+        if(!empty($_SESSION['moderateur']) && $_SESSION['moderateur']==1){?>
+
+            <a href="index.php?module=mod_trophees&action=formAjoutTrophee" class="bouton_lien" >Ajouter des Trophées</a>
 
 
       <?php  }

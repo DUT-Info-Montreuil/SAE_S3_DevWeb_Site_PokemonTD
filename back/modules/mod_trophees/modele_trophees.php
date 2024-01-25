@@ -24,8 +24,9 @@ class ModeleTrophees extends Connexion {
     }
 
     public function recupereTrophees($poss){
-        if ($poss == 0) {
+        if ($poss == 0 ) {
             $query ="SELECT * from Trophee";
+            
         }elseif ($poss == 1) {
             $query ="SELECT * from Trophee T INNER JOIN TropheeObtenu TOb ON T.id_trophee= TOb.id_trophee where id_joueur=". $_SESSION['id_joueur'];
         }else{
@@ -43,6 +44,76 @@ class ModeleTrophees extends Connexion {
         }
         
     }
+
+    public function ajoutTrophee($nom,$cond){
+        echo $nom . " / " . $cond;
+
+        $chemin= $this->gererLogo();
+        if ($chemin == null){
+            echo "erreur";
+            return 7; // probleme image
+        }
+// ok jusque ici
+        try{
+            $stmt = Connexion::$bdd->prepare("SELECT nom FROM Trophee WHERE nom = '" . $nom . "'");
+            $res=$this->executeQuery($stmt);
+        }catch (PDOException $e) {
+            var_dump($e);
+            return false;
+        }   
+
+        if(count($res)==0){
+            try{
+                $query = "
+                INSERT INTO Trophee (nom, condition_obtention, src_image)
+                VALUES ('$nom','$cond','$chemin')
+                ";
+                $stmt = Connexion::$bdd->prepare($query);
+                $stmt->execute();
+            }catch (PDOException $e) {
+                echo "<script>console.log('erreur: $e');</script>";
+                return false;
+            }      
+        }else{
+            return 6; // Un trophée porte déja ce nom.. 
+
+
+        }
+
+    }
+
+    public function gererLogo()
+    {
+        $taille = strlen(basename($_FILES["logo"]["name"]));
+
+        $taille> 20 ?
+            $nom = substr(basename($_FILES["logo"]["name"]), -20) :
+            $nom = basename($_FILES["logo"]["name"]);
+
+        $temp_name = $_FILES["logo"]["tmp_name"];
+        $destination = "./ressources/trophee/$nom";
+        
+
+        // Déplacer le fichier téléchargé vers un répertoire sur le serveur
+        if (!move_uploaded_file($temp_name, $destination)){
+            echo "Une erreur s'est produite lors du téléchargement de l'image.<br>";
+            return null;
+        }else
+            return $destination;
+    }
+
+    public function genereToken($var){
+        $string = "";
+        $chaine = "a0b1c2d3e4f5g6h7i8j9klmnpqrstuvwxy123456789";
+        srand((double)microtime()*1000000);
+        for($i=0; $i<$var; $i++){
+            $string .= $chaine[rand()%strlen($chaine)];
+        }
+        $_SESSION['token'] = $string;
+        $_SESSION['tokenCreation'] = time();
+
+        return $string;
+}
 }
 
 

@@ -36,10 +36,8 @@
     <div id="navbar">
         <a href="index.php?module=mod_equipe" class="navbarLink" >Equipe</a>
         <a href="index.php?module=mod_carte#carte" class="navbarLink" >Carte</a>
-        <a href="index.php?module=mod_boutique" class="navbarLink" >
-            Boutique
-        </a>
-        <a href="#" class="navbarLink" >Trophées</a>
+        <a href="index.php?module=mod_boutique" class="navbarLink" >Boutique</a>
+        <a href="index.php?module=mod_trophees&action=afficheTrophees" class="navbarLink" >Trophées</a>
     </div>
 
 </header>
