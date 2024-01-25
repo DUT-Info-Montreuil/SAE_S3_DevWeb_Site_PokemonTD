@@ -55,28 +55,41 @@ class ModeleBoutique extends Connexion{
 
     public function getSolde($idJoueur)
     {
+        $gain = $this->getGain($idJoueur);
+        $perte = $this->getPerte($idJoueur);
+        return ($gain - $perte);
+    }
+
+    public function getPerte($idJoueur)
+    {
+        try {
+            $query = "
+            SELECT sum(cout) as perte
+            FROM dutinfopw201618.TourPossedee TP
+            INNER JOIN dutinfopw201618.Tour T ON TP.id_tour = T.id_tour
+            WHERE TP.id_joueur = $idJoueur
+            ";
+            $stmt = Connexion::$bdd->prepare($query);
+            $perte = $this->executeQuery($stmt);
+            return isset($perte[0]['perte']) ? $perte[0]['perte'] : 0;
+        } catch (PDOException $e) {
+            echo "<script>console.log('erreur:" . $e ."');</script>";
+            return -1;
+        }
+    }
+
+    public function getGain($idJoueur)
+    {
         try {
             $query = "
             SELECT sum(gain) as argentGagne
-            FROM Historique 
-            NATURAL JOIN NiveauJouable 
+            FROM dutinfopw201618.Historique 
+            NATURAL JOIN dutinfopw201618.NiveauJouable 
             WHERE id_joueur = $idJoueur 
             ";
             $stmt = Connexion::$bdd->prepare($query);
             $gain = $this->executeQuery($stmt);
-            $gain = isset($gain[0]['argentGagne']) ? $gain[0]['argentGagne'] : 0;
-
-            $query = "
-            SELECT sum(Tour.cout) as perte
-            FROM TourPossedee
-            NATURAL JOIN Tour
-            WHERE id_joueur = $idJoueur
-            ";
-            $stmt = Connexion::$bdd->prepare($query);
-            $perte = $this->executeQuery($stmt)[0]['perte'];
-            $perte = isset($perte[0]['perte']) ? $perte[0]['perte'] : 0;
-
-            return $gain - $perte;
+            return isset($gain[0]['argentGagne']) ? $gain[0]['argentGagne'] : 0;
         } catch (PDOException $e) {
             echo "<script>console.log('erreur:" . $e ."');</script>";
             return -1;

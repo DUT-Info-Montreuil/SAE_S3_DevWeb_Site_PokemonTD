@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="./style/detail/detailTour.css">
+<link rel="stylesheet" href="./style/boutique/detail/detailTour.css">
 <div class="top">
     <img class="img-detail-tour" src="<?php echo $infoTour['src_image']; ?>" alt="image de <?php echo $infoTour['nom']; ?>">
     <h2>
@@ -50,17 +50,19 @@
         </div>
     <?php } ?>
 
-    <div class="retour-boutique">
-        <a href="index.php?module=mod_boutique">
-            Retour a la boutique
-        </a>
-    </div>
-
-    <?php if($_SESSION['estConnecter']) {?>
-        <div class="acheter-btn">
-            <a href="index.php?module=mod_boutique&action=achat&idTour=<?php echo $tuple["id_tour"]; ?>">
-                Achetez
+    <div class="bot">
+        <div class="retour-boutique">
+            <a href="index.php?module=mod_boutique">
+                Retour a la boutique
             </a>
         </div>
-    <?php } ?>
+
+        <?php if($_SESSION['estConnecter']) {?>
+            <div class="acheter-btn">
+                <a href="index.php?module=mod_boutique&action=achat&idTour=<?php echo $tuple["id_tour"]; ?>">
+                    Achetez
+                </a>
+            </div>
+        <?php } ?>
+    </div>
 </div>
