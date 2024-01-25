@@ -1,0 +1,14 @@
+{
+  "name": "sae_s3_devweb_site_pokemontd",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhak5388/SAE_S3_DevWeb_Site_PokemonTD.git"
+  },
+  "private": true
+}
