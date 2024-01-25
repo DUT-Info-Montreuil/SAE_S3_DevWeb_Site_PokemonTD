@@ -19,7 +19,8 @@ class Connexion{
         } 
     }
 
-    protected function genereToken($var){
+    protected function genereToken($var)
+    {
         $string = "";
         $chaine = "a0b1c2d3e4f5g6h7i8j9klmnpqrstuvwxy123456789";
         srand((double)microtime()*1000000);
@@ -30,5 +31,5 @@ class Connexion{
         $_SESSION['tokenCreation'] = time();
 
         return $string;
-}
+    }
 }

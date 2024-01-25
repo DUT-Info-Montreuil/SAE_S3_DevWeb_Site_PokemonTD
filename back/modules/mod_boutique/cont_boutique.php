@@ -42,7 +42,7 @@ class ContBoutique {
             $idTour = $_GET['idTour'];
             $res = $this->modele->achatTour($idTour,$_SESSION['id_joueur']);
             if ($res == -1)
-                echo "<p>erreur insertion</p>";
+                $this->vue->afficheErreur("insertion");
             else
                 header('Location: index.php?module=mod_boutique');
         }
@@ -57,7 +57,7 @@ class ContBoutique {
             if ($infoTour != -1)
                 $this->vue->afficheDetailTour($infoTour);
             else
-                echo "<p>Erreur</p>";
+                $this->vue->afficheErreur("");
         }
     }
 

@@ -21,4 +21,9 @@ class VueBoutique extends VueGenerique {
         require_once('./front/boutique/infoTour.php');
     }
 
+    public function afficheErreur($detail)
+    {
+        echo "<p class='messageErreur'>Erreur $detail</p>";
+    }
+
 }
