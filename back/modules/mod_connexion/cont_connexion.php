@@ -1,5 +1,7 @@
 <?php
 
+use Random\RandomException;
+
 if (!defined("BASE_URL")) {
     die("il faut passer par l'index");
 }
@@ -18,9 +20,11 @@ class ContConnexion {
     }
 
 
-
+    /**
+     * @throws RandomException
+     */
     public function lienInscription(){
-        $tok= $this->modele->genereToken(20);
+        $tok= $this->modele->genereToken();
         $this->vue->formInscription($tok);
     }
 
@@ -52,8 +56,11 @@ class ContConnexion {
     }
 
 
+    /**
+     * @throws RandomException
+     */
     public function lienConnexion(){
-        $tok= $this->modele->genereToken(20);
+        $tok= $this->modele->genereToken();
         $this->vue->formConnexion($tok);
     }
 
