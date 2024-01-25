@@ -4,7 +4,6 @@ $(document).ready(function () {
     $(".boiteTour__tri_bouton").click(function (event) {
         var typeDeTri = event.currentTarget.dataset.triType;
 
-        //boiteTour__tri_bouton boiteTour__tri_bouton--alphabetiqueAsc
         resetTriCss();
         event.currentTarget.classList.add("boiteTour__tri_bouton--selected");
         
@@ -51,12 +50,10 @@ $(document).ready(function () {
                         btnSupprimer.classList.add("equipe_bouton_visible");
 
                         //On cache les boutons ajout
-                        //if(nombreDePlaceDisponible() > 0)
                         btnAjout.classList.add("equipe_bouton_cache");
                         btnAjout.classList.remove("equipe_bouton_visible");
                     } else {
                         //Sinon pas dans slot 2 possibilites pas ou pas place
-
                         //On cache supprimer dans tous les cas
                         btnSupprimer.classList.add("equipe_bouton_cache");
                         btnSupprimer.classList.remove("equipe_bouton_visible");

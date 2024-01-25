@@ -19,7 +19,6 @@ boutonsAjout.forEach(function (bouton) {
             currentSlot.querySelector("input").value = idTourSelectionne;
             currentSlot.querySelector("input").checked = true;
 
-            //WIP 2/3 Ca a l'air de marcher
             currentSlot.querySelector("button").classList.remove("equipe_bouton_cache");
             currentSlot.querySelector("button").classList.add("equipe_bouton_visible");
 
@@ -47,7 +46,6 @@ boutonsSuppresion.forEach(function (bouton) {
         currentSlot.querySelector("input").checked = false;
         currentSlot.querySelector("input").value = "noPokemon";
 
-        //WIP 1/3 Ca a l'air de marcher
         currentSlot.querySelector("button").classList.add("equipe_bouton_cache");
         currentSlot.querySelector("button").classList.remove("equipe_bouton_visible");
 

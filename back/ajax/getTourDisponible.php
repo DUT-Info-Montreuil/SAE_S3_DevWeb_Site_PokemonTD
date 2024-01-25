@@ -2,6 +2,7 @@
 require_once 'modele_ajax.php';
 Connexion::initConnexion();
 
+
 $modele = new Modele();
 $donnees = $modele->toursPossedees(1);
 
