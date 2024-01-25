@@ -50,8 +50,6 @@
         </div>
 
     </header>
-
-    
     
     <main>
 
