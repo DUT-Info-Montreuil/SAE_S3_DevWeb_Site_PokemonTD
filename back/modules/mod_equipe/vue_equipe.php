@@ -141,20 +141,41 @@ class VueEquipe extends VueGenerique
 
     public function acceuilNonConnecte()
     {
-        echo "<p>Vous devez être connecté</p>";
+        echo "<p>Vous devez être <a href='index.php?module=mod_connexion&action=lien_connexion'>connecté</a> pour pouvoir créer votre équipe!</p>";
+
+        $sample = array(
+            array(
+                "nom" => "poussifeu",
+                "src_image" => "ressources/pokemon/poussifeu.png"
+            ),
+            array(
+                "nom" => "granivol",
+                "src_image" => "ressources/pokemon/granivol.png"
+            ),
+            array(
+                "nom" => "nidoran",
+                "src_image" => "ressources/pokemon/nidoran.png"
+            )
+        );
+
+        $this->equipeActuelleConfirmation($sample, "Exemple d'équipe");
+
+        //echo var_dump($data);
+
     }
 
     public function ajoutEquipeSucces($tab)
     {
         echo "<p>L'équipe a été ajouté avec succès!</p>";
         //TODO Mettre l'équipe
-        $this->equipeActuelleConfirmation($tab);
+        //echo var_dump($tab);
+        $this->equipeActuelleConfirmation($tab, "Équipe Actuelle");
     }
 
-    private function equipeActuelleConfirmation($tableauEquipe)
+    private function equipeActuelleConfirmation($tableauEquipe, $titre)
     {
         echo '<div class="boiteEquipe">';
-        echo '<p class="boiteEquipe__titre">Équipe actuelle</p>';
+        echo "<p class='boiteEquipe__titre'>{$titre}</p>";
         echo '<div class="boiteEquipe__form">';
         echo '<div class="boiteEquipe__form__container">';
         for ($i = 0; $i < 3; $i++) {
