@@ -6,22 +6,24 @@ if (!defined("BASE_URL")) {
 
 require_once './connexion.php';
 
-class ModeleBoutique extends Connexion{
+class ModeleBoutique extends Connexion
+{
 
-    public function __construct() {
+    public function __construct()
+    {
 
     }
 
 
-    private function executeQuery($stmt) {
+    private function executeQuery($stmt)
+    {
 
         $stmt->execute();
-
-        // Récupérez les résultats sous forme d'un tableau associatif
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function recupereTours() {
+    public function recupereTours()
+    {
         try {
             $query = "
             SELECT id_tour,nom,cout,src_image FROM Tour 
@@ -30,12 +32,13 @@ class ModeleBoutique extends Connexion{
             return $this->executeQuery($stmt);
 
         } catch (PDOException $e) {
-            echo "<script>console.log('erreur:" . $e ."');</script>";
+            echo "<script>console.log('erreur:" . $e . "');</script>";
             return $e;
         }
     }
 
-    public function recupereToursSelonJoueur($idJoueur) {
+    public function recupereToursSelonJoueur($idJoueur)
+    {
         try {
             $query = "
             SELECT id_tour,nom,cout,src_image FROM Tour 
@@ -48,7 +51,7 @@ class ModeleBoutique extends Connexion{
             return $this->executeQuery($stmt);
 
         } catch (PDOException $e) {
-            echo "<script>console.log('erreur:" . $e ."');</script>";
+            echo "<script>console.log('erreur:" . $e . "');</script>";
             return $e;
         }
     }
@@ -73,7 +76,7 @@ class ModeleBoutique extends Connexion{
             $perte = $this->executeQuery($stmt);
             return isset($perte[0]['perte']) ? $perte[0]['perte'] : 0;
         } catch (PDOException $e) {
-            echo "<script>console.log('erreur:" . $e ."');</script>";
+            echo "<script>console.log('erreur:" . $e . "');</script>";
             return -1;
         }
     }
@@ -91,7 +94,7 @@ class ModeleBoutique extends Connexion{
             $gain = $this->executeQuery($stmt);
             return isset($gain[0]['argentGagne']) ? $gain[0]['argentGagne'] : 0;
         } catch (PDOException $e) {
-            echo "<script>console.log('erreur:" . $e ."');</script>";
+            echo "<script>console.log('erreur:" . $e . "');</script>";
             return -1;
         }
     }

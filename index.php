@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 session_start();
 
 
@@ -50,7 +47,6 @@ switch($module) {
         break;
     default:
         ob_start();
-        
         require_once('front/acceuil.html');
         $affichageModule = ob_get_clean();
         break;

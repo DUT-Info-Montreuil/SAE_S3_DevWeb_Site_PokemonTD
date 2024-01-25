@@ -64,9 +64,8 @@ class ModeleConnexion extends Connexion {
 
     public function deconnexion(){
         session_destroy();
-        echo '<script type ="text/javascript"> history.go(-1);</script>;';
-
-
+        header("Location: ./index.php");
+        //echo '<script type ="text/javascript"> history.go(-1);</script>;';
     }
 
     
@@ -75,8 +74,6 @@ class ModeleConnexion extends Connexion {
     private function executeQuery($stmt) {
 
         $stmt->execute();
-
-        // Récupérez les résultats sous forme d'un tableau associatif
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
