@@ -30,6 +30,7 @@ class ModeleCarte extends Connexion {
             FROM dutinfopw201618.Historique H
             INNER JOIN dutinfopw201618.NiveauJouable NJ ON H.id_niveau = NJ.id_niveau
             INNER JOIN dutinfopw201618.Carte C ON C.id_carte = NJ.id_carte 
+            WHERE id_joueur = $id_joueur
             ";
             $stmt = Connexion::$bdd->prepare($query);
             return $this->executeQuery($stmt);
@@ -43,7 +44,7 @@ class ModeleCarte extends Connexion {
     {
         try {
             $query = "
-            SELECT H.a_gagne,H.date_jeu,C.nom,C.src_image
+            SELECT H.a_gagne,H.date_jeu,N.gain,N.difficulte_etoile
             FROM dutinfopw201618.Historique H
             INNER JOIN dutinfopw201618.NiveauJouable N ON H.id_niveau = N.id_niveau
             INNER JOIN dutinfopw201618.Carte C on N.id_carte = C.id_carte
@@ -66,7 +67,7 @@ class ModeleCarte extends Connexion {
             WHERE C.id_carte = $idCarte
             ";
             $stmt = Connexion::$bdd->prepare($query);
-            return $this->executeQuery($stmt);
+            return $this->executeQuery($stmt)[0];
         } catch (PDOException $e) {
             echo $e;
             return -1;

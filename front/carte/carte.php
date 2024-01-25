@@ -14,10 +14,18 @@
                         "</script>";
                     break;
                 case 'Frimapic':
-                    echo "<script src='./back/script/Carte/activeCarteFrimapic.js'></script>";
+                    echo "<script>" .
+                        "document.querySelector('#item2').click();" .
+                        "document.querySelector('#carteNiveau2').innerHTML += " .
+                        " \"<a class='Historique-btn' href='index.php?module=mod_carte&action=historique&idCarte=$niveau[id_carte]'>Historique</a>\"; " .
+                        "</script>";
                     break;
                 case 'Carmin sur Mer':
-                    echo "<script src='./back/script/Carte/activeCarteCarmin.js'></script>";
+                    echo "<script>" .
+                        "document.querySelector('#item1').click();" .
+                        "document.querySelector('#carteNiveau3').innerHTML += " .
+                        " \"<a class='Historique-btn' href='index.php?module=mod_carte&action=historique&idCarte=$niveau[id_carte]'>Historique</a>\"; " .
+                        "</script>";
                     break;
             }
         }
