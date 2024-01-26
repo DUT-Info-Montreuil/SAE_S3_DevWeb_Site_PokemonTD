@@ -7,6 +7,7 @@
     <script src="https://kit.fontawesome.com/239660ff21.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style/base.css">
     <link rel="stylesheet" href="./style/carte/carte.css">
+    <link rel="stylesheet" href="./style/testFond.css">
     <script src="./back/script/jquery-3.7.1.min.js"></script>
 
 </head>
@@ -48,6 +49,35 @@
 
 </header>
 
+<div class="background">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
 
 
 <main>

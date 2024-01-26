@@ -79,16 +79,18 @@
 }
 
 .image{
-    max-width: 50px;
-    max-height: 50px;
+    max-width: 80px;
+    max-height: 80px;
+    filter: drop-shadow(4px 6px 4px green);
 }
 
 .coutBoutique {
     font-size: 13px;
+    height: 20px;
     padding: 3px;
     min-width: 25px;
     max-width: 150px;
-    margin-right: 5px;
+    margin-left: 5px;
     text-align: center;
     border: rgb(94, 94, 255) ridge 1px;
     border-radius: 10px;

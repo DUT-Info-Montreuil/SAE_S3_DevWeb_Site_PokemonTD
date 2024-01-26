@@ -24,25 +24,23 @@
         <div class="topBar">
 
             <a href="index.php">
-                <img src="./ressources/pikachu.webp" alt="acceuil">
+                <img src="./ressources/pikachu.webp" alt="acceuil" class="pikachuLogo">
             </a>
 
             <h1>
                 POKÉMON TD
             </h1>
-            <?php if(!$_SESSION['estConnecter']) {?>
-                <div class="profile">
-                    <a href="index.php?module=mod_connexion&action=lien_connexion" >Connexion</a>
-                    <a href="index.php?module=mod_connexion&action=lien_inscription" >Inscription</a>
-                    <a href="index.php" >Accueil</a>
-                </div>
-            <?php }else { ?>
-                <div class="profile">
-                    <p class="profile__pseudo"> <?php echo $_SESSION['pseudo'];?></p>
-                    <a href="index.php?module=mod_connexion&action=deconnexion" >Déconnexion</a>
-                    <a href="index.php" >Accueil</a>
-                </div>
-            <?php } ?>
+
+            <div class="profile">
+                <?php if(!$_SESSION['estConnecter']) {?>
+                    <a href="index.php?module=mod_connexion&action=lien_connexion" class="change-survol">Connexion</a>
+                    <a href="index.php?module=mod_connexion&action=lien_inscription" class="change-survol">Inscription</a>
+                <?php }else { ?>
+                    <p class="profile__pseudo"> <?php echo htmlentities($_SESSION['pseudo']); ?></p>
+                    <a href="index.php?module=mod_connexion&action=deconnexion" class="change-survol">Déconnexion</a>
+                <?php } ?>
+                <a href="index.php" class="change-survol">Accueil</a>
+            </div>
     </div>
 
         <div class="navbar">
