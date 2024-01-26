@@ -14,7 +14,7 @@ class VueEquipe extends VueGenerique
         parent::__construct();
     }
 
-    public function afficheListe($tableauArray)
+    public function afficheListe($tableauArray): void
     {
         foreach ($tableauArray as $array) {
             $nom = $array['nom'];
@@ -25,7 +25,7 @@ class VueEquipe extends VueGenerique
         echo "<p><a href=index.php?module=mod_equipes>Retour</a></p>";
     }
 
-    public function afficheTours($tableau)
+    public function afficheTours($tableau): void
     {
         foreach ($tableau as $array) {
             $id = $array['id_tour'];
@@ -34,33 +34,10 @@ class VueEquipe extends VueGenerique
         }
     }
 
-    /*
-    public function formulaireTour($tableau)
-    {
-        echo '<form method="post" action="index.php?module=mod_equipe&action=traitement_tour_equipe">';
-        foreach ($tableau as $array) {
-            $id = $array['id_tour'];
-            $date = $array['date_acquisition'];
-            $estDansEquipe = $array['estDansEquipe'];
-            echo "<label for=tour_{$id}>Tour n:{$id}, date : {$date}</label>";
-            if ($estDansEquipe) {
-                echo "<input type='checkbox' name=tour_{$id} value={$id} class=equipe_checkbox_tour checked>";
-            } else {
-                echo "<input type='checkbox' name=tour_{$id} value={$id} class=equipe_checkbox_tour>";
-            }
 
-        }
-        echo '<input type="submit"/>';
-        echo '</form>';
-        echo "<script src='back/script/tour_possedees.js'></script>";
-    }*/
-
-
-
-    public function equipeActuelle($tableauEquipe)
+    public function equipeActuelle($tableauEquipe): void
     {
         echo '<div class="boiteEquipe">';
-        //echo var_dump($_SESSION);
         echo '<p class="boiteEquipe__titre">Équipe actuelle</p>';
         echo '<form method="post" action="index.php?module=mod_equipe&action=traitement_tour_equipe" class="boiteEquipe__form">';
         echo '<div class="boiteEquipe__form__container">';
@@ -77,7 +54,7 @@ class VueEquipe extends VueGenerique
         echo '</div>';
     }
 
-    public function boitePokemonEquipe($nom, $lienImage, $idSlot, $isChecked, $idPokemon)
+    public function boitePokemonEquipe($nom, $lienImage, $idSlot, $isChecked, $idPokemon): void
     {
         echo "<div class='boiteEquipe__form__container__slot boiteEquipe__form__container__slot--{$idSlot}'>";
         echo "<img src='{$lienImage}' alt={$nom}>";
@@ -141,20 +118,36 @@ class VueEquipe extends VueGenerique
 
     public function acceuilNonConnecte()
     {
-        echo "<p>Vous devez être connecté</p>";
+        echo "<p class='message__equipe'>Vous devez être <a href='index.php?module=mod_connexion&action=lien_connexion'>connecté</a> pour pouvoir créer votre équipe!</p>";
+
+        $sample = array(
+            array(
+                "nom" => "poussifeu",
+                "src_image" => "ressources/pokemon/poussifeu.png"
+            ),
+            array(
+                "nom" => "granivol",
+                "src_image" => "ressources/pokemon/granivol.png"
+            ),
+            array(
+                "nom" => "nidoran",
+                "src_image" => "ressources/pokemon/nidoran.png"
+            )
+        );
+
+        $this->equipeActuelleConfirmation($sample, "Exemple d'équipe");
     }
 
     public function ajoutEquipeSucces($tab)
     {
-        echo "<p>L'équipe a été ajouté avec succès!</p>";
-        //TODO Mettre l'équipe
-        $this->equipeActuelleConfirmation($tab);
+        echo "<p class='message__equipe'>L'équipe a été ajouté avec succès! <a href='index.php?module=mod_equipe'>Retour</a></p>";
+        $this->equipeActuelleConfirmation($tab, "Équipe Actuelle");
     }
 
-    private function equipeActuelleConfirmation($tableauEquipe)
+    private function equipeActuelleConfirmation($tableauEquipe, $titre)
     {
         echo '<div class="boiteEquipe">';
-        echo '<p class="boiteEquipe__titre">Équipe actuelle</p>';
+        echo "<p class='boiteEquipe__titre'>{$titre}</p>";
         echo '<div class="boiteEquipe__form">';
         echo '<div class="boiteEquipe__form__container">';
         for ($i = 0; $i < 3; $i++) {

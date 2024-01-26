@@ -26,12 +26,12 @@
                             <img class="image" src="<?php echo $tuple["src_image"]; ?>">
                             
                             <h4 class="nomTrophee">
-                                <?php echo $tuple["nom"]; ?> 
+                                <?php echo htmlentities($tuple["nom"]); ?>
                             </h4>
                         </div>
 
                         <h5 class="cond">
-                            <?php echo $tuple["condition_obtention"]; ?> <!-- Hover si possible-->
+                            <?php echo htmlentities($tuple["condition_obtention"]); ?> <!-- Hover si possible ?-->
                         </h5>
 
                     </div>
@@ -45,19 +45,11 @@
 
             <a href="index.php?module=mod_trophees&action=formAjoutTrophee" class="bouton_lien" >Ajouter des Trophées</a>
 
-
       <?php  }
-    }else{
-        ?>
-        <p>Connectez vous pour voir vos Trophées !</p>
+    }else{ ?>
+        <p><a href="index.php?module=mod_connexion&action=lien_connexion">Connectez-vous</a> pour voir vos Trophées !</p>
      
-   <?php }
-
-
-
-
-
-?>
+   <?php } ?>
 
 
 

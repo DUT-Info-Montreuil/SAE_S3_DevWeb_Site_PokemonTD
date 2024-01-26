@@ -1,27 +1,29 @@
 <?php
 
-require_once "modele_menu.php" ;
-require_once "vue_menu.php" ;
-require_once "MenuModule/vue_menu_connexion.php" ;
-require_once "MenuModule/vue_menu_ruche.php" ;
-require_once "MenuModule/vue_menu_scorcast.php" ;
-require_once "MenuModule/vue_menu_admin.php" ;
+require_once "modele_menu.php";
+require_once "vue_menu.php";
+require_once "MenuModule/vue_menu_connexion.php";
+require_once "MenuModule/vue_menu_ruche.php";
+require_once "MenuModule/vue_menu_scorcast.php";
+require_once "MenuModule/vue_menu_admin.php";
 
-class ContMenu {
+class ContMenu
+{
 
     private $vue;
     private $modele;
 
-    public function __construct($module){
+    public function __construct($module)
+    {
 
         $this->vue = $this->forgeMenu($module);
-        //$this->modele = new ModeleMenu();
 
     }
 
-    private function forgeMenu($module) {
+    private function forgeMenu($module)
+    {
 
-        switch($module) {
+        switch ($module) {
             case "mod_connexion":
                 $a = new VueMenuConnexion();
                 break;
@@ -42,7 +44,8 @@ class ContMenu {
 
     }
 
-    public function affichage() {
+    public function affichage()
+    {
         $this->vue->calculMenu();
         return $this->vue->getContaint();
     }

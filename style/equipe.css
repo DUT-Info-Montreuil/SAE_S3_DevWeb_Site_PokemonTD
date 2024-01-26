@@ -126,8 +126,10 @@
 .boiteEquipe__form__container__slot img {
   width: 100px;
   height: 100px;
+  padding: 5px;
   border-radius: 20px;
   background-color: #fff;
+  filter: drop-shadow(4px 6px 4px green);
   object-fit : scale-down;
 }
 
@@ -158,9 +160,11 @@
 
 .boiteTour__pokemon img {
   width: 100px; 
-  height: 100px; 
+  height: 100px;
+  padding: 5px;
   border-radius: 20px;
   background-color: #fff;
+  filter: drop-shadow(4px 6px 4px green);
   object-fit : scale-down;
 }
 
@@ -218,4 +222,8 @@
 
 .boiteEquipe__submitButton:hover {
   background-color: #45a049; 
+}
+
+.message__equipe{
+  text-align: center;
 }

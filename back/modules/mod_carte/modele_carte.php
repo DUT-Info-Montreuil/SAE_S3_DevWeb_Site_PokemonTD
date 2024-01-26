@@ -6,15 +6,18 @@ if (!defined("BASE_URL")) {
 
 require_once './connexion.php';
 
-class ModeleCarte extends Connexion {
+class ModeleCarte extends Connexion
+{
 
-    public function __construct() {
+    public function __construct()
+    {
 
     }
 
 
 
-    private function executeQuery($stmt) {
+    private function executeQuery($stmt)
+    {
 
         $stmt->execute();
 
@@ -40,7 +43,7 @@ class ModeleCarte extends Connexion {
         }
     }
 
-    public function recupHistorique($idCarte,$idJoueur)
+    public function recupHistorique($idCarte, $idJoueur)
     {
         try {
             $query = "

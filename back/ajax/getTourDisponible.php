@@ -6,7 +6,7 @@ Connexion::initConnexion();
 
 $modele = new Modele();
 
-if(isset($_SESSION['id_joueur'])){
+if (isset($_SESSION['id_joueur'])) {
     $donnees = $modele->toursPossedees($_SESSION['id_joueur']);
     header('Content-Type: application/json');
     echo json_encode($donnees);
