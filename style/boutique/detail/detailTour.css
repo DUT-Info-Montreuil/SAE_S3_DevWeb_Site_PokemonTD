@@ -4,6 +4,28 @@
     filter: drop-shadow(5px 7px 5px green);
 }
 
+span{
+    width:fit-content;
+    padding:5px;
+    background-color: rgba(204, 152, 238, 0.85);
+    border-radius: 5px;
+}
+
+h3{
+    font-size: 22px;
+    text-align: center;
+    font-family: Times, Times New Roman, serif;
+}
+
+p{
+    font-size: 17px;
+}
+
+.chapitre{
+    margin-top: 45px;
+    margin-bottom: 2px;
+}
+
 .top{
     display: flex;
     align-items: center;
@@ -22,9 +44,51 @@
 .bot{
     margin-top: 80px;
     display: flex;
+    align-items: center;
 }
 
-.bot a{
+.btn{
     text-decoration: none;
-    padding: 20px;
+    padding: 10px;
+    border-radius: 19px;
+}
+
+#boutique{
+    background-color: #22726a;
+    color: white;
+}
+
+#boutique:hover{
+    background-color: violet;
+    padding: 10px 15px;
+}
+
+@keyframes click {
+    0% {
+        transform: scale(1,1);
+    }
+    50% {
+        transform: scale(1.23,1.23);
+    }
+    100% {
+        transform: scale(1,1);
+    }
+}
+
+#acheter{
+    width: 125px;
+    height: 62px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    margin-left: 180px;
+    background-color: #00c700;
+    color: #deeaff;
+}
+
+#acheter:hover{
+    animation: click 2s ease-in-out infinite;
+    transition: 0.2s;
+    cursor: pointer;
 }
