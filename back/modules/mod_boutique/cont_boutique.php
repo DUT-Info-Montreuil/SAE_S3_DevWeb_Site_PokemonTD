@@ -62,14 +62,18 @@ class ContBoutique
             $this->vue->afficheErreur("token invalide ou expiré");
     }
 
-    public function detailTour()
+    /**
+     * @throws RandomException
+     */
+    public function detailTour(): void
     {
         if (isset($_GET['idTour'])) {
             $idTour = $_GET['idTour'];
             $infoTour = $this->modele->getInfoTour($idTour);
+            $token = $this->modele->genereToken();
 
             if ($infoTour != -1)
-                $this->vue->afficheDetailTour($infoTour);
+                $this->vue->afficheDetailTour($infoTour,$token);
             else
                 $this->vue->afficheErreur("");
         }

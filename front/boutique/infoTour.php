@@ -68,7 +68,7 @@
 
         <?php if($_SESSION['estConnecter']) {?>
             <div class="acheter-btn">
-                <a href="index.php?module=mod_boutique&action=achat&idTour=<?php echo $tuple["id_tour"]; ?>"
+                <a href="index.php?module=mod_boutique&action=achat&idTour=<?php echo $infoTour["id_tour"]; ?>&token=<?php echo $token; ?>"
                    class="btn" id="acheter">
                     Achetez
                 </a>
