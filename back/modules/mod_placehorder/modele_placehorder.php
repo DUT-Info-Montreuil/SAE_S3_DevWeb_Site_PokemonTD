@@ -6,14 +6,17 @@ if (!defined("BASE_URL")) {
 
 require_once './connexion.php';
 
-class ModelePlacehorder extends Connexion {
+class ModelePlacehorder extends Connexion
+{
 
-    public function __construct() {
+    public function __construct()
+    {
 
     }
 
 
-    private function executeQuery($stmt) {
+    private function executeQuery($stmt)
+    {
 
         $stmt->execute();
 

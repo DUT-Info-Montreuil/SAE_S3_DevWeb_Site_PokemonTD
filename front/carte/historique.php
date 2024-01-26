@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="./style/carte/historique.css">
 <div class="lookMain">
     <div class="top">
@@ -26,7 +25,7 @@
                         $partie['gain'] = "0";
                     else
                         $partie['gain'] = "+ $partie[gain]";
-                    switch ($partie['difficulte_etoile']){
+                    switch ($partie['difficulte_etoile']) {
                         case '1':
                             $partie['difficulte_etoile'] = "Facile";
                             break;
@@ -37,14 +36,14 @@
                             $partie['difficulte_etoile'] = "Dur";
                             break;
                     }
-                    echo "<tr class='". ($partie['a_gagne'] == '1' ? 'winRow' : 'loseRow') ."'>";
+                    echo "<tr class='" . ($partie['a_gagne'] == '1' ? 'winRow' : 'loseRow') . "'>";
                     $partie['a_gagne'] = $partie['a_gagne'] == '1' ? "<i class='fa-solid fa-check fa-xl' style='color: #142fb7;'></i>" : "<i class='fa-solid fa-xmark fa-beat fa-xl' style='color: #142fb7;'></i>";
                     echo "<td>$partie[date_jeu]</td>";
                     echo "<td>$partie[difficulte_etoile]</td>";
                     echo "<td>$partie[a_gagne]</td>";
                     echo "<td>$partie[gain]</td>";
                     echo "</tr>";
-                }?>
+                } ?>
                 </tbody>
             </table>
         </div>

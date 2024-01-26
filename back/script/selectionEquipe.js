@@ -24,7 +24,7 @@ boutonsAjout.forEach(function (bouton) {
 
             cacherBoutonAjout(bouton.parentNode);
 
-            if(nombreDePlaceDisponible() == 0){
+            if (nombreDePlaceDisponible() == 0) {
                 cacherTousBoutonsAjouts();
             }
         }
@@ -50,7 +50,7 @@ boutonsSuppresion.forEach(function (bouton) {
         currentSlot.querySelector("button").classList.remove("equipe_bouton_visible");
 
         cacherBoutonSupprimer(bouton.parentNode);
-        if(nombreDePlaceDisponible() == 1){
+        if (nombreDePlaceDisponible() == 1) {
             afficheBoutonsAjoutsEligible();
         }
     });
@@ -73,8 +73,8 @@ boutonsSuppresionEquipe.forEach(function (bouton) {
         bouton.classList.remove("equipe_bouton_visible");
 
         cacherBoutonSupprimer(tour);
-        
-        if(nombreDePlaceDisponible() == 1){
+
+        if (nombreDePlaceDisponible() == 1) {
             afficheBoutonsAjoutsEligible();
         }
     });
@@ -121,7 +121,7 @@ function nombreDePlaceDisponible() {
     var allSlots = document.querySelectorAll(".boiteEquipe__form__container__slot");
     nb = 0;
     for (var slot of allSlots) {
-        
+
         if (slot.querySelector("input").value == "noPokemon") {
             nb = nb + 1;
         }
@@ -129,7 +129,7 @@ function nombreDePlaceDisponible() {
     return nb;
 }
 
-function cacherTousBoutonsAjouts(){
+function cacherTousBoutonsAjouts() {
     var allButtons = document.querySelectorAll(".boiteTour__pokemon__ajoutBouton");
     for (var button of allButtons) {
         if (!button.classList.contains("equipe_bouton_cache")) {
@@ -139,11 +139,11 @@ function cacherTousBoutonsAjouts(){
     }
 }
 
-function afficheBoutonsAjoutsEligible(){
+function afficheBoutonsAjoutsEligible() {
     var allButtons = document.querySelectorAll(".boiteTour__pokemon__ajoutBouton");
     for (var button of allButtons) {
         idTour = button.parentNode.querySelector(".boiteTour__pokemon__nom").dataset.idTour;
-        if(canBeAdded(idTour)){
+        if (canBeAdded(idTour)) {
             button.classList.add("equipe_bouton_visible");
             button.classList.remove("equipe_bouton_cache");
         }

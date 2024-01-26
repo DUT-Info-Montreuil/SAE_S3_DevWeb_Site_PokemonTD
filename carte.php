@@ -25,26 +25,26 @@
         <h1>
             POKEMON TD
         </h1>
-        <?php if(!$_SESSION['estConnecter']) {?>
+        <?php if (!$_SESSION['estConnecter']) { ?>
             <div class="profile">
-                    <a href="index.php?module=mod_connexion&action=lien_connexion" >Connexion</a>
-                    <a href="index.php?module=mod_connexion&action=lien_inscription" >Inscription</a>
-                    <a href="index.php" >Accueil</a>
-                </div>
-        <?php }else { ?>
+                <a href="index.php?module=mod_connexion&action=lien_connexion">Connexion</a>
+                <a href="index.php?module=mod_connexion&action=lien_inscription">Inscription</a>
+                <a href="index.php">Accueil</a>
+            </div>
+        <?php } else { ?>
             <div class="profile">
-                    <p class="profile__pseudo"> <?php echo $_SESSION['pseudo'];?></p>
-                    <a href="index.php?module=mod_connexion&action=deconnexion" >Déconnexion</a>
-                    <a href="index.php" >Accueil</a>
-                </div>
+                <p class="profile__pseudo"> <?php echo $_SESSION['pseudo']; ?></p>
+                <a href="index.php?module=mod_connexion&action=deconnexion">Déconnexion</a>
+                <a href="index.php">Accueil</a>
+            </div>
         <?php } ?>
     </div>
 
     <div class="navbar">
-        <a href="index.php?module=mod_equipe" class="navbarLink" >Equipe</a>
-        <a href="index.php?module=mod_carte#carte" class="navbarLink" >Carte</a>
-        <a href="index.php?module=mod_boutique" class="navbarLink" >Boutique</a>
-        <a href="index.php?module=mod_trophees&action=afficheTrophees" class="navbarLink" >Trophées</a>
+        <a href="index.php?module=mod_equipe" class="navbarLink">Equipe</a>
+        <a href="index.php?module=mod_carte#carte" class="navbarLink">Carte</a>
+        <a href="index.php?module=mod_boutique" class="navbarLink">Boutique</a>
+        <a href="index.php?module=mod_trophees&action=afficheTrophees" class="navbarLink">Trophées</a>
     </div>
 
 </header>
@@ -88,11 +88,11 @@
 
 </main>
 <footer>
-        <div class="barreBleuCiel">
+    <div class="barreBleuCiel">
 
-        </div>
-        <div class="nom">Arsene, Benjamin, Zen</div>
-    </footer>
+    </div>
+    <div class="nom">Arsene, Benjamin, Zen</div>
+</footer>
 
 </body>
 </html>

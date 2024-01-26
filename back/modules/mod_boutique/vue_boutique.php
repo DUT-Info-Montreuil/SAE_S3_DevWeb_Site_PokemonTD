@@ -14,17 +14,17 @@ class VueBoutique extends VueGenerique
         parent::__construct();
     }
 
-    public function boutique($tableau, $solde, $token)
+    public function boutique($tableau, $solde, $token): void
     {
         require_once('./front/boutique/boutique.php');
     }
 
-    public function afficheDetailTour($infoTour,$token)
+    public function afficheDetailTour($infoTour, $token): void
     {
         require_once('./front/boutique/infoTour.php');
     }
 
-    public function afficheErreur($detail)
+    public function afficheErreur($detail): void
     {
         echo "<p class='messageErreur'>Erreur $detail</p>";
     }

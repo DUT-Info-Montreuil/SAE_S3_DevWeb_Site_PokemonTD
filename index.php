@@ -8,7 +8,7 @@ $_SESSION['estConnecter'] = isset($_SESSION['id_joueur']);
 
 const BASE_URL = "security";
 
-switch($module) {
+switch ($module) {
     case "mod_placeholder":
         //require le module ici
         Connexion::initConnexion();

@@ -15,7 +15,6 @@ class VueTrophees extends VueGenerique
     }
 
 
-
     public function afficheTrophees($trophees, $poss)
     {
         require_once './front/trophees/afficheTrophees.php';
@@ -25,7 +24,6 @@ class VueTrophees extends VueGenerique
     {
         include_once './front/trophees/formAjoutTrophees.php';
     }
-
 
 
     public function afficheErreur($code)
@@ -60,7 +58,6 @@ class VueTrophees extends VueGenerique
 
         echo "<br> redirection... <meta http-equiv='refresh' content= '3;url=index.php'>"; // redirection sur l'accueil
     }
-
 
 
 }

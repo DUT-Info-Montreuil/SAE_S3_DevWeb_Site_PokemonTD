@@ -4,13 +4,13 @@ abstract class VueMenu
 {
     protected $containt;
 
-    abstract protected function menuModule();
-
     public function calculMenu()
     {
         echo $this->menuModule();
 
     }
+
+    abstract protected function menuModule();
 
     public function getContaint()
     {

@@ -6,7 +6,7 @@ $(document).ready(function () {
 
         resetTriCss();
         event.currentTarget.classList.add("boiteTour__tri_bouton--selected");
-        
+
         $.ajax({
             url: 'back/ajax/getTourDisponible.php',
             type: 'GET',
@@ -58,17 +58,18 @@ $(document).ready(function () {
                         btnSupprimer.classList.add("equipe_bouton_cache");
                         btnSupprimer.classList.remove("equipe_bouton_visible");
 
-                        if(nombreDePlaceDisponible() > 0){
+                        if (nombreDePlaceDisponible() > 0) {
                             btnAjout.classList.remove("equipe_bouton_cache");
                             btnAjout.classList.add("equipe_bouton_visible");
-                        }else if(nombreDePlaceDisponible() == 0){
+                        } else if (nombreDePlaceDisponible() == 0) {
                             btnAjout.classList.add("equipe_bouton_cache");
                             btnAjout.classList.remove("equipe_bouton_visible");
                         }
-                        
+
                     }
 
-                };
+                }
+                ;
             },
             error: function (error) {
                 console.log('Il y a une erreur', error);
@@ -82,7 +83,7 @@ function nombreDePlaceDisponible() {
     var allSlots = document.querySelectorAll(".boiteEquipe__form__container__slot");
     nb = 0;
     for (var slot of allSlots) {
-        
+
         if (slot.querySelector("input").value == "noPokemon") {
             nb = nb + 1;
         }
@@ -104,10 +105,11 @@ function triAlphabetiqueAsc(donnees) {
     donnees = donnees.sort(function (a, b) {
         var nomA = a.nom.toUpperCase();
         var nomB = b.nom.toUpperCase();
-        return (nomA < nomB) ? - 1 : (nomA > nomB) ? 1 : 0;
+        return (nomA < nomB) ? -1 : (nomA > nomB) ? 1 : 0;
     });
     return donnees;
 }
+
 function triAlphabetiqueDesc(donnees) {
     donnees = donnees.sort(function (a, b) {
         var nomA = a.nom.toUpperCase();
@@ -116,6 +118,7 @@ function triAlphabetiqueDesc(donnees) {
     });
     return donnees;
 }
+
 function triDateAsc(donnees) {
     donnees = donnees.sort(function (a, b) {
         var dateA = new Date(a.date_acquisition);
@@ -124,6 +127,7 @@ function triDateAsc(donnees) {
     });
     return donnees;
 }
+
 function triDateDesc(donnees) {
     donnees = donnees.sort(function (a, b) {
         var dateA = new Date(a.date_acquisition);

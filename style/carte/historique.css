@@ -1,4 +1,4 @@
-.lookMain{
+.lookMain {
     background-color: beige;
     width: 70%;
     padding: 10px 10px 110px 50px;
@@ -8,27 +8,27 @@
     margin-right: auto;
 }
 
-.top{
+.top {
     margin-top: 14px;
     display: flex;
     align-items: center;
 }
 
-.top img{
+.top img {
     width: 300px;
     height: auto;
     border: #4ec7b1 dashed 2px;
     border-radius: 15px;
 }
 
-.top h3{
+.top h3 {
     color: #3a4444;
     margin-left: 5px;
     font-size: 40px;
     font-family: URW Chancery L, cursive;
 }
 
-.historique{
+.historique {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,21 +38,21 @@
 
 
 table {
-    border-collapse:collapse;
+    border-collapse: collapse;
     width: 580px;
-    max-width:700px;
-    min-width:300px;
-    text-align:center;
+    max-width: 700px;
+    min-width: 300px;
+    text-align: center;
 }
 
 caption {
-    caption-side:bottom;
-    font-weight:bold;
-    font-style:italic;
-    margin:4px;
+    caption-side: bottom;
+    font-weight: bold;
+    font-style: italic;
+    margin: 4px;
 }
 
-table,th, td {
+table, th, td {
     border: 1px solid gray;
 }
 
@@ -69,50 +69,50 @@ th {
 
 .rowtitle {
     background: #9CF;
-    font-weight:bold;
+    font-weight: bold;
 }
 
-.winRow{
+.winRow {
     background-color: #97ff97;
 }
 
-.loseRow{
+.loseRow {
     background-color: #ff7070;
 }
 
-.bot{
+.bot {
     margin-top: 110px;
     width: 81px;
     height: 55px;
 }
 
-.bot a{
+.bot a {
     margin-left: 15px;
     text-decoration: none;
     background-color: #0f63c4;
     color: #e0ff08;
-    padding:19px;
+    padding: 19px;
     border-radius: 27px;
 }
 
 @keyframes click {
     0% {
-        transform: scale(1,1);
+        transform: scale(1, 1);
     }
     50% {
-        transform: scale(1.2,1.2);
+        transform: scale(1.2, 1.2);
     }
     100% {
-        transform: scale(1,1);
+        transform: scale(1, 1);
     }
 }
 
-.bot:hover{
+.bot:hover {
     cursor: pointer;
-    transform: translate(0,0);
+    transform: translate(0, 0);
     animation: click 1s ease-in infinite;
 }
 
-.bot:hover a{
+.bot:hover a {
     background-color: #7ab6ff;
 }

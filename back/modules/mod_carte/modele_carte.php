@@ -14,17 +14,6 @@ class ModeleCarte extends Connexion
 
     }
 
-
-
-    private function executeQuery($stmt)
-    {
-
-        $stmt->execute();
-
-        // Récupérez les résultats sous forme d'un tableau associatif
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
     public function recupNiveauJoue($id_joueur)
     {
         try {
@@ -41,6 +30,15 @@ class ModeleCarte extends Connexion
             echo $e;
             return -1;
         }
+    }
+
+    private function executeQuery($stmt)
+    {
+
+        $stmt->execute();
+
+        // Récupérez les résultats sous forme d'un tableau associatif
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function recupHistorique($idCarte, $idJoueur)

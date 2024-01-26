@@ -2,7 +2,9 @@ DELIMITER $$
 
 DROP TRIGGER IF EXISTS dutinfopw201618.ajoutMinTourJoueur $$
 
-CREATE TRIGGER dutinfopw201618.ajoutMinTourJoueur AFTER INSERT ON dutinfopw201618.Joueur
+CREATE TRIGGER dutinfopw201618.ajoutMinTourJoueur
+    AFTER INSERT
+    ON dutinfopw201618.Joueur
     FOR EACH ROW
 BEGIN
 
@@ -16,7 +18,8 @@ BEGIN
 
     OPEN myCursor;
 
-    read_loop: LOOP
+    read_loop:
+    LOOP
         FETCH myCursor INTO idTemp;
 
         IF is_done = 1 THEN
@@ -24,7 +27,7 @@ BEGIN
         END IF;
 
         INSERT INTO dutinfopw201618.TourPossedee (id_joueur, id_tour, date_acquisition)
-            VALUE (NEW.id_joueur,idTemp,CURRENT_DATE());
+            VALUE (NEW.id_joueur, idTemp, CURRENT_DATE());
     END LOOP;
 
     CLOSE myCursor;

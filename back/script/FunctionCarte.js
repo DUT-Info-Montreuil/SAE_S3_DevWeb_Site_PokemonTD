@@ -1,4 +1,4 @@
-function devoileMap3(){
+function devoileMap3() {
     const myDiv = document.querySelector('#item1');
     swapClass(myDiv);
     myDiv.id = "carteNiveau3";
@@ -8,7 +8,7 @@ function devoileMap3(){
     ;
 }
 
-function devoileMap2(){
+function devoileMap2() {
     const myDiv = document.querySelector('#item2');
     swapClass(myDiv);
     myDiv.id = "carteNiveau2";
@@ -18,7 +18,7 @@ function devoileMap2(){
     ;
 }
 
-function devoileMap1(){
+function devoileMap1() {
     const myDiv = document.querySelector('#item3');
     swapClass(myDiv);
     myDiv.id = "carteNiveau1";
@@ -28,7 +28,7 @@ function devoileMap1(){
     ;
 }
 
-function swapClass(div){
+function swapClass(div) {
     div.style.display = "none";
     div.innerHTML = "";
     div.classList.remove("item");

@@ -3,53 +3,55 @@
 </div>
 
 <?php
-    if ($_SESSION['estConnecter'] && $poss ==0) { ?>
-        <a href="index.php?module=mod_trophees&action=afficheTropheesObtenus" class="bouton_lien" >Vos Trophées</a>
-        <p>Visionnez ici tous les trophées existants</p>
-    <?php }elseif($poss == 1){ ?>  
-            <a href="index.php?module=mod_trophees&action=afficheTrophees" class="bouton_lien" >Tous les Trophées</a>
-            <p> Vos Trophées obtenus :</p>
-    <?php } 
+if ($_SESSION['estConnecter'] && $poss == 0) { ?>
+    <a href="index.php?module=mod_trophees&action=afficheTropheesObtenus" class="bouton_lien">Vos Trophées</a>
+    <p>Visionnez ici tous les trophées existants</p>
+<?php } elseif ($poss == 1) { ?>
+    <a href="index.php?module=mod_trophees&action=afficheTrophees" class="bouton_lien">Tous les Trophées</a>
+    <p> Vos Trophées obtenus :</p>
+<?php }
 
-    if( $trophees == -2){?>
+if ($trophees == -2) {
+    ?>
 
-        <p>Vous n'avez rien débloqué...</p>
-        <img class="image" src="./ressources/trophee/mimitoss.jpg">
+    <p>Vous n'avez rien débloqué...</p>
+    <img class="image" src="./ressources/trophee/mimitoss.jpg">
 
-    <?php }else{ ?>
+<?php } else { ?>
 
-            <div id="trophees">
-                <?php foreach ($trophees as $tuple) { ?>
-                    <div id="carte">
+    <div id="trophees">
+        <?php foreach ($trophees as $tuple) { ?>
+            <div id="carte">
 
-                        <div>
-                            <img class="image" src="<?php echo $tuple["src_image"]; ?>">
-                            
-                            <h4 class="nomTrophee">
-                                <?php echo htmlentities($tuple["nom"]); ?>
-                            </h4>
-                        </div>
+                <div>
+                    <img class="image" src="<?php echo $tuple["src_image"]; ?>">
 
-                        <h5 class="cond">
-                            <?php echo htmlentities($tuple["condition_obtention"]); ?> <!-- Hover si possible ?-->
-                        </h5>
+                    <h4 class="nomTrophee">
+                        <?php echo htmlentities($tuple["nom"]); ?>
+                    </h4>
+                </div>
 
-                    </div>
-                <?php } ?>
+                <h5 class="cond">
+                    <?php echo htmlentities($tuple["condition_obtention"]); ?> <!-- Hover si possible ?-->
+                </h5>
+
             </div>
-   <?php }
+        <?php } ?>
+    </div>
+<?php }
 
 
-    if ($_SESSION['estConnecter']) {
-        if(!empty($_SESSION['moderateur']) && $_SESSION['moderateur']==1){?>
+if ($_SESSION['estConnecter']) {
+    if (!empty($_SESSION['moderateur']) && $_SESSION['moderateur'] == 1) {
+        ?>
 
-            <a href="index.php?module=mod_trophees&action=formAjoutTrophee" class="bouton_lien" >Ajouter des Trophées</a>
+        <a href="index.php?module=mod_trophees&action=formAjoutTrophee" class="bouton_lien">Ajouter des Trophées</a>
 
-      <?php  }
-    }else{ ?>
-        <p><a href="index.php?module=mod_connexion&action=lien_connexion">Connectez-vous</a> pour voir vos Trophées !</p>
-     
-   <?php } ?>
+    <?php }
+} else { ?>
+    <p><a href="index.php?module=mod_connexion&action=lien_connexion">Connectez-vous</a> pour voir vos Trophées !</p>
+
+<?php } ?>
 
 
 

@@ -1,4 +1,5 @@
 <?php
+
 class Connexion
 {
     protected static $bdd;
@@ -16,4 +17,5 @@ class Connexion
         }
     }
 }
+
 ?>

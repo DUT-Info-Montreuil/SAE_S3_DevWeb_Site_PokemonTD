@@ -3,9 +3,9 @@
     <div class="item" id="item1" onclick="devoileMap3()">?</div>
     <div class="item" id="item2" onclick="devoileMap2()">?</div>
     <div class="item" id="item3" onclick="devoileMap1()">?</div>
-    <?php if($_SESSION['estConnecter']) {
+    <?php if ($_SESSION['estConnecter']) {
         foreach ($niveauDejaJoue as $niveau) {
-            switch ($niveau['nom']){
+            switch ($niveau['nom']) {
                 case 'Safrania':
                     echo "<script>" .
                         "document.querySelector('#item3').click();" .

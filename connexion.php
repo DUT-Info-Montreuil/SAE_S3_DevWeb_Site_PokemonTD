@@ -32,7 +32,7 @@ class Connexion
 
     public function verifieToken($tokenAverifier): bool
     {
-        $result = time() - $_SESSION['tokenCreation'] <= 180 && isset($tokenAverifier) && $tokenAverifier == $_SESSION['token'];
+        $result = time() - $_SESSION['tokenCreation'] <= 600 && isset($tokenAverifier) && $tokenAverifier == $_SESSION['token'];
         unset($_SESSION['token']);
         unset($_SESSION['tokenCreation']);
         return $result;

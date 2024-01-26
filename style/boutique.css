@@ -1,9 +1,9 @@
-#boutique_top{
+#boutique_top {
     display: flex;
     width: 95%;
 }
 
-#boutique_top p{
+#boutique_top p {
     margin-left: auto;
 }
 
@@ -12,13 +12,13 @@
     flex-wrap: wrap;
 }
 
-.carte{
+.carte {
     margin-bottom: 25px;
     width: 30%;
     text-align: center;
 }
 
-.carte div{
+.carte div {
     display: flex;
     min-width: 25%;
     max-width: 45%;
@@ -27,22 +27,22 @@
     margin-top: 5px;
 }
 
-.div-achat{
+.div-achat {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.btn-achat{
+.btn-achat {
     background-color: #62ff6a;
     margin-top: 4px;
 }
 
-.btn-detail{
+.btn-detail {
     background-color: #84b9ff;
 }
 
-.btn-achat,.btn-detail{
+.btn-achat, .btn-detail {
     padding: 6px;
     border-radius: 10px;
     text-decoration: none;
@@ -51,34 +51,34 @@
     transition: 0.5s;
 }
 
-.btn-achat,.btn-detail{
-     display: none;
+.btn-achat, .btn-detail {
+    display: none;
 }
 
 
-.carte:hover .btn-achat{
+.carte:hover .btn-achat {
     display: block;
 }
 
-.carte:hover .btn-detail{
+.carte:hover .btn-detail {
     display: block;
 }
 
-.btn-achat:hover{
+.btn-achat:hover {
     background-color: #84ffde;
     cursor: pointer;
 }
 
-.btn-detail:hover{
+.btn-detail:hover {
     background-color: #d2bbff;
     cursor: pointer;
 }
 
-.carte h5{
+.carte h5 {
     margin-top: 3px;
 }
 
-.image{
+.image {
     max-width: 80px;
     max-height: 80px;
     filter: drop-shadow(4px 6px 4px green);

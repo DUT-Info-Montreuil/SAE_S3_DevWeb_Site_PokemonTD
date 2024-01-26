@@ -14,16 +14,6 @@ class ModeleTrophees extends Connexion
 
     }
 
-
-    private function executeQuery($stmt)
-    {
-
-        $stmt->execute();
-        $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        return $resultats;
-    }
-
     public function recupereTrophees($poss)
     {
         if ($poss == 0) {
@@ -45,6 +35,15 @@ class ModeleTrophees extends Connexion
             return -1;
         }
 
+    }
+
+    private function executeQuery($stmt)
+    {
+
+        $stmt->execute();
+        $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $resultats;
     }
 
     public function ajoutTrophee($nom, $cond)

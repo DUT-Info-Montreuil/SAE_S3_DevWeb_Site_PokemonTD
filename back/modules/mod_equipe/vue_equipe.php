@@ -138,12 +138,6 @@ class VueEquipe extends VueGenerique
         $this->equipeActuelleConfirmation($sample, "Exemple d'équipe");
     }
 
-    public function ajoutEquipeSucces($tab)
-    {
-        echo "<p class='message__equipe'>L'équipe a été ajouté avec succès! <a href='index.php?module=mod_equipe'>Retour</a></p>";
-        $this->equipeActuelleConfirmation($tab, "Équipe Actuelle");
-    }
-
     private function equipeActuelleConfirmation($tableauEquipe, $titre)
     {
         echo '<div class="boiteEquipe">';
@@ -161,6 +155,12 @@ class VueEquipe extends VueGenerique
         echo '</div>';
         echo '</div>';
         echo '</div>';
+    }
+
+    public function ajoutEquipeSucces($tab)
+    {
+        echo "<p class='message__equipe'>L'équipe a été ajouté avec succès! <a href='index.php?module=mod_equipe'>Retour</a></p>";
+        $this->equipeActuelleConfirmation($tab, "Équipe Actuelle");
     }
 }
 

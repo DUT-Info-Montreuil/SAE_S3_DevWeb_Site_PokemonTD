@@ -30,21 +30,6 @@ class ModeleEquipe extends Connexion
         return $resultat;
     }
 
-    public function inserePokemonEquipe($idJoueur, $idTour)
-    {
-        $requete_prepare = Connexion::$bdd->prepare("INSERT INTO Equipe(id_joueur, id_tour) VALUES (?,?)");
-        $requete_prepare->bindParam(1, $idJoueur);
-        $requete_prepare->bindParam(2, $idTour);
-        $requete_prepare->execute();
-    }
-
-    public function supprimeEquipe($idJoueur)
-    {
-        $requete_prepare = Connexion::$bdd->prepare("DELETE FROM Equipe WHERE id_joueur=?");
-        $requete_prepare->bindParam(1, $idJoueur);
-        $requete_prepare->execute();
-    }
-
     public function estDansEquipe($idJoueur, $idTour)
     {
         $requete_prepare = Connexion::$bdd->prepare("SELECT * FROM Equipe WHERE id_joueur=? AND id_tour=?");
@@ -58,6 +43,21 @@ class ModeleEquipe extends Connexion
         }
 
         return false;
+    }
+
+    public function inserePokemonEquipe($idJoueur, $idTour)
+    {
+        $requete_prepare = Connexion::$bdd->prepare("INSERT INTO Equipe(id_joueur, id_tour) VALUES (?,?)");
+        $requete_prepare->bindParam(1, $idJoueur);
+        $requete_prepare->bindParam(2, $idTour);
+        $requete_prepare->execute();
+    }
+
+    public function supprimeEquipe($idJoueur)
+    {
+        $requete_prepare = Connexion::$bdd->prepare("DELETE FROM Equipe WHERE id_joueur=?");
+        $requete_prepare->bindParam(1, $idJoueur);
+        $requete_prepare->execute();
     }
 
     public function equipeActuelle($idJoueur)

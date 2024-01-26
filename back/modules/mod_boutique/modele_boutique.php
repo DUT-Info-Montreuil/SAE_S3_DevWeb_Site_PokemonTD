@@ -14,14 +14,6 @@ class ModeleBoutique extends Connexion
 
     }
 
-
-    private function executeQuery($stmt)
-    {
-
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
     public function recupereTours()
     {
         try {
@@ -35,6 +27,13 @@ class ModeleBoutique extends Connexion
             echo "<script>console.log('erreur:" . $e . "');</script>";
             return $e;
         }
+    }
+
+    private function executeQuery($stmt)
+    {
+
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function recupereToursSelonJoueur($idJoueur)
@@ -63,24 +62,6 @@ class ModeleBoutique extends Connexion
         return ($gain - $perte);
     }
 
-    public function getPerte($idJoueur)
-    {
-        try {
-            $query = "
-            SELECT sum(cout) as perte
-            FROM dutinfopw201618.TourPossedee TP
-            INNER JOIN dutinfopw201618.Tour T ON TP.id_tour = T.id_tour
-            WHERE TP.id_joueur = $idJoueur
-            ";
-            $stmt = Connexion::$bdd->prepare($query);
-            $perte = $this->executeQuery($stmt);
-            return isset($perte[0]['perte']) ? $perte[0]['perte'] : 0;
-        } catch (PDOException $e) {
-            echo "<script>console.log('erreur:" . $e . "');</script>";
-            return -1;
-        }
-    }
-
     public function getGain($idJoueur)
     {
         try {
@@ -93,6 +74,24 @@ class ModeleBoutique extends Connexion
             $stmt = Connexion::$bdd->prepare($query);
             $gain = $this->executeQuery($stmt);
             return isset($gain[0]['argentGagne']) ? $gain[0]['argentGagne'] : 0;
+        } catch (PDOException $e) {
+            echo "<script>console.log('erreur:" . $e . "');</script>";
+            return -1;
+        }
+    }
+
+    public function getPerte($idJoueur)
+    {
+        try {
+            $query = "
+            SELECT sum(cout) as perte
+            FROM dutinfopw201618.TourPossedee TP
+            INNER JOIN dutinfopw201618.Tour T ON TP.id_tour = T.id_tour
+            WHERE TP.id_joueur = $idJoueur
+            ";
+            $stmt = Connexion::$bdd->prepare($query);
+            $perte = $this->executeQuery($stmt);
+            return isset($perte[0]['perte']) ? $perte[0]['perte'] : 0;
         } catch (PDOException $e) {
             echo "<script>console.log('erreur:" . $e . "');</script>";
             return -1;

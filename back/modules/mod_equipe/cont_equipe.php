@@ -51,6 +51,7 @@ class ContEquipe
         }
         return 1;
     }
+
     public function issuAjoutEquipe($codeRetour)
     {
         switch ($codeRetour) {
@@ -76,15 +77,6 @@ class ContEquipe
         }
     }
 
-    private function modificateurEquipe($idJoueur)
-    {
-        $this->modele->genereToken();
-        $tableau = $this->modele->toursPossedees($idJoueur);
-        $equipeActuelle = $this->modele->equipeActuelle($idJoueur);
-        $this->vue->equipeActuelle($equipeActuelle);
-        $this->vue->toursDisponibles($tableau, count($equipeActuelle));
-    }
-
     public function verifConnexion()
     {
         if (isset($_SESSION['id_joueur'])) {
@@ -94,8 +86,16 @@ class ContEquipe
         }
     }
 
-
+    private function modificateurEquipe($idJoueur)
+    {
+        $this->modele->genereToken();
+        $tableau = $this->modele->toursPossedees($idJoueur);
+        $equipeActuelle = $this->modele->equipeActuelle($idJoueur);
+        $this->vue->equipeActuelle($equipeActuelle);
+        $this->vue->toursDisponibles($tableau, count($equipeActuelle));
+    }
 
 
 }
+
 ?>

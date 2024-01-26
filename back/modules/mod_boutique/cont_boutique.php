@@ -23,7 +23,7 @@ class ContBoutique
 
     }
 
-    public function affichage()
+    public function affichage(): false|string
     {
         return $this->vue->getAffichage();
     }
@@ -31,7 +31,7 @@ class ContBoutique
     /**
      * @throws RandomException
      */
-    public function afficheBoutique()
+    public function afficheBoutique(): void
     {
 
         if (isset($_SESSION['id_joueur'])) {
@@ -47,7 +47,7 @@ class ContBoutique
         $this->vue->boutique($tours, $solde, $token);
     }
 
-    public function achatTour()
+    public function achatTour(): void
     {
         if ($this->modele->verifieToken($_GET['token'])) {
             if (isset($_GET['idTour'])) {
@@ -73,7 +73,7 @@ class ContBoutique
             $token = $this->modele->genereToken();
 
             if ($infoTour != -1)
-                $this->vue->afficheDetailTour($infoTour,$token);
+                $this->vue->afficheDetailTour($infoTour, $token);
             else
                 $this->vue->afficheErreur("");
         }

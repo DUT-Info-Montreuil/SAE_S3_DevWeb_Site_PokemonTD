@@ -19,12 +19,12 @@ class ContCarte
         $this->modele = new ModeleCarte();
     }
 
-    public function affichage()
+    public function affichage(): false|string
     {
         return $this->vue->getAffichage();
     }
 
-    public function carte()
+    public function carte(): void
     {
 
         if ($_SESSION['estConnecter'])
@@ -36,7 +36,7 @@ class ContCarte
 
     }
 
-    public function afficheHistorique()
+    public function afficheHistorique(): void
     {
         if (isset($_GET['idCarte']) && $_SESSION['estConnecter']) {
             $idCarte = $_GET['idCarte'];

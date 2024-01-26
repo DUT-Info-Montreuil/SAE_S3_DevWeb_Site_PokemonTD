@@ -4,24 +4,28 @@ if (!defined("BASE_URL")) {
     die("il faut passer par l'index");
 }
 
-require_once "modele_placehorder.php" ;
-require_once "vue_placehorder.php" ;
+require_once "modele_placehorder.php";
+require_once "vue_placehorder.php";
 
-class ContPlacehorder {
+class ContPlacehorder
+{
 
     private $vue;
     private $modele;
-    
-    public function __construct(){
+
+    public function __construct()
+    {
 
         $this->vue = new VuePlacehorder();
         $this->modele = new ModelePlacehorder();
 
     }
 
-    public function affichage() {
+    public function affichage()
+    {
         return $this->vue->getAffichage();
     }
 
 }
+
 ?>
